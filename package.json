@@ -25,5 +25,14 @@
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
     "typescript": "^5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./**/*.{ts,tsx}": "bun lint",
+    "./**/*.{js,jsx,ts,tsx}": "bun format"
   }
 }
