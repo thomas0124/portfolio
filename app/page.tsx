@@ -5,9 +5,9 @@ export default function Home() {
   return (
     <div>
       Test
-          <p>test2
-              
-              </p>
+          <p>test2  
+             
+            </p>
     </div>
   )
 }
