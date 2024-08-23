@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Header from '@/components/Header'
+import Section from '@/components/Section'
 import LoadScreen from '@/components/LoadScreen'
 
 export default function Home() {
@@ -18,5 +19,10 @@ export default function Home() {
   if (loading) {
     return <LoadScreen onComplete={() => setLoading(false)} />
   }
-  return <Header />
+  return (
+    <div className="bg-gradient-to-r from-[#B6A4FF] to-[#366BF4] h-screen">
+      <Header />
+      <Section />
+    </div>
+  )
 }

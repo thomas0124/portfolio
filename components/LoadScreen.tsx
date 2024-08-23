@@ -7,7 +7,7 @@ interface LoadScreenProps {
   onComplete: () => void
 }
 
-const StarGeometry: React.FC = () => {
+const StarGeometry = () => {
   const starShape = new THREE.Shape()
   starShape.moveTo(0, 0.5)
   starShape.lineTo(0.15, 0.15)
@@ -32,8 +32,8 @@ const StarGeometry: React.FC = () => {
   return <primitive object={geometry} />
 }
 
-const MovingStar: React.FC = () => {
-  const mesh = useRef<THREE.Mesh>(null!)
+const MovingStar = () => {
+  const mesh = useRef<THREE.Mesh>(null)
 
   useFrame((state, delta) => {
     if (mesh.current) {
@@ -51,7 +51,7 @@ const MovingStar: React.FC = () => {
   )
 }
 
-const ParticleSystem: React.FC = () => {
+const ParticleSystem = () => {
   const particlesRef = useRef<THREE.Points>(null!)
 
   useEffect(() => {
@@ -86,6 +86,7 @@ const LoadScreen: React.FC<LoadScreenProps> = ({ onComplete }) => {
   }, [onComplete])
 
   const text = 'Hello World!'
+
   const letters = text.split('').map((char, index) => (
     <span
       key={index}
