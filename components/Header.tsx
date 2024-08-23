@@ -1,35 +1,34 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
-import localImage from '@/public/img1.jpg'
 
 const Header = () => {
   return (
-    <header className="p-3 flex items-center bg-gradient-to-r from-purple-500 via-blue-500 to-indigo-500 shadow-lg">
-      <Image
-        src={localImage}
-        alt="Thomas's photo"
-        width={70}
-        height={35}
-        className="rounded-full border-4 border-white shadow-md"
-      />
-      <h1 className="text-2xl text-white p-5 flex-grow font-bold drop-shadow-lg animate-fadeIn">Thomas’s portfolio</h1>
-      <nav className="p-5 ">
-        <Link href={'/'} className="text-2xl text-white mx-3 hover:text-gray-400 transition duration-300 ease-in-out ">
-          Home
+    <header className="flex justify-between items-start px-4 py-3">
+      <h1 className="text-5xl font-bold text-black animate-fadeIn">
+        Thomas&rsquo;s <br /> Portfolio
+      </h1>
+      <nav className="flex flex-col items-end space-y-3">
+        <Link
+          href={'/work'}
+          className="text-3xl font-bold text-black relative group transition-all duration-300 ease-in-out hover:text-5xl py-1"
+        >
+          Work
+          <span className="block h-0.5 w-full bg-white absolute left-0 bottom-0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out origin-left" />
         </Link>
         <Link
           href={'/about'}
-          className="text-2xl text-white mx-3 hover:text-gray-400 transition duration-300 ease-in-out "
+          className="text-2xl font-bold text-black relative group transition-all duration-300 ease-in-out hover:text-5xl py-1"
         >
           About
+          <span className="block h-0.5 w-full bg-white absolute left-0 bottom-0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out origin-left" />
         </Link>
         <Link
           href={'/contact'}
-          className="text-2xl text-white mx-3 hover:text-gray-400 transition duration-300 ease-in-out"
+          className="text-2xl font-bold text-black relative group transition-all duration-300 ease-in-out hover:text-5xl py-1"
         >
           Contact
+          <span className="block h-0.5 w-full bg-white absolute left-0 bottom-0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out origin-left" />
         </Link>
       </nav>
     </header>
