@@ -9,18 +9,26 @@ export default function Home() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false)
-    }, 3000) // ローディング画面を3秒間表示
+    const hasLoaded = localStorage.getItem('hasLoaded')
 
-    return () => clearTimeout(timer)
+    if (hasLoaded) {
+      setLoading(false)
+    } else {
+      const timer = setTimeout(() => {
+        setLoading(false)
+        localStorage.setItem('hasLoaded', 'true')
+      }, 10000) // Show loading screen for 3 seconds on initial load
+
+      return () => clearTimeout(timer)
+    }
   }, [])
 
   if (loading) {
     return <LoadScreen onComplete={() => setLoading(false)} />
   }
+
   return (
-    <div className="bg-gradient-to-r from-[#B6A4FF] to-[#366BF4] h-screen">
+    <div className="bg-gradient-to-r from-[#B6A4FF] to-[#366BF4] min-h-screen">
       <Header />
       <Section />
     </div>
