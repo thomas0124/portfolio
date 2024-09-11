@@ -1,6 +1,8 @@
-import { useEffect, useRef, useMemo } from 'react'
+'use client'
+
+import { useEffect, useRef, useMemo, useState } from 'react'
 import * as THREE from 'three'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { OrbitControls, Stars, Text } from '@react-three/drei'
 
 interface LoadScreenProps {
@@ -100,6 +102,7 @@ const ParticleSystem = () => {
 
 const AnimatedText = ({ text }: { text: string }) => {
   const textRef = useRef<THREE.Mesh>(null!)
+  const { viewport } = useThree()
 
   useFrame((state) => {
     if (textRef.current) {
@@ -107,11 +110,14 @@ const AnimatedText = ({ text }: { text: string }) => {
     }
   })
 
+  // Adjust font size based on viewport width
+  const fontSize = Math.min(1, viewport.width / 20)
+
   return (
     <Text
       ref={textRef}
       color="white"
-      fontSize={1}
+      fontSize={fontSize}
       maxWidth={200}
       lineHeight={1}
       letterSpacing={0.02}
@@ -126,26 +132,38 @@ const AnimatedText = ({ text }: { text: string }) => {
 }
 
 const LoadScreen: React.FC<LoadScreenProps> = ({ onComplete }) => {
+  const [isMobile, setIsMobile] = useState(false)
+
   useEffect(() => {
     const timer = setTimeout(() => {
       onComplete()
     }, 20000)
 
-    return () => clearTimeout(timer)
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+
+    return () => {
+      clearTimeout(timer)
+      window.removeEventListener('resize', checkMobile)
+    }
   }, [onComplete])
 
   return (
     <div className="w-screen h-screen bg-gradient-to-r from-blue-900 via-purple-900 to-black">
-      <Canvas camera={{ position: [0, 0, 15], fov: 60 }}>
+      <Canvas camera={{ position: [0, 0, isMobile ? 20 : 15], fov: 60 }}>
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} />
-        {Array(5)
+        {Array(isMobile ? 3 : 5)
           .fill(null)
           .map((_, i) => (
             <MovingStar key={i} />
           ))}
         <ParticleSystem />
-        <Stars radius={300} depth={50} count={5000} factor={4} saturation={0} fade />
+        <Stars radius={300} depth={50} count={isMobile ? 3000 : 5000} factor={4} saturation={0} fade />
         <AnimatedText text="Hello World!" />
         <OrbitControls enableZoom={false} enablePan={false} />
       </Canvas>

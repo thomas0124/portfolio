@@ -2,12 +2,14 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { FaGithub } from 'react-icons/fa'
+import Image from 'next/image'
 
 type Project = {
   id: string
   name: string
   description: string
   github: string
+  image: string
 }
 
 const projects: Project[] = [
@@ -15,31 +17,36 @@ const projects: Project[] = [
     id: 'mamoru',
     name: 'まもるくん',
     description: '子供の安全を守るためのIoTデバイスとアプリケーション',
-    github: 'https://github.com/jphacks/C_2208'
+    github: 'https://github.com/jphacks/C_2208',
+    image: '/mamoru.png'
   },
   {
     id: 'areal',
     name: 'areal-AirReal',
     description: 'ARを活用した革新的な不動産内覧システム',
-    github: 'https://github.com/hibiki0612/areal-AirReal'
+    github: 'https://github.com/hibiki0612/areal-AirReal',
+    image: '/areal.png'
   },
   {
     id: 'gunmamon',
     name: 'ぐんまもん',
     description: '群馬県の魅力を発信するAI搭載キャラクターアプリ',
-    github: 'https://github.com/y4asse/gunmamon'
+    github: 'https://github.com/y4asse/gunmamon',
+    image: '/gunmamon.png'
   },
   {
     id: 'armor',
     name: 'Adversarial Armor',
     description: 'AIモデルを保護するための敵対的防御システム',
-    github: 'https://github.com/jphacks/NG_2303'
+    github: 'https://github.com/jphacks/NG_2303',
+    image: '/armor.png'
   },
   {
     id: 'advert',
     name: 'ADvertEX',
     description: 'AIを用いた次世代型広告最適化プラットフォーム',
-    github: 'https://github.com/thomas0124/HACK_U_Meijo_2023'
+    github: 'https://github.com/thomas0124/HACK_U_Meijo_2023',
+    image: '/advert.png'
   }
 ]
 
@@ -54,6 +61,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, isCenter }) => (
       isCenter ? 'md:scale-110' : 'md:scale-75 md:opacity-70'
     }`}
   >
+    <Image
+      src={project.image}
+      alt={`${project.name} image`}
+      width={128}
+      height={128}
+      className="w-full h-32 object-cover mb-4 rounded-lg"
+    />
     <h2 className="text-2xl font-bold text-center">{project.name}</h2>
     <p className="text-center text-gray-600 mt-2">{project.description}</p>
     <a
