@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-toast": "^1.2.1",
     "@react-three/drei": "^9.108.3",
     "@react-three/fiber": "^8.16.8",
     "@types/three": "^0.166.0",

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Header from '@/components/Header'
 import Section from '@/components/Section'
 import LoadScreen from '@/components/LoadScreen'
+import ContactBox from '@/components/ContactBox'
 
 export default function Home() {
   const [loading, setLoading] = useState(true)
@@ -28,9 +29,10 @@ export default function Home() {
   }
 
   return (
-    <div className="bg-gradient-to-r from-[#B6A4FF] to-[#366BF4] min-h-screen">
+    <div className="bg-gradient-to-r from-[#B6A4FF] to-[#366BF4] h-[1080px] p-2">
       <Header />
       <Section />
+      <ContactBox />
     </div>
   )
 }
