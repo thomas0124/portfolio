@@ -49,7 +49,7 @@ export default function Page() {
             <div>
               <h3 className="font-bold mb-2 text-3xl">SNS</h3>
               <div className="flex justify-center space-x-4">
-                <a href="https://x.com/Tomas_engineer" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/thomas0124" target="_blank" rel="noopener noreferrer">
                   <Image
                     src="/GitHub.png"
                     alt="Profile illustration"
@@ -60,14 +60,14 @@ export default function Page() {
                 </a>
                 <a href="https://www.instagram.com/tomas_03124" target="_blank" rel="noopener noreferrer">
                   <Image
-                    src="/instagram.webp"
+                    src="/instagram.jpg"
                     alt="Profile illustration"
-                    width={72}
-                    height={72}
+                    width={84}
+                    height={84}
                     className="rounded-full mx-3"
                   />
                 </a>
-                <a href="https://github.com/thomas0124" target="_blank" rel="noopener noreferrer">
+                <a href="https://x.com/Tomas_engineer" target="_blank" rel="noopener noreferrer">
                   <Image src="/X.jpg" alt="Profile illustration" width={72} height={72} className="rounded-full mx-3" />
                 </a>
               </div>
