@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import { FaGithub } from 'react-icons/fa'
 import Image from 'next/image'
 
@@ -119,23 +119,35 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, isCenter }) => (
 export default function ProjectCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [centerIndex, setCenterIndex] = useState<number>(0)
+  const [isMobile, setIsMobile] = useState<boolean>(false)
+
+  const handleResize = useCallback(() => {
+    setIsMobile(window.innerWidth < 768)
+  }, [])
+
+  const handleScroll = useCallback(() => {
+    if (scrollRef.current) {
+      const { offsetWidth, scrollLeft } = scrollRef.current
+      const itemWidth = isMobile ? offsetWidth : offsetWidth / 3
+      const index = Math.round((scrollLeft + itemWidth / 2) / itemWidth) % projects.length
+      setCenterIndex(index)
+    }
+  }, [isMobile])
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (scrollRef.current) {
-        const { offsetWidth, scrollLeft } = scrollRef.current
-        const itemWidth = offsetWidth / 3
-        const index = Math.round((scrollLeft + itemWidth / 2) / itemWidth) % projects.length
-        setCenterIndex(index)
-      }
+    const scrollElement = scrollRef.current
+    if (scrollElement) {
+      handleResize()
+      window.addEventListener('resize', handleResize)
+      scrollElement.addEventListener('scroll', handleScroll)
+      handleScroll()
     }
 
-    const scrollElement = scrollRef.current
-    scrollElement?.addEventListener('scroll', handleScroll)
-    handleScroll()
-
-    return () => scrollElement?.removeEventListener('scroll', handleScroll)
-  }, [])
+    return () => {
+      window.removeEventListener('resize', handleResize)
+      scrollElement?.removeEventListener('scroll', handleScroll)
+    }
+  }, [handleResize, handleScroll])
 
   return (
     <section className="relative w-full h-auto p-4 md:p-10 overflow-hidden mt-11">
