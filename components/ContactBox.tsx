@@ -22,11 +22,11 @@ export default function ContactBox() {
   }
 
   return (
-    <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md max-w-full sm:max-w-[36rem] md:max-w-[48rem] mx-auto mt-4">
-      <h2 className="text-xl sm:text-2xl font-bold mb-4 text-gray-800">Contact Me</h2>
+    <div className="text-white p-4 sm:p-6 rounded-lg shadow-md max-w-full sm:max-w-[36rem] md:max-w-[48rem] mx-auto mt-4">
+      <h2 className="text-xl sm:text-2xl font-bold mb-4 text-white">Contact Me</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="email" className="block text-sm font-medium text-white">
             Your Email
           </label>
           <Input
@@ -35,12 +35,12 @@ export default function ContactBox() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="mt-1 w-full"
+            className="mt-1 w-full text-black"
             placeholder="you@example.com"
           />
         </div>
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="message" className="block text-sm font-medium text-white">
             Message
           </label>
           <Textarea
@@ -48,12 +48,12 @@ export default function ContactBox() {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             required
-            className="mt-1 w-full"
+            className="mt-1 w-full text-black"
             placeholder="Your message here..."
             rows={4}
           />
         </div>
-        <Button type="submit" className="w-full sm:w-auto">
+        <Button type="submit" className="w-full sm:w-[160px]">
           Send Message
         </Button>
       </form>
