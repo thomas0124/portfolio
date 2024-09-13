@@ -1,6 +1,10 @@
+'use client'
+
 import Image from 'next/image'
 import Header from '@/components/Header'
 import SkillsGlobe from '@/components/SkillsGlobe'
+import BackgroundGlobe from '@/components/BackgroundGlobe'
+import { useState } from 'react'
 
 const experiences = [
   '2021年4月: 名城大学入学',
@@ -20,80 +24,91 @@ const experiences = [
 ]
 
 export default function Page() {
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null)
+
   return (
-    <div className="h-auto bg-gradient-to-r from-[#B6A4FF] to-[#366BF4] p-2">
-      <Header />
-      <main className="bg-white rounded-lg shadow-lg overflow-hidden mx-3 my-8">
-        <div className="flex flex-col min-h-[1500px] md:flex-row">
-          <div className="w-full md:w-1/3 bg-gray-200 p-4 md:p-8">
-            <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
-              <Image
-                src="/profile.jpg"
-                alt="Profile illustration"
-                width={160}
-                height={160}
-                className="w-full h-full object-cover rounded-full"
-              />
-            </div>
-            <div className="text-2xl md:text-4xl font-bold text-center mb-4">
-              Shimizu
-              <br />
-              Toma
-            </div>
-            <div className="mb-6 md:mb-8">
-              <h3 className="font-bold mb-2 text-3xl">PROFILE</h3>
-              <p>名城大学</p>
-              <p>理工学部 情報工学科4年</p>
-            </div>
-            <hr className="border-gray-400 mb-6 md:mb-8" />
-            <div>
-              <h3 className="font-bold mb-2 text-3xl">SNS</h3>
-              <div className="flex justify-center space-x-4">
-                <a href="https://github.com/thomas0124" target="_blank" rel="noopener noreferrer">
+    <div className="min-h-screen text-white">
+      <BackgroundGlobe />
+      <div className="relative z-10">
+        <Header />
+        <main className="container mx-auto px-4 py-8">
+          <div className="bg-opacity-70 rounded-lg ">
+            <div className="flex flex-col md:flex-row">
+              <div className="w-full md:w-1/3  bg-opacity-50 p-8">
+                <div className="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden ring-4 ring-blue-500 shadow-lg">
                   <Image
-                    src="/GitHub.png"
+                    src="/profile.jpg"
                     alt="Profile illustration"
-                    width={72}
-                    height={72}
-                    className="rounded-full mx-3"
+                    width={160}
+                    height={160}
+                    className="w-full h-full object-cover"
                   />
-                </a>
-                <a href="https://www.instagram.com/tomas_03124" target="_blank" rel="noopener noreferrer">
-                  <Image
-                    src="/instagram.jpg"
-                    alt="Profile illustration"
-                    width={84}
-                    height={84}
-                    className="rounded-full mx-3"
-                  />
-                </a>
-                <a href="https://x.com/Tomas_engineer" target="_blank" rel="noopener noreferrer">
-                  <Image src="/X.jpg" alt="Profile illustration" width={72} height={72} className="rounded-full mx-3" />
-                </a>
+                </div>
+                <div className="text-3xl md:text-4xl font-bold text-center mb-6 text-blue-300">Shimizu Toma</div>
+                <div className="mb-8">
+                  <h3 className="font-bold mb-2 text-2xl text-blue-400">PROFILE</h3>
+                  <p className="text-gray-300">名城大学</p>
+                  <p className="text-gray-300">理工学部 情報工学科4年</p>
+                </div>
+                <hr className="border-gray-600 mb-8" />
+                <div>
+                  <h3 className="font-bold mb-4 text-2xl text-blue-400">SNS</h3>
+                  <div className="flex justify-center space-x-6">
+                    <a
+                      href="https://github.com/thomas0124"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="transform hover:scale-110 transition-transform duration-200"
+                    >
+                      <Image src="/github.jpeg" alt="GitHub" width={48} height={48} className="rounded-full" />
+                    </a>
+                    <a
+                      href="https://www.instagram.com/tomas_03124"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="transform hover:scale-110 transition-transform duration-200"
+                    >
+                      <Image src="/instagram.jpg" alt="Instagram" width={48} height={48} className="rounded-full" />
+                    </a>
+                    <a
+                      href="https://x.com/Tomas_engineer"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="transform hover:scale-110 transition-transform duration-200"
+                    >
+                      <Image src="/X.jpg" alt="X" width={48} height={48} className="rounded-full" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="w-full md:w-2/3 p-8">
+                <h2 className="text-3xl font-bold mb-8 text-blue-300">ABOUT ME</h2>
+                <h3 className="text-2xl font-bold mb-6 text-blue-400">EXPERIENCE</h3>
+                <div className="relative pl-6 mb-12">
+                  <div className="absolute left-4 top-2 bottom-2 w-0.5 bg-blue-500"></div>
+                  <ul className="space-y-6">
+                    {experiences.map((experience, index) => (
+                      <li key={index} className="relative">
+                        <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-5 h-5 bg-blue-500 rounded-full border-4 border-gray-800"></div>
+                        <span className="ml-4 text-gray-300">{experience}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <h3 className="text-2xl font-bold mb-6 text-blue-400">SKILLS</h3>
+                <div className="w-full h-[720px]">
+                  <SkillsGlobe onHoverSkill={setHoveredSkill} />
+                </div>
               </div>
             </div>
           </div>
-          <div className="w-full md:w-2/3 p-4 md:p-8">
-            <h2 className="text-xl md:text-2xl font-bold mb-6 md:mb-8">ABOUT ME</h2>
-            <h2 className="text-xl md:text-2xl font-bold mb-4">EXPERIENCE</h2>
-            <div className="relative pl-6 mb-6 md:mb-8">
-              <div className="absolute left-3 top-2 bottom-2 w-0.5 bg-black"></div>
-              <ul className="space-y-3 md:space-y-4">
-                {experiences.map((experience, index) => (
-                  <li key={index} className="relative">
-                    <div className="absolute -left-[17px] top-1/2 -translate-y-1/2 w-3 h-3 bg-black rounded-full"></div>
-                    <span className="ml-2 text-sm md:text-base">{experience}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <h2 className="text-xl md:text-2xl font-bold mb-4">SKILLS</h2>
-            <div className="w-full h-96 md:h-96">
-              <SkillsGlobe />
-            </div>
-          </div>
+        </main>
+      </div>
+      {hoveredSkill && (
+        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold shadow-lg">
+          {hoveredSkill}
         </div>
-      </main>
+      )}
     </div>
   )
 }

@@ -16,7 +16,7 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, onClick }) => {
   return (
     <Link
       href={href}
-      className={`font-bold text-black relative group transition-all duration-300 ease-in-out py-1 ${
+      className={`font-bold text-white relative group transition-all duration-300 ease-in-out py-1 ${
         isHovered ? 'scale-110' : ''
       }`}
       onMouseEnter={() => setIsHovered(true)}
@@ -37,20 +37,20 @@ const Header: React.FC = () => {
   }
 
   return (
-    <header className="font-sans bg-gradient-to-r　from-[#B6A4FF] to-[#366BF4]" role="banner">
+    <header className="font-sans p-2" role="banner">
       <div className="mx-4 my-2 flex flex-wrap justify-between items-center">
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-black animate-fadeIn">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white animate-fadeIn">
           Thomas&rsquo;s <br className="hidden sm:inline" /> Portfolio
         </h1>
         <nav className="hidden md:flex md:flex-col md:items-end md:space-y-2">
           <NavLink href="/">
-            <span className="text-xl lg:text-3xl">Home</span>
+            <span className="text-xl text-white lg:text-3xl">Home</span>
           </NavLink>
           <NavLink href="/about">
-            <span className="text-lg lg:text-2xl">About</span>
+            <span className="text-lg text-white lg:text-2xl">About</span>
           </NavLink>
         </nav>
-        <button className="md:hidden text-black focus:outline-none" onClick={toggleMenu} aria-label="Toggle menu">
+        <button className="md:hidden text-white focus:outline-none" onClick={toggleMenu} aria-label="Toggle menu">
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>

@@ -4,49 +4,81 @@ import { useState, useRef, useEffect } from 'react'
 import { FaGithub } from 'react-icons/fa'
 import Image from 'next/image'
 
+type TechStack = {
+  name: string
+  icon: string
+}
+
 type Project = {
   id: string
   name: string
   description: string
   github: string
-  image: string
+  techStack: TechStack[]
 }
 
 const projects: Project[] = [
   {
     id: 'mamoru',
     name: 'まもるくん',
-    description: '子供の安全を守るためのIoTデバイスとアプリケーション',
+    description: '情報が義務化された社会でネットリテラシーを楽しんで学ぶlinebot',
     github: 'https://github.com/jphacks/C_2208',
-    image: '/mamoru.png'
+    techStack: [
+      { name: 'Python', icon: 'python-original.svg' },
+      { name: 'LINE Messaging API', icon: '/line-messaging-api.jpeg' },
+      { name: 'html', icon: '/html5-original.svg' },
+      { name: 'css', icon: '/css-original.svg' }
+    ]
   },
   {
     id: 'areal',
     name: 'areal-AirReal',
-    description: 'ARを活用した革新的な不動産内覧システム',
+    description: '新宿の街に自分だけのキャンパス(絵)を設置し、周囲の人と共有するARアプリ',
     github: 'https://github.com/hibiki0612/areal-AirReal',
-    image: '/areal.png'
+    techStack: [
+      { name: 'Unity', icon: '/unity-original.svg' },
+      { name: 'PLATEAU', icon: '/plateau.png' },
+      { name: 'ARKit', icon: '/arkit.png' },
+      { name: 'ARCore', icon: '/arcore.png' }
+    ]
   },
   {
     id: 'gunmamon',
     name: 'ぐんまもん',
-    description: '群馬県の魅力を発信するAI搭載キャラクターアプリ',
+    description: '運動しながらGitHubにcommitするというの実現するWebアプリ',
     github: 'https://github.com/y4asse/gunmamon',
-    image: '/gunmamon.png'
+    techStack: [
+      { name: 'Next.js', icon: '/nextjs-original.svg' },
+      { name: 'TypeScript', icon: '/typescript-original.svg' },
+      { name: 'MongoDB', icon: '/mongodb-original.svg' },
+      { name: 'Google Fit API', icon: '/google-fit-api.png' },
+      { name: 'GitHub API', icon: '/github.jpeg' }
+    ]
   },
   {
     id: 'armor',
     name: 'Adversarial Armor',
-    description: 'AIモデルを保護するための敵対的防御システム',
+    description: 'AIを騙すような画像を自分たちは見極めることができるのかを確認できるWebアプリ',
     github: 'https://github.com/jphacks/NG_2303',
-    image: '/armor.png'
+    techStack: [
+      { name: 'React', icon: '/react-original.svg' },
+      { name: 'Rust', icon: '/rust-original.svg' },
+      { name: 'AWS', icon: '/amazonwebservices-original-wordmark.svg' },
+      { name: 'GCP', icon: '/google-cloud-original.svg' }
+    ]
   },
   {
     id: 'advert',
     name: 'ADvertEX',
-    description: 'AIを用いた次世代型広告最適化プラットフォーム',
+    description: '広告の画像から、自分だけのキャラクターを作りスキルを駆使して戦闘をするゲーム',
     github: 'https://github.com/thomas0124/HACK_U_Meijo_2023',
-    image: '/advert.png'
+    techStack: [
+      { name: 'Next.js', icon: '/nextjs-original.svg' },
+      { name: 'Auth.js', icon: '/nextauth.png' },
+      { name: 'FastAPI', icon: '/fastapi-original.svg' },
+      { name: 'OpenCV', icon: '/opencv-original.svg' },
+      { name: 'Unity', icon: '/unity-original.svg' }
+    ]
   }
 ]
 
@@ -57,19 +89,21 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, isCenter }) => (
   <div
-    className={`bg-white shadow-lg p-5 w-full md:w-[calc(100%/3)] h-96 flex flex-col justify-between items-center snap-center mx-2 mt-4 mb-16 flex-shrink-0 transition-all duration-300 ${
+    className={`border-white shadow-lg p-5 w-full md:w-[calc(100%/3)] h-96 flex flex-col justify-between items-center snap-center mx-2 mt-4 mb-16 flex-shrink-0 transition-all duration-300 ${
       isCenter ? 'md:scale-110' : 'md:scale-75 md:opacity-70'
     }`}
   >
-    <Image
-      src={project.image}
-      alt={`${project.name} image`}
-      width={128}
-      height={128}
-      className="w-full h-32 object-cover mb-4 rounded-lg"
-    />
-    <h2 className="text-2xl font-bold text-center">{project.name}</h2>
-    <p className="text-center text-gray-600 mt-2">{project.description}</p>
+    <h2 className="text-2xl text-white font-bold text-center">{project.name}</h2>
+    <p className="text-center text-2xl text-white mt-1">{project.description}</p>
+    <p className="text-xl">技術スタック</p>
+    <div className="flex justify-center space-x-4">
+      {project.techStack.map((tech) => (
+        <div key={tech.name} className="flex flex-col items-center">
+          <Image src={tech.icon} alt={tech.name} width={40} height={40} />
+          <span className="text-sm text-white mt-1">{tech.name}</span>
+        </div>
+      ))}
+    </div>
     <a
       href={project.github}
       target="_blank"
