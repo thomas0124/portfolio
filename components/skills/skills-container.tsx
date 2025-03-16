@@ -10,10 +10,8 @@ const SkillsContainer = () => {
 
   return (
     <div className="flex flex-col lg:flex-row gap-8 items-start">
-      {/* 地球儀を左側に配置し、高さを調整 - モバイルでは上部に */}
       <div className="relative w-full lg:w-1/2 h-[350px] sm:h-[450px] lg:h-[500px]">
         <SkillsGlobe onHoverSkill={setHoveredSkill} />
-
         {hoveredSkill && (
           <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-gray-800 bg-opacity-90 px-4 py-2 rounded-lg shadow-lg z-10 border border-blue-500">
             <p className="text-blue-300 font-bold text-lg">{hoveredSkill}</p>
@@ -21,7 +19,6 @@ const SkillsContainer = () => {
         )}
       </div>
 
-      {/* スキル一覧を右側に配置 - モバイルでは下部に */}
       <div className="w-full lg:w-1/2">
         <div className="bg-gray-900 bg-opacity-80 p-4 sm:p-6 rounded-xl border border-gray-800 shadow-xl">
           <h4 className="text-lg sm:text-xl font-bold mb-4 text-blue-300">技術スタック</h4>

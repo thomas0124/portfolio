@@ -110,7 +110,6 @@ const AnimatedText = ({ text }: { text: string }) => {
     }
   })
 
-  // Adjust font size based on viewport width
   const fontSize = Math.min(1, viewport.width / 20)
 
   return (

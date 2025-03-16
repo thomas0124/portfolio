@@ -30,34 +30,27 @@ ex) feat/#1/add_login
 
 ## ポートフォリオの構成
 ```
+.github/
+    ├─ workflows/
+.husky/
+    ├─
 app/
     ├─ about/
-    ├─ globals.css
-    ├─ layout.tsx
-    ├─ page.tsx
-    └─ opengraph-image.png
+    ├─ api/
+        ├─ contact/
 components/
-    ├─ Header.tsx
-    ├
-    ├
-    └─ Footer.tsx
     ├─ ui/
-        ├─ button.tsx
-        ├
-        ├
-        └─ toaster.tsx
+    ├─ skills/
+data/
+    ├─
 hooks/
-    ├─ use-toast.ts
+    ├─
 lib/
-    ├─ utils.ts
+    ├─
 public/
-    ├─ ...svg
     ├─
-    ├─
-    └─ ...svg
 types/
-    ├─ troika-three-tstx.d.ts
-
+    ├─
 .lintstagedrc.js
 compose.yml
 dockerfile

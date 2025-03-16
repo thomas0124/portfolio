@@ -29,7 +29,6 @@ export default function BackgroundGlobe() {
 
     camera.position.z = 5
 
-    // Improved globe
     const globeGeometry = new THREE.SphereGeometry(2, 64, 64)
     const globeMaterial = new THREE.MeshPhongMaterial({
       color: 0x3a3a3a,
@@ -42,7 +41,6 @@ export default function BackgroundGlobe() {
     const globe = new THREE.Mesh(globeGeometry, globeMaterial)
     scene.add(globe)
 
-    // Lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
     scene.add(ambientLight)
 
@@ -50,7 +48,6 @@ export default function BackgroundGlobe() {
     pointLight.position.set(5, 3, 5)
     scene.add(pointLight)
 
-    // Particles
     const particlesGeometry = new THREE.BufferGeometry()
     const particlesCount = 5000
     const posArray = new Float32Array(particlesCount * 3)
@@ -68,7 +65,6 @@ export default function BackgroundGlobe() {
     const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial)
     scene.add(particlesMesh)
 
-    // Post-processing
     const composer = new EffectComposer(renderer)
     const renderPass = new RenderPass(scene, camera)
     composer.addPass(renderPass)

@@ -20,7 +20,7 @@ export default function Home() {
       const timer = setTimeout(() => {
         setLoading(false)
         localStorage.setItem('hasLoaded', 'true')
-      }, 10000) // loading screen for 10 seconds
+      }, 10000)
 
       return () => clearTimeout(timer)
     }
