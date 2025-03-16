@@ -19,7 +19,6 @@ const SkillsGlobe: React.FC<SkillsGlobeProps> = ({ onHoverSkill }) => {
   useEffect(() => {
     if (!containerRef.current) return
 
-    // レンダラーとシーンの設定
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -32,7 +31,6 @@ const SkillsGlobe: React.FC<SkillsGlobeProps> = ({ onHoverSkill }) => {
     renderer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight)
     containerRef.current.appendChild(renderer.domElement)
 
-    // コントロールの設定
     const controls = new OrbitControls(camera, renderer.domElement)
     controls.enableDamping = true
     controls.dampingFactor = 0.05
@@ -42,7 +40,6 @@ const SkillsGlobe: React.FC<SkillsGlobeProps> = ({ onHoverSkill }) => {
 
     camera.position.z = 5
 
-    // 地球儀の作成
     const globeGeometry = new THREE.SphereGeometry(2, 64, 64)
     const globeMaterial = new THREE.MeshPhongMaterial({
       color: 0x3a3a3a,
@@ -55,7 +52,6 @@ const SkillsGlobe: React.FC<SkillsGlobeProps> = ({ onHoverSkill }) => {
     const globe = new THREE.Mesh(globeGeometry, globeMaterial)
     scene.add(globe)
 
-    // ライティング
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
     scene.add(ambientLight)
 
@@ -63,7 +59,6 @@ const SkillsGlobe: React.FC<SkillsGlobeProps> = ({ onHoverSkill }) => {
     pointLight.position.set(5, 3, 5)
     scene.add(pointLight)
 
-    // パーティクル
     const particlesGeometry = new THREE.BufferGeometry()
     const particlesCount = 3000 // モバイル向けに少し減らす
     const posArray = new Float32Array(particlesCount * 3)
@@ -81,11 +76,9 @@ const SkillsGlobe: React.FC<SkillsGlobeProps> = ({ onHoverSkill }) => {
     const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial)
     scene.add(particlesMesh)
 
-    // スキルアイコンのスプライト
     const textureLoader = new THREE.TextureLoader()
     const sprites: THREE.Sprite[] = []
 
-    // 画面サイズに応じてスプライトサイズを調整
     const isMobile = window.innerWidth < 768
     const spriteScale = isMobile ? 0.3 : 0.4
     const spriteHoverScale = isMobile ? 0.45 : 0.6
@@ -110,7 +103,6 @@ const SkillsGlobe: React.FC<SkillsGlobeProps> = ({ onHoverSkill }) => {
       sprites.push(sprite)
     })
 
-    // ポストプロセッシング
     const composer = new EffectComposer(renderer)
     const renderPass = new RenderPass(scene, camera)
     composer.addPass(renderPass)
@@ -123,7 +115,6 @@ const SkillsGlobe: React.FC<SkillsGlobeProps> = ({ onHoverSkill }) => {
     )
     composer.addPass(bloomPass)
 
-    // レイキャスターとマウスイベント
     const raycaster = new THREE.Raycaster()
     const mouse = new THREE.Vector2()
 
@@ -148,8 +139,6 @@ const SkillsGlobe: React.FC<SkillsGlobeProps> = ({ onHoverSkill }) => {
         sprites.forEach((sprite) => sprite.scale.set(spriteScale, spriteScale, 1))
       }
     }
-
-    // タッチデバイス用のイベント
     const onTouchMove = (event: TouchEvent) => {
       if (!containerRef.current || event.touches.length === 0) return
 
@@ -177,7 +166,6 @@ const SkillsGlobe: React.FC<SkillsGlobeProps> = ({ onHoverSkill }) => {
     containerRef.current.addEventListener('mousemove', onMouseMove)
     containerRef.current.addEventListener('touchmove', onTouchMove as EventListener)
 
-    // アニメーション
     const animate = () => {
       requestAnimationFrame(animate)
       controls.update()
@@ -185,12 +173,9 @@ const SkillsGlobe: React.FC<SkillsGlobeProps> = ({ onHoverSkill }) => {
     }
 
     animate()
-
-    // リサイズハンドラ
     const handleResize = () => {
       if (!containerRef.current) return
 
-      // 画面サイズに応じてスプライトサイズを更新
       const newIsMobile = window.innerWidth < 768
       const newSpriteScale = newIsMobile ? 0.3 : 0.4
 
@@ -208,7 +193,6 @@ const SkillsGlobe: React.FC<SkillsGlobeProps> = ({ onHoverSkill }) => {
 
     window.addEventListener('resize', handleResize)
 
-    // クリーンアップ
     return () => {
       if (containerRef.current) {
         containerRef.current.removeChild(renderer.domElement)

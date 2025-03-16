@@ -5,7 +5,6 @@ export async function POST(request: Request) {
   try {
     const { email, message } = await request.json()
 
-    // 入力値の検証
     if (!email || !message) {
       return NextResponse.json({ message: 'メールアドレスとメッセージは必須です。' }, { status: 400 })
     }
@@ -32,21 +31,21 @@ export async function POST(request: Request) {
       replyTo: email,
       subject: `ウェブサイトからの新しいメッセージ`,
       text: `
-送信者: ${email}
+    送信者: ${email}
 
-メッセージ:
-${message}
-      `,
+    メッセージ:
+    ${message}
+        `,
       html: `
-<div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-  <h2>新しいお問い合わせ</h2>
-  <p><strong>送信者:</strong> ${email}</p>
-  <div style="margin-top: 20px;">
-    <strong>メッセージ:</strong>
-    <p style="white-space: pre-line; background-color: #f5f5f5; padding: 15px; border-radius: 4px;">${message}</p>
-  </div>
-</div>
-      `
+    <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+        <h2>新しいお問い合わせ</h2>
+        <p><strong>送信者:</strong> ${email}</p>
+        <div style="margin-top: 20px;">
+            <strong>メッセージ:</strong>
+            <p style="white-space: pre-line; background-color: #f5f5f5; padding: 15px; border-radius: 4px;">${message}</p>
+        </div>
+    </div>
+    `
     }
 
     await transporter.sendMail(mailOptions)
