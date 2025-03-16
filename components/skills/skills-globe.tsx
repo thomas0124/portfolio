@@ -1,0 +1,229 @@
+import type React from 'react'
+
+import { type Dispatch, type SetStateAction, useEffect, useRef, useState } from 'react'
+import * as THREE from 'three'
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js'
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js'
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
+import { skills } from '@/data/skills'
+
+interface SkillsGlobeProps {
+  onHoverSkill: Dispatch<SetStateAction<string | null>>
+}
+
+const SkillsGlobe: React.FC<SkillsGlobeProps> = ({ onHoverSkill }) => {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!containerRef.current) return
+
+    // レンダラーとシーンの設定
+    const scene = new THREE.Scene()
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      containerRef.current.clientWidth / containerRef.current.clientHeight,
+      0.1,
+      1000
+    )
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
+
+    renderer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight)
+    containerRef.current.appendChild(renderer.domElement)
+
+    // コントロールの設定
+    const controls = new OrbitControls(camera, renderer.domElement)
+    controls.enableDamping = true
+    controls.dampingFactor = 0.05
+    controls.enableZoom = false
+    controls.autoRotate = true
+    controls.autoRotateSpeed = 0.5
+
+    camera.position.z = 5
+
+    // 地球儀の作成
+    const globeGeometry = new THREE.SphereGeometry(2, 64, 64)
+    const globeMaterial = new THREE.MeshPhongMaterial({
+      color: 0x3a3a3a,
+      wireframe: true,
+      emissive: 0x1a1a1a,
+      shininess: 10,
+      transparent: true,
+      opacity: 0.8
+    })
+    const globe = new THREE.Mesh(globeGeometry, globeMaterial)
+    scene.add(globe)
+
+    // ライティング
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
+    scene.add(ambientLight)
+
+    const pointLight = new THREE.PointLight(0x3b82f6, 1.5)
+    pointLight.position.set(5, 3, 5)
+    scene.add(pointLight)
+
+    // パーティクル
+    const particlesGeometry = new THREE.BufferGeometry()
+    const particlesCount = 3000 // モバイル向けに少し減らす
+    const posArray = new Float32Array(particlesCount * 3)
+
+    for (let i = 0; i < particlesCount * 3; i++) {
+      posArray[i] = (Math.random() - 0.5) * 10
+    }
+
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3))
+    const particlesMaterial = new THREE.PointsMaterial({
+      size: 0.005,
+      color: 0xffffff
+    })
+
+    const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial)
+    scene.add(particlesMesh)
+
+    // スキルアイコンのスプライト
+    const textureLoader = new THREE.TextureLoader()
+    const sprites: THREE.Sprite[] = []
+
+    // 画面サイズに応じてスプライトサイズを調整
+    const isMobile = window.innerWidth < 768
+    const spriteScale = isMobile ? 0.3 : 0.4
+    const spriteHoverScale = isMobile ? 0.45 : 0.6
+
+    skills.forEach((skill, index) => {
+      const phi = Math.acos(-1 + (2 * index) / skills.length)
+      const theta = Math.sqrt(skills.length * Math.PI) * phi
+
+      const texture = textureLoader.load(`/${skill.icon}`)
+      const material = new THREE.SpriteMaterial({ map: texture })
+      const sprite = new THREE.Sprite(material)
+
+      const x = 2.5 * Math.cos(theta) * Math.sin(phi)
+      const y = 2.5 * Math.sin(theta) * Math.sin(phi)
+      const z = 2.5 * Math.cos(phi)
+
+      sprite.position.set(x, y, z)
+      sprite.scale.set(spriteScale, spriteScale, 1)
+      sprite.userData = { skillName: skill.name }
+
+      scene.add(sprite)
+      sprites.push(sprite)
+    })
+
+    // ポストプロセッシング
+    const composer = new EffectComposer(renderer)
+    const renderPass = new RenderPass(scene, camera)
+    composer.addPass(renderPass)
+
+    const bloomPass = new UnrealBloomPass(
+      new THREE.Vector2(containerRef.current.clientWidth, containerRef.current.clientHeight),
+      1.5,
+      0.4,
+      0.85
+    )
+    composer.addPass(bloomPass)
+
+    // レイキャスターとマウスイベント
+    const raycaster = new THREE.Raycaster()
+    const mouse = new THREE.Vector2()
+
+    const onMouseMove = (event: MouseEvent) => {
+      if (!containerRef.current) return
+      const rect = containerRef.current.getBoundingClientRect()
+
+      mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1
+      mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1
+
+      raycaster.setFromCamera(mouse, camera)
+      const intersects = raycaster.intersectObjects(sprites)
+
+      if (intersects.length > 0) {
+        const hoveredSprite = intersects[0].object as THREE.Sprite
+        setHoveredSkill(hoveredSprite.userData.skillName)
+        onHoverSkill(hoveredSprite.userData.skillName)
+        hoveredSprite.scale.set(spriteHoverScale, spriteHoverScale, 1)
+      } else {
+        setHoveredSkill(null)
+        onHoverSkill(null)
+        sprites.forEach((sprite) => sprite.scale.set(spriteScale, spriteScale, 1))
+      }
+    }
+
+    // タッチデバイス用のイベント
+    const onTouchMove = (event: TouchEvent) => {
+      if (!containerRef.current || event.touches.length === 0) return
+
+      const rect = containerRef.current.getBoundingClientRect()
+      const touch = event.touches[0]
+
+      mouse.x = ((touch.clientX - rect.left) / rect.width) * 2 - 1
+      mouse.y = -((touch.clientY - rect.top) / rect.height) * 2 + 1
+
+      raycaster.setFromCamera(mouse, camera)
+      const intersects = raycaster.intersectObjects(sprites)
+
+      if (intersects.length > 0) {
+        const hoveredSprite = intersects[0].object as THREE.Sprite
+        setHoveredSkill(hoveredSprite.userData.skillName)
+        onHoverSkill(hoveredSprite.userData.skillName)
+        hoveredSprite.scale.set(spriteHoverScale, spriteHoverScale, 1)
+      } else {
+        setHoveredSkill(null)
+        onHoverSkill(null)
+        sprites.forEach((sprite) => sprite.scale.set(spriteScale, spriteScale, 1))
+      }
+    }
+
+    containerRef.current.addEventListener('mousemove', onMouseMove)
+    containerRef.current.addEventListener('touchmove', onTouchMove as EventListener)
+
+    // アニメーション
+    const animate = () => {
+      requestAnimationFrame(animate)
+      controls.update()
+      composer.render()
+    }
+
+    animate()
+
+    // リサイズハンドラ
+    const handleResize = () => {
+      if (!containerRef.current) return
+
+      // 画面サイズに応じてスプライトサイズを更新
+      const newIsMobile = window.innerWidth < 768
+      const newSpriteScale = newIsMobile ? 0.3 : 0.4
+
+      sprites.forEach((sprite) => {
+        if (sprite.userData.skillName !== hoveredSkill) {
+          sprite.scale.set(newSpriteScale, newSpriteScale, 1)
+        }
+      })
+
+      camera.aspect = containerRef.current.clientWidth / containerRef.current.clientHeight
+      camera.updateProjectionMatrix()
+      renderer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight)
+      composer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight)
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    // クリーンアップ
+    return () => {
+      if (containerRef.current) {
+        containerRef.current.removeChild(renderer.domElement)
+        containerRef.current.removeEventListener('mousemove', onMouseMove)
+        containerRef.current.removeEventListener('touchmove', onTouchMove as EventListener)
+      }
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [onHoverSkill])
+
+  return (
+    <div className="relative w-full h-full">
+      <div ref={containerRef} className="w-full h-full rounded-xl overflow-hidden" />
+    </div>
+  )
+}
+
+export default SkillsGlobe
