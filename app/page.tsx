@@ -6,6 +6,7 @@ import Section from '@/components/Section'
 import LoadScreen from '@/components/LoadScreen'
 import ContactBox from '@/components/ContactBox'
 import BackgroundGlobe from '@/components/BackgroundGlobe'
+import Footer from '@/components/Footer'
 
 export default function Home() {
   const [loading, setLoading] = useState(true)
@@ -19,7 +20,7 @@ export default function Home() {
       const timer = setTimeout(() => {
         setLoading(false)
         localStorage.setItem('hasLoaded', 'true')
-      }, 10000) // Show loading screen for 10 seconds on initial load
+      }, 10000) // loading screen for 10 seconds
 
       return () => clearTimeout(timer)
     }
@@ -36,6 +37,7 @@ export default function Home() {
         <Header />
         <Section />
         <ContactBox />
+        <Footer />
       </div>
     </div>
   )

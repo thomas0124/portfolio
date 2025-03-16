@@ -79,6 +79,20 @@ const projects: Project[] = [
       { name: 'OpenCV', icon: '/opencv-original.svg' },
       { name: 'Unity', icon: '/unity-original.svg' }
     ]
+  },
+  {
+    id: 'ecobiz',
+    name: 'Ecobiz',
+    description:
+      '『歩いている時間』 ユーザーが歩くことでゲーム内通貨を貯めることができ、その通貨を利用して自分の仮想の会社を経営していくアプリケーション',
+    github: 'https://github.com/tasogare-88/EcoBiz',
+    techStack: [
+      { name: 'Flutter', icon: '/Flutter Icon.svg' },
+      { name: 'Dart', icon: '/Dart Icon.svg' },
+      { name: 'Unity', icon: '/unity-original.svg' },
+      { name: 'Firebase', icon: '/Firebase Icon.svg' },
+      { name: 'GitHub Actions', icon: '/GitHub Actions Icon.svg' }
+    ]
   }
 ]
 
