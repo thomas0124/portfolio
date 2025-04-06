@@ -81,11 +81,6 @@ export default function Page() {
               </div>
             </div>
           </div>
-
-          <div className="bg-black bg-opacity-30 backdrop-blur-sm p-6 rounded-xl">
-            <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-blue-400">SKILLS</h3>
-            <SkillsContainer />
-          </div>
         </main>
 
         <Footer />
