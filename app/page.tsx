@@ -29,8 +29,6 @@ export default function Home() {
       return () => clearTimeout(timer)
     }
   }, [])
-
-  // Handle scroll to update progress and active section
   useEffect(() => {
     const handleScroll = () => {
       // Calculate scroll progress (0 to 1)
@@ -39,8 +37,6 @@ export default function Home() {
       const winHeight = window.innerHeight
       const scrollPercent = scrollTop / (docHeight - winHeight)
       setScrollProgress(Math.min(1, Math.max(0, scrollPercent)))
-
-      // Determine active section based on scroll position
       const sections = ['projects', 'contact']
       const projectsSection = document.getElementById('projects')
       const contactSection = document.getElementById('contact')
@@ -55,7 +51,7 @@ export default function Home() {
     }
 
     window.addEventListener('scroll', handleScroll)
-    handleScroll() // Initial call
+    handleScroll()
 
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -67,8 +63,6 @@ export default function Home() {
   return (
     <div className="relative min-h-screen text-white overflow-hidden perspective-1000">
       <BackgroundGlobe />
-
-      {/* Scroll progress indicator */}
       <div className="fixed top-0 left-0 w-full h-1 z-50">
         <div
           className="h-full bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-300 ease-out"
@@ -78,8 +72,6 @@ export default function Home() {
 
       <div className="relative z-10">
         <Header />
-
-        {/* Hero Section */}
         <section className="min-h-[calc(100vh-80px)] flex flex-col justify-center items-center px-4 py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -136,7 +128,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Projects Section */}
         <section id="projects" className="py-20 relative">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/10 to-transparent pointer-events-none"></div>
 
@@ -160,8 +151,6 @@ export default function Home() {
 
           <Section />
         </section>
-
-        {/* Contact Section */}
         <section id="contact" className="py-20 relative">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/10 to-transparent pointer-events-none"></div>
 
@@ -195,7 +184,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Navigation dots */}
         <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block">
           <div className="flex flex-col items-center space-y-6">
             <a

@@ -17,7 +17,6 @@ export default function Page() {
   const [scrollProgress, setScrollProgress] = useState(0)
   const interactionTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
-  // Use Intersection Observer to detect when timeline is in view
   const { ref: timelineInViewRef, inView } = useInView({
     threshold: 0.2,
     triggerOnce: false
@@ -112,7 +111,7 @@ export default function Page() {
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-700 group-hover:w-full"></span>
                   </h3>
                   <p className="text-gray-300">名城大学</p>
-                  <p className="text-gray-300">理工学部 情報工学科4年</p>
+                  <p className="text-gray-300">理工学研究科 情報工学専攻修士1年</p>
                 </div>
                 <hr className="border-gray-600 mb-8 opacity-50" />
                 <div>
