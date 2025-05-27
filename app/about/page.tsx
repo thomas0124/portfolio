@@ -123,13 +123,13 @@ export default function Page() {
                       rel="noopener noreferrer"
                       className="relative group"
                     >
-                      <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-70 blur-md transition-all duration-500 group-hover:duration-200 animate-pulse-slow"></div>
+                      <div className="absolute -inset-2 rounded-full bg-white opacity-100 group-hover:opacity-80 blur-md transition-all duration-500 group-hover:duration-200"></div>
                       <Image
-                        src="/github.jpeg"
+                        src="/github.svg"
                         alt="GitHub"
                         width={48}
                         height={48}
-                        className="rounded-full relative transform transition-all duration-500 group-hover:scale-110 z-10"
+                        className="text-white relative transform transition-all duration-500 group-hover:scale-110 z-10"
                       />
                     </a>
                     <a
@@ -138,13 +138,13 @@ export default function Page() {
                       rel="noopener noreferrer"
                       className="relative group"
                     >
-                      <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 opacity-0 group-hover:opacity-70 blur-md transition-all duration-500 group-hover:duration-200 animate-pulse-slow"></div>
+                      <div className="absolute -inset-2 rounded-full bg-white opacity-100 group-hover:opacity-80 blur-md transition-all duration-500 group-hover:duration-200"></div>
                       <Image
-                        src="/instagram.jpg"
+                        src="/instagram.svg"
                         alt="Instagram"
                         width={48}
                         height={48}
-                        className="rounded-full relative transform transition-all duration-500 group-hover:scale-110 z-10"
+                        className="text-white relative transform transition-all duration-500 group-hover:scale-110 z-10"
                       />
                     </a>
                     <a
@@ -153,13 +153,13 @@ export default function Page() {
                       rel="noopener noreferrer"
                       className="relative group"
                     >
-                      <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-gray-500 to-blue-500 opacity-0 group-hover:opacity-70 blur-md transition-all duration-500 group-hover:duration-200 animate-pulse-slow"></div>
+                      <div className="absolute -inset-2 rounded-full bg-white opacity-100 group-hover:opacity-80 blur-md transition-all duration-500 group-hover:duration-200"></div>
                       <Image
-                        src="/X.jpg"
+                        src="/twitter.svg"
                         alt="X"
                         width={48}
                         height={48}
-                        className="rounded-full relative transform transition-all duration-500 group-hover:scale-110 z-10"
+                        className="text-white relative transform transition-all duration-500 group-hover:scale-110 z-10"
                       />
                     </a>
                   </div>
