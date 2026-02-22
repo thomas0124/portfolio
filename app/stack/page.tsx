@@ -1,7 +1,7 @@
-import Header from '@/components/Header'
+import Header from '@/components/layout/Header'
 import SkillsContainer from '@/components/skills/skills-container'
-import BackgroundGlobe from '@/components/BackgroundGlobe'
-import Footer from '@/components/Footer'
+import BackgroundGlobe from '@/components/common/BackgroundGlobe'
+import Footer from '@/components/layout/Footer'
 
 export default function Page() {
   return (

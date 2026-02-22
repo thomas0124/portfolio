@@ -1,5 +1,6 @@
-import type React from 'react'
+'use client'
 
+import type React from 'react'
 import { type Dispatch, type SetStateAction, useEffect, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
@@ -15,21 +16,22 @@ interface SkillsGlobeProps {
 const SkillsGlobe: React.FC<SkillsGlobeProps> = ({ onHoverSkill }) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null)
+  const hoveredSkillRef = useRef<string | null>(null)
 
   useEffect(() => {
-    if (!containerRef.current) return
+    hoveredSkillRef.current = hoveredSkill
+  }, [hoveredSkill])
+
+  useEffect(() => {
+    const container = containerRef.current
+    if (!container) return
 
     const scene = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      containerRef.current.clientWidth / containerRef.current.clientHeight,
-      0.1,
-      1000
-    )
+    const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000)
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
 
-    renderer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight)
-    containerRef.current.appendChild(renderer.domElement)
+    renderer.setSize(container.clientWidth, container.clientHeight)
+    container.appendChild(renderer.domElement)
 
     const controls = new OrbitControls(camera, renderer.domElement)
     controls.enableDamping = true
@@ -108,7 +110,7 @@ const SkillsGlobe: React.FC<SkillsGlobeProps> = ({ onHoverSkill }) => {
     composer.addPass(renderPass)
 
     const bloomPass = new UnrealBloomPass(
-      new THREE.Vector2(containerRef.current.clientWidth, containerRef.current.clientHeight),
+      new THREE.Vector2(container.clientWidth, container.clientHeight),
       1.5,
       0.4,
       0.85
@@ -119,8 +121,7 @@ const SkillsGlobe: React.FC<SkillsGlobeProps> = ({ onHoverSkill }) => {
     const mouse = new THREE.Vector2()
 
     const onMouseMove = (event: MouseEvent) => {
-      if (!containerRef.current) return
-      const rect = containerRef.current.getBoundingClientRect()
+      const rect = container.getBoundingClientRect()
 
       mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1
       mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1
@@ -140,9 +141,9 @@ const SkillsGlobe: React.FC<SkillsGlobeProps> = ({ onHoverSkill }) => {
       }
     }
     const onTouchMove = (event: TouchEvent) => {
-      if (!containerRef.current || event.touches.length === 0) return
+      if (event.touches.length === 0) return
 
-      const rect = containerRef.current.getBoundingClientRect()
+      const rect = container.getBoundingClientRect()
       const touch = event.touches[0]
 
       mouse.x = ((touch.clientX - rect.left) / rect.width) * 2 - 1
@@ -163,8 +164,8 @@ const SkillsGlobe: React.FC<SkillsGlobeProps> = ({ onHoverSkill }) => {
       }
     }
 
-    containerRef.current.addEventListener('mousemove', onMouseMove)
-    containerRef.current.addEventListener('touchmove', onTouchMove as EventListener)
+    container.addEventListener('mousemove', onMouseMove)
+    container.addEventListener('touchmove', onTouchMove as EventListener)
 
     const animate = () => {
       requestAnimationFrame(animate)
@@ -174,30 +175,28 @@ const SkillsGlobe: React.FC<SkillsGlobeProps> = ({ onHoverSkill }) => {
 
     animate()
     const handleResize = () => {
-      if (!containerRef.current) return
-
       const newIsMobile = window.innerWidth < 768
       const newSpriteScale = newIsMobile ? 0.3 : 0.4
 
       sprites.forEach((sprite) => {
-        if (sprite.userData.skillName !== hoveredSkill) {
+        if (sprite.userData.skillName !== hoveredSkillRef.current) {
           sprite.scale.set(newSpriteScale, newSpriteScale, 1)
         }
       })
 
-      camera.aspect = containerRef.current.clientWidth / containerRef.current.clientHeight
+      camera.aspect = container.clientWidth / container.clientHeight
       camera.updateProjectionMatrix()
-      renderer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight)
-      composer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight)
+      renderer.setSize(container.clientWidth, container.clientHeight)
+      composer.setSize(container.clientWidth, container.clientHeight)
     }
 
     window.addEventListener('resize', handleResize)
 
     return () => {
-      if (containerRef.current) {
-        containerRef.current.removeChild(renderer.domElement)
-        containerRef.current.removeEventListener('mousemove', onMouseMove)
-        containerRef.current.removeEventListener('touchmove', onTouchMove as EventListener)
+      if (container) {
+        container.removeChild(renderer.domElement)
+        container.removeEventListener('mousemove', onMouseMove)
+        container.removeEventListener('touchmove', onTouchMove as EventListener)
       }
       window.removeEventListener('resize', handleResize)
     }

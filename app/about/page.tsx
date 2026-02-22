@@ -2,10 +2,10 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react'
 import Image from 'next/image'
-import Header from '@/components/Header'
-import BackgroundGlobe from '@/components/BackgroundGlobe'
+import Header from '@/components/layout/Header'
+import BackgroundGlobe from '@/components/common/BackgroundGlobe'
 import { experiences } from '@/data/experiences'
-import Footer from '@/components/Footer'
+import Footer from '@/components/layout/Footer'
 import { useInView } from 'react-intersection-observer'
 import { useMergeRefs } from '@/hooks/use-merge-refs'
 
