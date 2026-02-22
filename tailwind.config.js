@@ -46,8 +46,8 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: ['var(--font-inter)', ...fontFamily.sans],
-        jp: ['var(--font-noto-sans-jp)', 'var(--font-inter)', ...fontFamily.sans],
+        sans: ['var(--font-quicksand)', 'var(--font-zen-maru-gothic)', ...fontFamily.sans],
+        jp: ['var(--font-zen-maru-gothic)', 'var(--font-quicksand)', ...fontFamily.sans]
       },
       borderRadius: {
         lg: 'var(--radius)',

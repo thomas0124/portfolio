@@ -1,9 +1,13 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Noto_Sans_JP } from 'next/font/google'
+import { Quicksand, Zen_Maru_Gothic } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-const notoSansJP = Noto_Sans_JP({ subsets: ['latin'], variable: '--font-noto-sans-jp' })
+const quicksand = Quicksand({ subsets: ['latin'], variable: '--font-quicksand' })
+const zenMaruGothic = Zen_Maru_Gothic({
+  weight: ['300', '400', '500', '700', '900'],
+  subsets: ['latin'],
+  variable: '--font-zen-maru-gothic'
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://portfolio-thomas0124.vercel.app/'),
@@ -42,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ja" className={`${inter.variable} ${notoSansJP.variable}`}>
+    <html lang="ja" className={`${quicksand.variable} ${zenMaruGothic.variable}`}>
       <body className="font-sans">{children}</body>
     </html>
   )
