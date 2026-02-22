@@ -1,6 +1,5 @@
 'use client'
 
-import type React from 'react'
 import { projects } from '@/data/projects'
 import ProjectCard from './ProjectCard'
 import { useProjectCarousel } from '@/hooks/useProjectCarousel'
@@ -9,7 +8,7 @@ export default function ProjectCarousel() {
   const { scrollRef, centerIndex, isMobile } = useProjectCarousel(projects.length)
 
   return (
-    <section className="relative w-full h-auto p-4 md:p-10 overflow-hidden">
+    <section className="relative w-full h-auto p-4 overflow-hidden md:p-10">
       <div
         ref={scrollRef}
         className="flex overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory hide-scrollbar"
@@ -24,14 +23,14 @@ export default function ProjectCarousel() {
           />
         ))}
       </div>
-      <div className="absolute bottom-5 left-0 right-0 flex justify-center space-x-3">
+      <div className="absolute bottom-5 left-0 right-0 flex justify-center gap-3">
         {projects.map((project, index) => (
           <button
             key={`pagination-${project.id}`}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
               centerIndex === index
-                ? 'bg-gradient-to-r from-blue-500 to-cyan-500 scale-125 shadow-md shadow-blue-500/50'
-                : 'bg-gray-400 hover:bg-blue-300'
+                ? 'bg-accent scale-125'
+                : 'bg-border hover:bg-accent/50'
             }`}
             aria-label={`Project ${index + 1} of ${projects.length}`}
             onClick={() => {

@@ -1,10 +1,8 @@
 'use client'
 
 import type React from 'react'
-
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
-import { ChevronRight } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 
 interface NavLinkProps {
@@ -15,68 +13,22 @@ interface NavLinkProps {
 }
 
 const NavLink: React.FC<NavLinkProps> = ({ href, children, isActive = false, onClick }) => {
-  const [isHovered, setIsHovered] = useState(false)
-  const [isAnimating, setIsAnimating] = useState(false)
-
-  // Trigger animation when active state changes
-  useEffect(() => {
-    if (isActive) {
-      setIsAnimating(true)
-      const timer = setTimeout(() => setIsAnimating(false), 1000)
-      return () => clearTimeout(timer)
-    }
-  }, [isActive])
-
   return (
     <Link
       href={href}
-      className={`font-bold relative group transition-all duration-300 ease-in-out py-2 px-3 rounded-lg
-        ${isHovered ? 'scale-105' : ''}
-        ${isActive ? 'bg-gradient-to-r from-blue-900/40 to-cyan-900/20' : 'hover:bg-blue-900/20'}
+      className={`relative py-2 px-3 text-lg font-medium transition-colors duration-300
+        ${isActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}
       `}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       onClick={onClick}
     >
-      <div className="relative z-10">
-        <span
-          className={`
-          text-transparent bg-clip-text bg-gradient-to-r 
-          ${
-            isActive
-              ? 'from-blue-300 to-cyan-200'
-              : 'from-white to-gray-200 group-hover:from-blue-300 group-hover:to-cyan-200'
-          }
-          transition-all duration-300
+      {children}
+      <span
+        className={`
+          absolute left-3 right-3 bottom-0 h-0.5 bg-accent rounded-full
+          transition-transform duration-300 origin-left
+          ${isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}
         `}
-        >
-          {children}
-        </span>
-
-        {/* Active/hover indicator line */}
-        <span
-          className={`
-            block h-0.5 w-full bg-gradient-to-r from-blue-500 to-cyan-400 
-            absolute left-0 bottom-0 transform scale-x-0 
-            ${isActive ? 'scale-x-100' : 'group-hover:scale-x-100'} 
-            transition-transform duration-300 ease-in-out origin-left
-          `}
-        />
-      </div>
-
-      {/* Background glow effect */}
-      {(isActive || isHovered) && (
-        <div
-          className={`
-            absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 
-            rounded-lg blur-sm -z-10 transform scale-105
-            ${isAnimating ? 'animate-pulse-slow' : ''}
-          `}
-        />
-      )}
-
-      {/* Active indicator */}
-      {isActive && <span className="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-blue-400 mr-1" />}
+      />
     </Link>
   )
 }
@@ -86,12 +38,10 @@ const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
     }
-
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -104,41 +54,40 @@ const Header: React.FC = () => {
     <header
       className={`
         font-sans p-2 sticky top-0 z-50 transition-all duration-500
-        ${scrolled ? 'bg-black/60 backdrop-blur-md shadow-lg shadow-blue-900/20' : 'bg-transparent'}
+        ${scrolled ? 'bg-background/80 backdrop-blur-md shadow-sm' : 'bg-transparent'}
       `}
       role="banner"
     >
       <div className="mx-4 my-2 flex flex-wrap justify-between items-center">
         <h1
           className={`
-            text-2xl sm:text-3xl lg:text-4xl font-bold 
-            text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-200
+            text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground
             transition-all duration-500 ease-in-out
             ${scrolled ? 'scale-90 origin-left' : ''}
           `}
         >
-          Thomas&rsquo;s <br className="hidden sm:inline" /> Portfolio
+          {"Thomas's"} <br className="hidden sm:inline" /> Portfolio
         </h1>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex md:items-center md:space-x-4">
+        <nav className="hidden md:flex md:items-center md:gap-2">
           <NavLink href="/" isActive={pathname === '/'}>
-            <span className="text-lg lg:text-xl">Home</span>
+            Home
           </NavLink>
           <NavLink href="/about" isActive={pathname === '/about'}>
-            <span className="text-lg lg:text-xl">About</span>
+            About
           </NavLink>
           <NavLink href="/stack" isActive={pathname === '/stack'}>
-            <span className="text-lg lg:text-xl">My Stack</span>
+            My Stack
           </NavLink>
         </nav>
 
         {/* Mobile Menu Button */}
         <button
           className={`
-            md:hidden text-white p-2 rounded-full focus:outline-none
+            md:hidden text-foreground p-2 rounded-lg focus:outline-none
             transition-all duration-300 ease-in-out
-            ${isMenuOpen ? 'bg-gradient-to-r from-blue-600/50 to-cyan-600/50 rotate-90' : 'hover:bg-blue-900/30'}
+            ${isMenuOpen ? 'bg-secondary' : 'hover:bg-secondary'}
           `}
           onClick={toggleMenu}
           aria-label="Toggle menu"
@@ -146,19 +95,19 @@ const Header: React.FC = () => {
           <div className="relative w-6 h-6">
             <span
               className={`
-                absolute block w-6 h-0.5 bg-gradient-to-r from-blue-300 to-cyan-200 transform transition-all duration-300 ease-in-out
+                absolute block w-6 h-0.5 bg-foreground transform transition-all duration-300 ease-in-out
                 ${isMenuOpen ? 'rotate-45 top-3' : 'top-1'}
               `}
             />
             <span
               className={`
-                absolute block w-6 h-0.5 bg-gradient-to-r from-blue-300 to-cyan-200 top-3 transform transition-all duration-300 ease-in-out
+                absolute block w-6 h-0.5 bg-foreground top-3 transform transition-all duration-300 ease-in-out
                 ${isMenuOpen ? 'opacity-0' : 'opacity-100'}
               `}
             />
             <span
               className={`
-                absolute block w-6 h-0.5 bg-gradient-to-r from-blue-300 to-cyan-200 transform transition-all duration-300 ease-in-out
+                absolute block w-6 h-0.5 bg-foreground transform transition-all duration-300 ease-in-out
                 ${isMenuOpen ? '-rotate-45 top-3' : 'top-5'}
               `}
             />
@@ -166,27 +115,18 @@ const Header: React.FC = () => {
         </button>
       </div>
 
-      {/* Mobile Navigation - Fixed version */}
+      {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden mt-4 bg-black/80 backdrop-blur-sm rounded-xl p-4 border border-blue-900/30 animate-fade-in">
-          <nav className="flex flex-col space-y-2">
+        <div className="md:hidden mt-2 bg-card rounded-lg p-4 border border-border mx-4 animate-fade-in">
+          <nav className="flex flex-col gap-1">
             <NavLink href="/" isActive={pathname === '/'} onClick={toggleMenu}>
-              <div className="flex items-center">
-                <ChevronRight className="h-4 w-4 mr-2 text-blue-400" />
-                <span className="text-lg text-white">Home</span>
-              </div>
+              Home
             </NavLink>
             <NavLink href="/about" isActive={pathname === '/about'} onClick={toggleMenu}>
-              <div className="flex items-center">
-                <ChevronRight className="h-4 w-4 mr-2 text-blue-400" />
-                <span className="text-lg text-white">About</span>
-              </div>
+              About
             </NavLink>
             <NavLink href="/stack" isActive={pathname === '/stack'} onClick={toggleMenu}>
-              <div className="flex items-center">
-                <ChevronRight className="h-4 w-4 mr-2 text-blue-400" />
-                <span className="text-lg text-white">My Stack</span>
-              </div>
+              My Stack
             </NavLink>
           </nav>
         </div>
