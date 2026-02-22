@@ -11,14 +11,15 @@ export default function BackgroundGlobe() {
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (!containerRef.current) return
+    const container = containerRef.current
+    if (!container) return
 
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
 
     renderer.setSize(window.innerWidth, window.innerHeight)
-    containerRef.current.appendChild(renderer.domElement)
+    container.appendChild(renderer.domElement)
 
     const controls = new OrbitControls(camera, renderer.domElement)
     controls.enableDamping = true
@@ -94,8 +95,8 @@ export default function BackgroundGlobe() {
     window.addEventListener('resize', handleResize)
 
     return () => {
-      if (containerRef.current) {
-        containerRef.current.removeChild(renderer.domElement)
+      if (container) {
+        container.removeChild(renderer.domElement)
       }
       window.removeEventListener('resize', handleResize)
     }
