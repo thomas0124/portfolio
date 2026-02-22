@@ -16,12 +16,26 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, isActive = false, onC
   return (
     <Link
       href={href}
-      className={`relative py-2 px-5 rounded-full text-base sm:text-lg font-bold transition-all duration-300 ease-out flex items-center justify-center
-        ${isActive ? 'bg-accent text-accent-foreground shadow-sm scale-105' : 'text-muted-foreground hover:bg-secondary hover:text-foreground hover:scale-105'}
+      // 余白を広めに取り、ゆったりとした印象に
+      className={`relative py-3 px-6 rounded-full text-base font-bold tracking-wide transition-all duration-300 ease-out flex items-center justify-center group
+        ${isActive ? 'text-accent' : 'text-muted-foreground hover:text-accent'}
       `}
       onClick={onClick}
     >
-      {children}
+      {/* アクティブ時に背景をうっすら色付ける */}
+      {isActive && <span className="absolute inset-0 bg-accent/10 rounded-full -z-10" />}
+
+      {/* 文字だけが少し跳ねるアニメーション */}
+      <span className="relative z-10 transition-transform duration-300 group-hover:-translate-y-1 block">
+        {children}
+      </span>
+
+      {/* ホバー/アクティブ時に下から現れるぽってりした丸いドット */}
+      <span
+        className={`absolute bottom-1.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-accent transition-all duration-300 ease-out
+          ${isActive ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-2 scale-50 group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100'}
+        `}
+      />
     </Link>
   )
 }
@@ -32,10 +46,21 @@ const Header: React.FC = () => {
   const pathname = usePathname()
 
   useEffect(() => {
+    let ticking = false
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 30)
+          ticking = false
+        })
+        ticking = true
+      }
     }
-    window.addEventListener('scroll', handleScroll)
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -44,28 +69,38 @@ const Header: React.FC = () => {
   }
 
   return (
-    <div className="sticky top-4 z-50 px-4 w-full flex justify-center pointer-events-none">
+    <div className="fixed top-6 z-50 px-4 w-full flex justify-center pointer-events-none">
       <header
+        // 全体的に角の取れた柔らかいカプセル型を強調
         className={`
-          font-sans transition-all duration-500 w-full max-w-4xl rounded-full pointer-events-auto
-          ${scrolled ? 'bg-background/90 backdrop-blur-md shadow-md py-2 px-6' : 'bg-transparent py-3 px-2'}
+          font-sans transition-all duration-500 w-full max-w-4xl rounded-full pointer-events-auto border
+          ${
+            scrolled
+              ? 'bg-background/85 backdrop-blur-xl border-accent/20 shadow-lg shadow-accent/5 py-3 px-8'
+              : 'bg-transparent border-transparent py-4 px-4'
+          }
         `}
         role="banner"
       >
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center relative">
           <h1
+            // タイトルもシンプルに。ホバー時に全体が少しだけ持ち上がる
             className={`
-              font-bold text-foreground transition-all duration-500 ease-in-out
-              ${scrolled ? 'text-xl sm:text-2xl' : 'text-2xl sm:text-3xl lg:text-4xl'}
+              font-extrabold text-foreground transition-all duration-500 ease-in-out tracking-tight
+              ${scrolled ? 'text-xl' : 'text-2xl sm:text-3xl'}
             `}
           >
-            <Link href="/" onClick={() => setIsMenuOpen(false)}>
+            <Link
+              href="/"
+              onClick={() => setIsMenuOpen(false)}
+              className="inline-block transition-transform duration-300 hover:-translate-y-0.5 hover:text-accent"
+            >
               {"Thomas's"} <br className={scrolled ? 'hidden' : 'hidden sm:inline'} /> Portfolio
             </Link>
           </h1>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex md:items-center md:gap-4">
+          <nav className="hidden md:flex md:items-center md:gap-1">
             <NavLink href="/" isActive={pathname === '/'}>
               Home
             </NavLink>
@@ -83,9 +118,13 @@ const Header: React.FC = () => {
           {/* Mobile Menu Button */}
           <button
             className={`
-              md:hidden text-foreground p-3 rounded-full focus:outline-none
-              transition-all duration-300 ease-in-out
-              ${isMenuOpen ? 'bg-secondary scale-95' : 'hover:bg-secondary hover:scale-105'}
+              md:hidden text-foreground p-4 rounded-full focus:outline-none
+              transition-all duration-300 ease-in-out bg-background/50 backdrop-blur-md border border-accent/10
+              ${
+                isMenuOpen
+                  ? 'bg-accent/10 text-accent shadow-inner'
+                  : 'hover:bg-accent/10 hover:text-accent hover:-translate-y-0.5'
+              }
             `}
             onClick={toggleMenu}
             aria-label="Toggle menu"
@@ -93,19 +132,19 @@ const Header: React.FC = () => {
             <div className="relative w-6 h-5">
               <span
                 className={`
-                  absolute block w-6 h-0.5 bg-foreground rounded-full transform transition-all duration-300 ease-in-out
+                  absolute block w-6 h-0.5 bg-current rounded-full transform transition-all duration-300 ease-in-out
                   ${isMenuOpen ? 'rotate-45 top-2.5' : 'top-0'}
                 `}
               />
               <span
                 className={`
-                  absolute block w-6 h-0.5 bg-foreground rounded-full top-2.5 transform transition-all duration-300 ease-in-out
+                  absolute block w-6 h-0.5 bg-current rounded-full top-2.5 transform transition-all duration-300 ease-in-out
                   ${isMenuOpen ? 'opacity-0 scale-x-0' : 'opacity-100 scale-x-100'}
                 `}
               />
               <span
                 className={`
-                  absolute block w-6 h-0.5 bg-foreground rounded-full transform transition-all duration-300 ease-in-out
+                  absolute block w-6 h-0.5 bg-current rounded-full transform transition-all duration-300 ease-in-out
                   ${isMenuOpen ? '-rotate-45 top-2.5' : 'top-5'}
                 `}
               />
@@ -116,11 +155,12 @@ const Header: React.FC = () => {
         {/* Mobile Navigation */}
         <div
           className={`
-            md:hidden overflow-hidden transition-all duration-300 ease-in-out
-            ${isMenuOpen ? 'max-h-[350px] opacity-100 mt-4' : 'max-h-0 opacity-0 mt-0'}
+            md:hidden overflow-hidden transition-all duration-500 ease-in-out origin-top
+            ${isMenuOpen ? 'max-h-[400px] opacity-100 scale-100 mt-4' : 'max-h-0 opacity-0 scale-95 mt-0'}
           `}
         >
-          <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-4 shadow-inner flex flex-col gap-2">
+          {/* モバイルメニューも絵文字を無くし、シンプルに余白で可愛さを出す */}
+          <div className="bg-background/90 backdrop-blur-xl rounded-3xl p-4 shadow-lg shadow-accent/5 border border-accent/20 flex flex-col gap-1">
             <NavLink href="/" isActive={pathname === '/'} onClick={toggleMenu}>
               Home
             </NavLink>

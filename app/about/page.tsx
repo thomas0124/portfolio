@@ -17,7 +17,7 @@ export default function About() {
       <div className="relative z-10">
         <Header />
 
-        <main className="container mx-auto px-4 py-16 max-w-4xl flex flex-col gap-24">
+        <main className="container mx-auto px-4 py-16 max-w-4xl flex flex-col gap-24 mt-5">
           <section className="relative mt-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
