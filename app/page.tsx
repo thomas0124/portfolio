@@ -18,7 +18,7 @@ export default function Home() {
       <div className="relative z-10 flex flex-col min-h-screen">
         <Header />
 
-        <main className="flex-grow flex flex-col justify-center pb-10">
+        <main className="flex-grow flex flex-col justify-center pt-32 pb-20">
           <HeroSection />
         </main>
         <Footer />

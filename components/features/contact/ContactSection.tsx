@@ -5,7 +5,7 @@ import ContactBox from './ContactBox'
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-8 relative">
+    <section id="contact" className="relative">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

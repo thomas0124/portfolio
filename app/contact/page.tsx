@@ -15,7 +15,7 @@ export default function Contact() {
       <div className="relative z-10 flex flex-col min-h-screen">
         <Header />
 
-        <main className="flex-grow py-12 md:py-20 flex flex-col justify-center">
+        <main className="flex-grow pt-32 pb-20 flex flex-col justify-center">
           <ContactSection />
         </main>
 

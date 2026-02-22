@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 
 export default function HeroSection() {
   return (
-    <section className="flex flex-col justify-center items-center px-4 py-8 relative w-full">
+    <section className="flex flex-col justify-center items-center px-4 relative w-full">
       {/* 背景の可愛いぼかし装飾（デコレーション） */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-3xl -z-10 pointer-events-none" />
 

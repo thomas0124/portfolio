@@ -6,7 +6,7 @@ import ProjectCard from './ProjectCard'
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="relative px-4 py-12">
+    <section id="projects" className="relative px-4">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
