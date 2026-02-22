@@ -19,21 +19,21 @@ export const metadata: Metadata = {
       {
         url: 'https://portfolio-thomas0124.vercel.app/opengraph-image.png',
         width: 1200,
-        height: 630,
-      },
-    ],
+        height: 630
+      }
+    ]
   },
   twitter: {
     card: 'summary_large_image',
     site: '@Tomas_engineer',
     title: "thomas's portfolio",
     description: 'Shimizu Toma - Software Developer Portfolio',
-    images: ['https://portfolio-thomas0124.vercel.app/twitter-image.png'],
-  },
+    images: ['https://portfolio-thomas0124.vercel.app/twitter-image.png']
+  }
 }
 
 export const viewport: Viewport = {
-  themeColor: '#FAF7F2',
+  themeColor: '#FAF7F2'
 }
 
 export default function RootLayout({

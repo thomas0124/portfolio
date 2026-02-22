@@ -6,8 +6,6 @@ import Footer from '@/components/layout/Footer'
 import { useLoading } from '@/hooks/useLoading'
 import { useScrollNavigation } from '@/hooks/useScrollNavigation'
 import HeroSection from '@/components/features/home/HeroSection'
-import ProjectsSection from '@/components/features/projects/ProjectsSection'
-import ContactSection from '@/components/features/contact/ContactSection'
 import ScrollProgress from '@/components/common/ScrollProgress'
 import FloatingNav from '@/components/common/FloatingNav'
 
@@ -20,15 +18,15 @@ export default function Home() {
   }
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden bg-background">
       <ScrollProgress progress={scrollProgress} />
-      <div className="relative z-10">
+      <div className="relative z-10 flex flex-col min-h-screen">
         <Header />
-        <main>
+
+        <main className="flex-grow flex flex-col justify-center pb-10">
           <HeroSection />
-          <ProjectsSection />
-          <ContactSection />
         </main>
+
         <FloatingNav activeSection={activeSection} />
         <Footer />
       </div>

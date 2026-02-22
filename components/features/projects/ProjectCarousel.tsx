@@ -11,14 +11,13 @@ export default function ProjectCarousel() {
     <section className="relative w-full h-auto p-4 overflow-hidden md:p-10">
       <div
         ref={scrollRef}
-        className="flex overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory hide-scrollbar"
+        className="flex overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory hide-scrollbar pb-8"
         style={{ scrollSnapType: 'x mandatory' }}
       >
         {[...projects, ...projects, ...projects].map((project, index) => (
           <ProjectCard
             key={`${project.id}-${Math.floor(index / projects.length)}`}
             project={project}
-            isCenter={index % projects.length === centerIndex}
             index={index % projects.length}
           />
         ))}
@@ -27,10 +26,8 @@ export default function ProjectCarousel() {
         {projects.map((project, index) => (
           <button
             key={`pagination-${project.id}`}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-              centerIndex === index
-                ? 'bg-accent scale-125'
-                : 'bg-border hover:bg-accent/50'
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              centerIndex === index ? 'bg-accent scale-125 shadow-md' : 'bg-border hover:bg-accent/50 hover:scale-110'
             }`}
             aria-label={`Project ${index + 1} of ${projects.length}`}
             onClick={() => {

@@ -15,13 +15,7 @@ const SkillsContainer = () => {
           transition={{ duration: 0.3, delay: index * 0.04 }}
           className="flex items-center gap-3 p-3 rounded-lg bg-secondary/50 border border-transparent transition-all duration-300 hover:border-accent/30 hover:shadow-sm hover:bg-secondary"
         >
-          <Image
-            src={`/${skill.icon}`}
-            alt={skill.name}
-            width={28}
-            height={28}
-            className="w-7 h-7 flex-shrink-0"
-          />
+          <Image src={`/${skill.icon}`} alt={skill.name} width={28} height={28} className="w-7 h-7 flex-shrink-0" />
           <span className="text-sm font-medium text-foreground truncate">{skill.name}</span>
         </motion.div>
       ))}
