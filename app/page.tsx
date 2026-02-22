@@ -2,7 +2,6 @@
 
 import Header from '@/components/layout/Header'
 import LoadScreen from '@/components/common/LoadScreen'
-import BackgroundGlobe from '@/components/common/BackgroundGlobe'
 import Footer from '@/components/layout/Footer'
 import { useLoading } from '@/hooks/useLoading'
 import { useScrollNavigation } from '@/hooks/useScrollNavigation'
@@ -21,15 +20,15 @@ export default function Home() {
   }
 
   return (
-    <div className="relative min-h-screen text-white overflow-hidden perspective-1000">
-      <BackgroundGlobe />
+    <div className="relative min-h-screen overflow-hidden">
       <ScrollProgress progress={scrollProgress} />
-
       <div className="relative z-10">
         <Header />
-        <HeroSection />
-        <ProjectsSection />
-        <ContactSection />
+        <main>
+          <HeroSection />
+          <ProjectsSection />
+          <ContactSection />
+        </main>
         <FloatingNav activeSection={activeSection} />
         <Footer />
       </div>

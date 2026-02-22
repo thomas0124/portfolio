@@ -3,18 +3,17 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import Image from 'next/image'
 import Header from '@/components/layout/Header'
-import BackgroundGlobe from '@/components/common/BackgroundGlobe'
 import { experiences } from '@/data/experiences'
 import Footer from '@/components/layout/Footer'
 import { useInView } from 'react-intersection-observer'
 import { useMergeRefs } from '@/hooks/use-merge-refs'
+import { motion } from 'framer-motion'
 
 export default function Page() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const [isUserInteracting, setIsUserInteracting] = useState(false)
   const timelineRef = useRef<HTMLDivElement>(null)
-  const [scrollProgress, setScrollProgress] = useState(0)
   const interactionTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   const { ref: timelineInViewRef, inView } = useInView({
@@ -22,6 +21,7 @@ export default function Page() {
     triggerOnce: false
   })
   const mergedRef = useMergeRefs(timelineRef, timelineInViewRef)
+
   const startUserInteraction = useCallback(() => {
     setIsUserInteracting(true)
     if (interactionTimeoutRef.current) {
@@ -34,28 +34,20 @@ export default function Page() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (timelineRef.current) {
-        const rect = timelineRef.current.getBoundingClientRect()
-        const windowHeight = window.innerHeight
-        const visibleHeight = Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0)
-        const percentVisible = visibleHeight / rect.height
+      if (timelineRef.current && !isUserInteracting) {
+        const items = timelineRef.current.querySelectorAll('li')
+        let newActiveIndex: number | null = null
 
-        setScrollProgress(Math.max(0, Math.min(1, percentVisible)))
-        if (!isUserInteracting) {
-          const items = timelineRef.current.querySelectorAll('li')
-          let newActiveIndex = null
+        items.forEach((item, index) => {
+          const itemRect = item.getBoundingClientRect()
+          const itemMiddle = itemRect.top + itemRect.height / 2
 
-          items.forEach((item, index) => {
-            const itemRect = item.getBoundingClientRect()
-            const itemMiddle = itemRect.top + itemRect.height / 2
+          if (itemMiddle > window.innerHeight * 0.3 && itemMiddle < window.innerHeight * 0.7) {
+            newActiveIndex = index
+          }
+        })
 
-            if (itemMiddle > window.innerHeight * 0.3 && itemMiddle < window.innerHeight * 0.7) {
-              newActiveIndex = index
-            }
-          })
-
-          setActiveIndex(newActiveIndex)
-        }
+        setActiveIndex(newActiveIndex)
       }
     }
 
@@ -77,139 +69,109 @@ export default function Page() {
 
     return () => clearInterval(interval)
   }, [inView, isUserInteracting, hoveredIndex])
+
   const handleTimelineMouseEnter = useCallback(() => {
     startUserInteraction()
   }, [startUserInteraction])
+
   const effectiveActiveIndex = hoveredIndex !== null ? hoveredIndex : activeIndex
 
   return (
-    <div className="min-h-screen text-white perspective-1000">
-      <BackgroundGlobe />
+    <div className="min-h-screen">
       <div className="relative z-10 flex flex-col min-h-screen">
         <Header />
         <main className="container mx-auto px-4 py-8 flex-grow">
-          <div className="bg-opacity-70 rounded-lg mb-12">
-            <div className="flex flex-col lg:flex-row gap-8">
-              <div className="w-full lg:w-1/3 bg-black bg-opacity-30 backdrop-blur-sm p-6 rounded-xl transform transition-all duration-700 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]">
-                <div className="w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-6 rounded-full overflow-hidden ring-4 ring-blue-500 shadow-lg relative group">
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-30 transition-opacity duration-700 z-10"></div>
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-70 group-hover:opacity-100 animate-spin-slow blur-sm"></div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-12"
+          >
+            <div className="flex flex-col gap-8 lg:flex-row">
+              {/* Profile Card */}
+              <div className="w-full lg:w-1/3 bg-card p-8 rounded-xl border border-border transition-all duration-300 hover:shadow-md">
+                <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-2 border-border sm:w-40 sm:h-40">
                   <Image
                     src="/profile.jpg"
-                    alt="Profile illustration"
+                    alt="Shimizu Toma"
                     width={160}
                     height={160}
-                    className="w-full h-full object-cover relative z-0 transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-200">
+                <h2 className="text-2xl font-bold text-center mb-6 text-foreground sm:text-3xl">
                   Shimizu Toma
-                </div>
-                <div className="mb-8 transform transition-all duration-500 hover:translate-x-1">
-                  <h3 className="font-bold mb-2 text-xl sm:text-2xl text-blue-400 relative inline-block">
+                </h2>
+                <div className="mb-8">
+                  <h3 className="font-bold mb-2 text-lg text-accent">
                     PROFILE
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-700 group-hover:w-full"></span>
                   </h3>
-                  <p className="text-gray-300">名城大学</p>
-                  <p className="text-gray-300">理工学研究科 情報工学専攻修士1年</p>
+                  <p className="text-muted-foreground leading-relaxed">名城大学</p>
+                  <p className="text-muted-foreground leading-relaxed">理工学研究科 情報工学専攻修士1年</p>
                 </div>
-                <hr className="border-gray-600 mb-8 opacity-50" />
+                <hr className="border-border mb-8" />
                 <div>
-                  <h3 className="font-bold mb-4 text-xl sm:text-2xl text-blue-400">SNS</h3>
-                  <div className="flex justify-center space-x-6">
+                  <h3 className="font-bold mb-4 text-lg text-accent">SNS</h3>
+                  <div className="flex justify-center gap-6">
                     <a
                       href="https://github.com/thomas0124"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative group"
+                      className="transition-transform duration-300 hover:scale-110"
                     >
-                      <div className="absolute -inset-2 rounded-full bg-white opacity-100 group-hover:opacity-80 blur-md transition-all duration-500 group-hover:duration-200"></div>
-                      <Image
-                        src="/github.svg"
-                        alt="GitHub"
-                        width={48}
-                        height={48}
-                        className="text-white relative transform transition-all duration-500 group-hover:scale-110 z-10"
-                      />
+                      <Image src="/github.svg" alt="GitHub" width={40} height={40} />
                     </a>
                     <a
                       href="https://www.instagram.com/tomas_03124"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative group"
+                      className="transition-transform duration-300 hover:scale-110"
                     >
-                      <div className="absolute -inset-2 rounded-full bg-white opacity-100 group-hover:opacity-80 blur-md transition-all duration-500 group-hover:duration-200"></div>
-                      <Image
-                        src="/instagram.svg"
-                        alt="Instagram"
-                        width={48}
-                        height={48}
-                        className="text-white relative transform transition-all duration-500 group-hover:scale-110 z-10"
-                      />
+                      <Image src="/instagram.svg" alt="Instagram" width={40} height={40} />
                     </a>
                     <a
                       href="https://x.com/Tomas_engineer"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative group"
+                      className="transition-transform duration-300 hover:scale-110"
                     >
-                      <div className="absolute -inset-2 rounded-full bg-white opacity-100 group-hover:opacity-80 blur-md transition-all duration-500 group-hover:duration-200"></div>
-                      <Image
-                        src="/twitter.svg"
-                        alt="X"
-                        width={48}
-                        height={48}
-                        className="text-white relative transform transition-all duration-500 group-hover:scale-110 z-10"
-                      />
+                      <Image src="/twitter.svg" alt="X" width={40} height={40} />
                     </a>
                   </div>
                 </div>
               </div>
 
-              <div className="w-full lg:w-2/3 bg-black bg-opacity-30 backdrop-blur-sm p-6 rounded-xl transform transition-all duration-700 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]">
-                <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-200 relative inline-block">
+              {/* Experience Timeline */}
+              <div className="w-full lg:w-2/3 bg-card p-8 rounded-xl border border-border">
+                <h2 className="text-2xl font-bold mb-2 text-foreground relative inline-block sm:text-3xl">
                   ABOUT ME
-                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400"></span>
+                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-accent" />
                 </h2>
-                <h3 className="text-xl sm:text-2xl font-bold mb-6 text-blue-400 flex items-center">
-                  <span className="mr-2">EXPERIENCE</span>
-                  <div className="h-1 flex-grow rounded-full bg-gray-700 overflow-hidden">
-                    <div
-                      className="h-full bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full transition-all duration-1000 ease-out"
-                      style={{ width: `${scrollProgress * 100}%` }}
-                    ></div>
-                  </div>
+                <h3 className="text-lg font-bold mb-6 mt-6 text-accent flex items-center sm:text-xl">
+                  EXPERIENCE
                 </h3>
                 <div
                   ref={mergedRef}
                   className={`relative pl-6 mb-6 transition-opacity duration-1000 ${inView ? 'opacity-100' : 'opacity-0'}`}
                   onMouseEnter={handleTimelineMouseEnter}
                 >
-                  <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-400 via-blue-500 to-cyan-400">
-                    <div
-                      className="absolute top-0 left-0 w-full bg-gradient-to-b from-blue-400 via-blue-500 to-cyan-400 transition-all duration-1000 ease-out"
-                      style={{
-                        height: `${scrollProgress * 100}%`,
-                        boxShadow: '0 0 10px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.3)'
-                      }}
-                    ></div>
-                  </div>
-                  <ul className="space-y-4 sm:space-y-6">
+                  {/* Timeline line */}
+                  <div className="absolute left-4 top-0 bottom-0 w-px bg-border" />
+
+                  <ul className="flex flex-col gap-3">
                     {experiences.map((experience, index) => {
                       const isActive = effectiveActiveIndex === index
-                      const year = experience.split('年')[0]
-                      const month = experience.split('年')[1]?.split('月')[0]
+                      const year = experience.split('\u5E74')[0]
+                      const month = experience.split('\u5E74')[1]?.split('\u6708')[0]
                       const content = experience.split(': ')[1]
 
                       return (
                         <li
                           key={index}
-                          className={`relative transition-all duration-700 ${inView ? 'opacity-100' : 'opacity-0'} ${
-                            isActive ? 'translate-x-2 scale-105' : ''
+                          className={`relative transition-all duration-500 ${inView ? 'opacity-100' : 'opacity-0'} ${
+                            isActive ? 'translate-x-1' : ''
                           }`}
-                          style={{
-                            transitionDelay: `${index * 100}ms`
-                          }}
+                          style={{ transitionDelay: `${index * 80}ms` }}
                           onMouseEnter={() => {
                             setHoveredIndex(index)
                             startUserInteraction()
@@ -218,51 +180,40 @@ export default function Page() {
                             setHoveredIndex(null)
                           }}
                         >
+                          {/* Timeline dot */}
                           <div
-                            className={`absolute -left-4 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 rounded-full border-4 border-gray-800 transition-all duration-500 z-10 ${
-                              isActive ? 'scale-125' : ''
+                            className={`absolute -left-4 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full border-2 transition-all duration-300 z-10 ${
+                              isActive
+                                ? 'bg-accent border-accent scale-125'
+                                : 'bg-background border-border'
                             }`}
-                            style={{
-                              background: isActive ? 'linear-gradient(to right, #3b82f6, #06b6d4)' : '#3b82f6',
-                              boxShadow: isActive
-                                ? '0 0 15px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.4)'
-                                : 'none'
-                            }}
-                          >
-                            {isActive && (
-                              <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full rounded-full bg-blue-400 animate-ping-fast opacity-75"></span>
-                            )}
-                          </div>
+                          />
 
                           <div
-                            className={`ml-4 p-3 rounded-lg transition-all duration-500 transform ${
+                            className={`ml-4 p-3 rounded-lg transition-all duration-300 ${
                               isActive
-                                ? 'bg-gradient-to-r from-blue-900/40 to-cyan-900/20 scale-105 -rotate-1 shadow-[0_0_15px_rgba(59,130,246,0.3)]'
-                                : 'hover:bg-blue-900/20'
+                                ? 'bg-secondary shadow-sm'
+                                : 'hover:bg-secondary/50'
                             }`}
                           >
-                            <div className="flex flex-col sm:flex-row sm:items-center mb-1">
-                              <div
-                                className={`text-xs font-mono px-2 py-0.5 rounded-md mr-2 mb-1 sm:mb-0 inline-block transition-all duration-500 ${
+                            <div className="flex flex-col gap-1 sm:flex-row sm:items-center">
+                              <span
+                                className={`text-xs font-mono px-2 py-0.5 rounded-md mr-2 inline-block transition-all duration-300 ${
                                   isActive
-                                    ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white'
-                                    : 'bg-blue-900/40 text-blue-300'
+                                    ? 'bg-accent text-accent-foreground'
+                                    : 'bg-secondary text-muted-foreground'
                                 }`}
                               >
-                                {year}年{month}月
-                              </div>
+                                {year}{'\u5E74'}{month}{'\u6708'}
+                              </span>
                               <span
-                                className={`text-sm sm:text-base transition-all duration-500 ${
-                                  isActive ? 'text-white' : 'text-gray-300'
+                                className={`text-sm transition-colors duration-300 sm:text-base ${
+                                  isActive ? 'text-foreground' : 'text-muted-foreground'
                                 }`}
                               >
                                 {content}
                               </span>
                             </div>
-
-                            {isActive && (
-                              <div className="h-0.5 w-0 bg-gradient-to-r from-blue-500 to-cyan-400 mt-1 animate-expand-width"></div>
-                            )}
                           </div>
                         </li>
                       )
@@ -271,7 +222,7 @@ export default function Page() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </main>
 
         <Footer />

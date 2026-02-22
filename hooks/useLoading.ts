@@ -4,15 +4,15 @@ export function useLoading() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const hasLoaded = localStorage.getItem('hasLoaded')
+    const hasLoaded = sessionStorage.getItem('hasLoaded')
 
     if (hasLoaded) {
       setLoading(false)
     } else {
       const timer = setTimeout(() => {
         setLoading(false)
-        localStorage.setItem('hasLoaded', 'true')
-      }, 10000)
+        sessionStorage.setItem('hasLoaded', 'true')
+      }, 2000)
 
       return () => clearTimeout(timer)
     }
