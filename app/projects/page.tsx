@@ -15,7 +15,7 @@ export default function Projects() {
       <div className="relative z-10 flex flex-col min-h-screen">
         <Header />
 
-        <main className="flex-grow py-12 md:py-20">
+        <main className="flex-grow pt-32 pb-20">
           <ProjectsSection />
         </main>
 
