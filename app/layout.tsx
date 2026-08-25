@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Quicksand, Zen_Maru_Gothic } from 'next/font/google'
 import './globals.css'
+import { Providers } from './providers'
 
 const quicksand = Quicksand({ subsets: ['latin'], variable: '--font-quicksand' })
 const zenMaruGothic = Zen_Maru_Gothic({
@@ -46,8 +47,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ja" className={`${quicksand.variable} ${zenMaruGothic.variable}`}>
-      <body className="font-sans">{children}</body>
+    <html lang="ja" suppressHydrationWarning className={`${quicksand.variable} ${zenMaruGothic.variable}`}>
+      <body className="font-sans">
+        <Providers>{children}</Providers>
+      </body>
     </html>
   )
 }
