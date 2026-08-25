@@ -4,6 +4,8 @@ import type React from 'react'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
+import { useTheme } from 'next-themes'
+import { Sun, Moon } from 'lucide-react'
 
 interface NavLinkProps {
   href: string
@@ -44,6 +46,17 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
+  const { theme, setTheme } = useTheme()
+
+  const ThemeToggle = () => (
+    <button
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      aria-label="テーマ切り替え"
+      className="p-2 rounded-md text-foreground/70 hover:text-foreground hover:bg-muted transition-colors"
+    >
+      {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+    </button>
+  )
 
   useEffect(() => {
     let ticking = false
@@ -113,6 +126,7 @@ const Header: React.FC = () => {
             <NavLink href="/contact" isActive={pathname === '/contact'}>
               Contact
             </NavLink>
+            <ThemeToggle />
           </nav>
 
           {/* Mobile Menu Button */}
@@ -173,6 +187,9 @@ const Header: React.FC = () => {
             <NavLink href="/contact" isActive={pathname === '/contact'} onClick={toggleMenu}>
               Contact
             </NavLink>
+            <div className="flex justify-center pt-1">
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       </header>
