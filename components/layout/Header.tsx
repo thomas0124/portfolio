@@ -46,17 +46,25 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
 
-  const ThemeToggle = () => (
-    <button
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      aria-label="テーマ切り替え"
-      className="p-2 rounded-md text-foreground/70 hover:text-foreground hover:bg-muted transition-colors"
-    >
-      {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-    </button>
-  )
+  const ThemeToggle = () => {
+    if (!mounted) return <div className="p-2 rounded-md w-8 h-8" />
+    return (
+      <button
+        onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+        aria-label="テーマ切り替え"
+        className="p-2 rounded-md text-foreground/70 hover:text-foreground hover:bg-muted transition-colors"
+      >
+        {resolvedTheme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+      </button>
+    )
+  }
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     let ticking = false
