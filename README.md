@@ -63,6 +63,7 @@ dockerfile
 - Tailwind CSS
 - Shadcn/ui
 - Lucide
+- next-themes
 - Open Graph
 - ESLint
 - Prettier

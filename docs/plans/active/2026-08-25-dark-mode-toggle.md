@@ -1,6 +1,6 @@
 # dark-mode-toggle
 
-- Status: Draft
+- Status: In Review
 - Owner: Claude Code
 - Date: 2026-08-25
 - Related request: ダークモード・ライトモードを手動で切り替えできるトグルボタンを追加する
@@ -137,8 +137,8 @@
 
 - [x] Plan reviewed
 - [x] Branch created（feat/dark-mode-toggle）
-- [ ] Implementation started
-- [ ] Review artifact created
-- [ ] Verification artifact created
-- [ ] Test artifact created
+- [x] Implementation started
+- [x] Review artifact created
+- [x] Verification artifact created
+- [x] Test artifact created
 - [ ] PR created
