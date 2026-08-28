@@ -1,10 +1,13 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
 import { experiences } from '@/data/experiences'
+import OGPreviewCard from './OGPreviewCard'
 
 export default function ExperienceSection() {
+  const [hovered, setHovered] = useState<{ url: string; rect: DOMRect } | null>(null)
   const sortedExperiences = [...experiences].reverse()
 
   const getCategoryStyle = (category?: string) => {
@@ -43,6 +46,8 @@ export default function ExperienceSection() {
                   transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
                   viewport={{ once: true, margin: '-50px' }}
                   className="relative group px-4 md:px-6"
+                  onMouseEnter={item.url ? (e) => setHovered({ url: item.url!, rect: e.currentTarget.getBoundingClientRect() }) : undefined}
+                  onMouseLeave={item.url ? () => setHovered(null) : undefined}
                 >
                   <div className="absolute top-0 left-0 w-full h-0 border-t-[3px] border-dashed border-accent/30 -z-10" />
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-accent rounded-full border-4 border-background shadow-sm transition-transform duration-300 group-hover:scale-150 z-10" />
@@ -86,6 +91,7 @@ export default function ExperienceSection() {
           </div>
         </div>
       </div>
+      {hovered && <OGPreviewCard url={hovered.url} cardRect={hovered.rect} />}
     </section>
   )
 }
