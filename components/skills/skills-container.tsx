@@ -36,7 +36,7 @@ const SkillsContainer = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: index * 0.04 }}
             className="relative flex items-center gap-3 p-3 rounded-lg bg-secondary/50 border border-transparent transition-all duration-300 hover:border-accent/30 hover:shadow-sm hover:bg-secondary"
-            onMouseEnter={() => hasArticles && setActiveSkill(skill.name)}
+            onMouseEnter={() => { if (hasArticles) setActiveSkill(skill.name) }}
             onMouseLeave={() => setActiveSkill(null)}
             onClick={() => {
               if (hasArticles) {
@@ -57,7 +57,7 @@ const SkillsContainer = () => {
               <div className="absolute z-50 bottom-full left-1/2 -translate-x-1/2 mb-2 w-56 bg-card border border-accent/20 rounded-lg shadow-lg p-3">
                 <p className="text-xs font-semibold text-muted-foreground mb-2">関連記事</p>
                 <ul className="space-y-1">
-                  {skill.articles!.map((article) => (
+                  {skill.articles?.map((article) => (
                     <li key={article.url}>
                       <Link
                         href={article.url}
