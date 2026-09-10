@@ -19,7 +19,7 @@ const ROLES = [
   'Software Developer',
   'Hackathon Winner',
   'Full-Stack Developer',
-  'Unity Developer',
+  'AI Engineer',
 ]
 
 function useTypewriter(words: string[]) {
