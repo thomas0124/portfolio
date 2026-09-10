@@ -12,7 +12,7 @@ export default function About() {
   const { scrollProgress } = useScrollNavigation()
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-background">
+    <div className="relative min-h-screen overflow-hidden bg-transparent">
       <ScrollProgress progress={scrollProgress} />
       <div className="relative z-10">
         <Header />

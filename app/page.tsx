@@ -14,7 +14,7 @@ export default function Home() {
   }
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-background">
+    <div className="relative min-h-screen overflow-hidden bg-transparent">
       <div className="relative z-10 flex flex-col min-h-screen">
         <Header />
 
