@@ -60,7 +60,7 @@ done
 
 # --- Settings file must reference only existing hook scripts ---
 if [ -f .claude/settings.json ]; then
-  grep -o '"\./.claude/hooks/[^"]*"' .claude/settings.json 2>/dev/null | tr -d '"' | while IFS= read -r hook_path; do
+  grep -o '"\./.claude/hooks/[^"]*"' .claude/settings.json 2>/dev/null | tr -d '"' | awk '{print $1}' | sort -u | while IFS= read -r hook_path; do
     if [ ! -f "$hook_path" ]; then
       fail "Settings file .claude/settings.json references missing hook: $hook_path"
     fi
