@@ -10,8 +10,8 @@ export default function ContactSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.28 }}
+          viewport={{ once: true, margin: '-20px' }}
           className="text-center mb-10"
         >
           <h2 className="text-3xl font-extrabold text-foreground inline-block relative md:text-4xl">
@@ -26,7 +26,7 @@ export default function ContactSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.28, delay: 0.1 }}
           viewport={{ once: true, margin: '-100px' }}
         >
           <div className="max-w-2xl mx-auto bg-card/80 backdrop-blur-sm p-8 rounded-3xl border-2 border-border shadow-md">

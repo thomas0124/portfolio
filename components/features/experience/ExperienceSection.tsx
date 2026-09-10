@@ -43,8 +43,8 @@ export default function ExperienceSection() {
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
-                  viewport={{ once: true, margin: '-50px' }}
+                  transition={{ duration: 0.28, delay: (index % 3) * 0.05 }}
+                  viewport={{ once: true, margin: '0px' }}
                   className="relative group px-4 md:px-6"
                   onMouseEnter={item.url ? (e) => setHovered({ url: item.url!, rect: e.currentTarget.getBoundingClientRect() }) : undefined}
                   onMouseLeave={item.url ? () => setHovered(null) : undefined}

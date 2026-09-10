@@ -13,10 +13,10 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => (
   <motion.div
-    initial={{ opacity: 0, y: 30 }}
+    initial={{ opacity: 0, y: 12 }}
     whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5, delay: index * 0.1 }}
-    viewport={{ once: true, margin: '-50px' }}
+    transition={{ duration: 0.28, delay: index * 0.05 }}
+    viewport={{ once: true, margin: '0px' }}
     className="group flex flex-col justify-between h-full bg-card/60 backdrop-blur-md border-2 border-border/60 p-8 rounded-[2.5rem] shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-accent/40 hover:bg-card"
   >
     <div>

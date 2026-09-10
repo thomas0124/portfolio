@@ -9,10 +9,10 @@ export default function ProjectsSection() {
     <section id="projects" className="relative px-4">
       <div className="container mx-auto max-w-6xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.28 }}
+          viewport={{ once: true, margin: '-20px' }}
           className="text-center mb-12"
         >
           <div className="inline-block relative">
