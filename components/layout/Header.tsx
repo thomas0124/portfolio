@@ -94,10 +94,10 @@ const Header: React.FC = () => {
       <header
         // 全体的に角の取れた柔らかいカプセル型を強調
         className={`
-          font-sans transition-all duration-500 w-full max-w-4xl rounded-full pointer-events-auto border
+          font-sans transition-[background-color,border-color,box-shadow,padding] duration-200 w-full max-w-4xl rounded-full pointer-events-auto border
           ${
             scrolled
-              ? 'bg-background/85 backdrop-blur-xl border-accent/20 shadow-lg shadow-accent/5 py-3 px-8'
+              ? 'bg-background/85 backdrop-blur-md border-accent/20 shadow-lg shadow-accent/5 py-3 px-8'
               : 'bg-transparent border-transparent py-4 px-4'
           }
         `}
@@ -107,7 +107,7 @@ const Header: React.FC = () => {
           <h1
             // タイトルもシンプルに。ホバー時に全体が少しだけ持ち上がる
             className={`
-              font-extrabold text-foreground transition-all duration-500 ease-in-out tracking-tight
+              font-extrabold text-foreground transition-[font-size,color] duration-200 ease-out tracking-tight
               ${scrolled ? 'text-xl' : 'text-2xl sm:text-3xl'}
             `}
           >
@@ -177,7 +177,7 @@ const Header: React.FC = () => {
         {/* Mobile Navigation */}
         <div
           className={`
-            md:hidden overflow-hidden transition-all duration-500 ease-in-out origin-top
+            md:hidden overflow-hidden transition-[max-height,opacity,transform] duration-300 ease-in-out origin-top
             ${isMenuOpen ? 'max-h-[400px] opacity-100 scale-100 mt-4' : 'max-h-0 opacity-0 scale-95 mt-0'}
           `}
         >

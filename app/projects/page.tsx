@@ -3,15 +3,12 @@
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import ScrollProgress from '@/components/common/ScrollProgress'
-import { useScrollNavigation } from '@/hooks/useScrollNavigation'
 import ProjectsSection from '@/components/features/projects/ProjectsSection'
 
 export default function Projects() {
-  const { scrollProgress } = useScrollNavigation()
-
   return (
     <div className="relative min-h-screen overflow-hidden bg-transparent">
-      <ScrollProgress progress={scrollProgress} />
+      <ScrollProgress />
       <div className="relative z-10 flex flex-col min-h-screen">
         <Header />
 

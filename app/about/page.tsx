@@ -5,15 +5,12 @@ import Footer from '@/components/layout/Footer'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import ScrollProgress from '@/components/common/ScrollProgress'
-import { useScrollNavigation } from '@/hooks/useScrollNavigation'
 import ExperienceSection from '@/components/features/experience/ExperienceSection'
 
 export default function About() {
-  const { scrollProgress } = useScrollNavigation()
-
   return (
     <div className="relative min-h-screen overflow-hidden bg-transparent">
-      <ScrollProgress progress={scrollProgress} />
+      <ScrollProgress />
       <div className="relative z-10">
         <Header />
 
