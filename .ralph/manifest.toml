@@ -1,0 +1,1483 @@
+[meta]
+version = '1.2.1'
+created = '2026-09-10T05:58:41Z'
+updated = '2026-09-10T05:58:41Z'
+packs = ['dart', 'golang', 'python', 'rust', 'terraform', 'typescript']
+layout = 'v2'
+
+[files]
+[files.'.agents/skills/.gitkeep']
+hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+managed = true
+state = 'managed'
+template_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+disk_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.agents/skills/anti-bottleneck/SKILL.md']
+hash = 'sha256:7f4cb808c762f1ca8847d6837db02b9ee26a1fa94e391b602f8d46b4d343ae1a'
+managed = true
+state = 'managed'
+template_hash = 'sha256:7f4cb808c762f1ca8847d6837db02b9ee26a1fa94e391b602f8d46b4d343ae1a'
+disk_hash = 'sha256:7f4cb808c762f1ca8847d6837db02b9ee26a1fa94e391b602f8d46b4d343ae1a'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.agents/skills/audit-harness/SKILL.md']
+hash = 'sha256:a048552a1afa420c26b404e8d9845977f76800397878d10c89fa0870aa549029'
+managed = true
+state = 'managed'
+template_hash = 'sha256:a048552a1afa420c26b404e8d9845977f76800397878d10c89fa0870aa549029'
+disk_hash = 'sha256:a048552a1afa420c26b404e8d9845977f76800397878d10c89fa0870aa549029'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.agents/skills/cross-review/SKILL.md']
+hash = 'sha256:f21c61cc0e9a3d14f0493e07f43110d96ea4d1e7c1632a27abb9882f40fc5d82'
+managed = true
+state = 'managed'
+template_hash = 'sha256:f21c61cc0e9a3d14f0493e07f43110d96ea4d1e7c1632a27abb9882f40fc5d82'
+disk_hash = 'sha256:f21c61cc0e9a3d14f0493e07f43110d96ea4d1e7c1632a27abb9882f40fc5d82'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.agents/skills/org/SKILL.md']
+hash = 'sha256:f89da0549d0e4fa67560c70b84c77e6bd1a915ae322c786b9cdaff6718672b0f'
+managed = true
+state = 'managed'
+template_hash = 'sha256:f89da0549d0e4fa67560c70b84c77e6bd1a915ae322c786b9cdaff6718672b0f'
+disk_hash = 'sha256:f89da0549d0e4fa67560c70b84c77e6bd1a915ae322c786b9cdaff6718672b0f'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.agents/skills/plan/SKILL.md']
+hash = 'sha256:b124dd4d846d9f026480b90286e1146c37d2c7fd8906fab96a00cd4c4a5e6bfc'
+managed = true
+state = 'managed'
+template_hash = 'sha256:b124dd4d846d9f026480b90286e1146c37d2c7fd8906fab96a00cd4c4a5e6bfc'
+disk_hash = 'sha256:b124dd4d846d9f026480b90286e1146c37d2c7fd8906fab96a00cd4c4a5e6bfc'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.agents/skills/plan/template.md']
+hash = 'sha256:4bbb9f0869cddf08306912da4a6dd2856221cd954b7f623c039ce3e6da82f2d5'
+managed = true
+state = 'managed'
+template_hash = 'sha256:4bbb9f0869cddf08306912da4a6dd2856221cd954b7f623c039ce3e6da82f2d5'
+disk_hash = 'sha256:4bbb9f0869cddf08306912da4a6dd2856221cd954b7f623c039ce3e6da82f2d5'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.agents/skills/pr/SKILL.md']
+hash = 'sha256:d482a21d798cea97b8694f9e080e5909dc6f4c651659471f2938f097d25b753e'
+managed = true
+state = 'managed'
+template_hash = 'sha256:d482a21d798cea97b8694f9e080e5909dc6f4c651659471f2938f097d25b753e'
+disk_hash = 'sha256:d482a21d798cea97b8694f9e080e5909dc6f4c651659471f2938f097d25b753e'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.agents/skills/pr/template.md']
+hash = 'sha256:183ac91504cd9806f6f22e04a7481fdd0917a91fa9060e1238a973a7f78f5976'
+managed = true
+state = 'managed'
+template_hash = 'sha256:183ac91504cd9806f6f22e04a7481fdd0917a91fa9060e1238a973a7f78f5976'
+disk_hash = 'sha256:183ac91504cd9806f6f22e04a7481fdd0917a91fa9060e1238a973a7f78f5976'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.agents/skills/self-review/SKILL.md']
+hash = 'sha256:9ae48e5437924e24b86305a6872c83be07300f7f248d7470a67e8e1984bc26b4'
+managed = true
+state = 'managed'
+template_hash = 'sha256:9ae48e5437924e24b86305a6872c83be07300f7f248d7470a67e8e1984bc26b4'
+disk_hash = 'sha256:9ae48e5437924e24b86305a6872c83be07300f7f248d7470a67e8e1984bc26b4'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.agents/skills/self-review/template.md']
+hash = 'sha256:612114df7782e217872cd653d8c94356d597d15524be84fc006f518ba6874a4b'
+managed = true
+state = 'managed'
+template_hash = 'sha256:612114df7782e217872cd653d8c94356d597d15524be84fc006f518ba6874a4b'
+disk_hash = 'sha256:612114df7782e217872cd653d8c94356d597d15524be84fc006f518ba6874a4b'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.agents/skills/spec/SKILL.md']
+hash = 'sha256:2da8b4e721f1475568025aaa26b77658ece8bb381c7add0ceff0f10b513628f8'
+managed = true
+state = 'managed'
+template_hash = 'sha256:2da8b4e721f1475568025aaa26b77658ece8bb381c7add0ceff0f10b513628f8'
+disk_hash = 'sha256:2da8b4e721f1475568025aaa26b77658ece8bb381c7add0ceff0f10b513628f8'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.agents/skills/spec/template.md']
+hash = 'sha256:e550a4ebc995e23de71080d25f9df37a30c051fb6c77eb4104722e73fc933cbc'
+managed = true
+state = 'managed'
+template_hash = 'sha256:e550a4ebc995e23de71080d25f9df37a30c051fb6c77eb4104722e73fc933cbc'
+disk_hash = 'sha256:e550a4ebc995e23de71080d25f9df37a30c051fb6c77eb4104722e73fc933cbc'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.agents/skills/sync-docs/SKILL.md']
+hash = 'sha256:de8bd60f583c048a9de5eee0dbcc2dd2faca9092db1d67d327b5ed5ebce1511c'
+managed = true
+state = 'managed'
+template_hash = 'sha256:de8bd60f583c048a9de5eee0dbcc2dd2faca9092db1d67d327b5ed5ebce1511c'
+disk_hash = 'sha256:de8bd60f583c048a9de5eee0dbcc2dd2faca9092db1d67d327b5ed5ebce1511c'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.agents/skills/test/SKILL.md']
+hash = 'sha256:00363a243ca8e1d6003cee5f76793504b2a60701c5088baee688309230c589aa'
+managed = true
+state = 'managed'
+template_hash = 'sha256:00363a243ca8e1d6003cee5f76793504b2a60701c5088baee688309230c589aa'
+disk_hash = 'sha256:00363a243ca8e1d6003cee5f76793504b2a60701c5088baee688309230c589aa'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.agents/skills/test/template.md']
+hash = 'sha256:0a5f495254747dc9f7ef24ee42ebcb8c6207ac294fe16c09ecd8851ba0c373a2'
+managed = true
+state = 'managed'
+template_hash = 'sha256:0a5f495254747dc9f7ef24ee42ebcb8c6207ac294fe16c09ecd8851ba0c373a2'
+disk_hash = 'sha256:0a5f495254747dc9f7ef24ee42ebcb8c6207ac294fe16c09ecd8851ba0c373a2'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.agents/skills/verify/SKILL.md']
+hash = 'sha256:7f102d0e08bcaf848d20f89c7680bb50efd0e9cfde8e4cf98f15c425e039ee43'
+managed = true
+state = 'managed'
+template_hash = 'sha256:7f102d0e08bcaf848d20f89c7680bb50efd0e9cfde8e4cf98f15c425e039ee43'
+disk_hash = 'sha256:7f102d0e08bcaf848d20f89c7680bb50efd0e9cfde8e4cf98f15c425e039ee43'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.agents/skills/verify/template.md']
+hash = 'sha256:ec2a97593c5e2bff24f1ae8e63a1e2ba2af73296aede6a0b6469c68be46fa602'
+managed = true
+state = 'managed'
+template_hash = 'sha256:ec2a97593c5e2bff24f1ae8e63a1e2ba2af73296aede6a0b6469c68be46fa602'
+disk_hash = 'sha256:ec2a97593c5e2bff24f1ae8e63a1e2ba2af73296aede6a0b6469c68be46fa602'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.agents/skills/work/SKILL.md']
+hash = 'sha256:513fef8a50f5e2f844e5e1e88aae7da802aeffbfbdb4597eedeb586f281e49a1'
+managed = true
+state = 'managed'
+template_hash = 'sha256:513fef8a50f5e2f844e5e1e88aae7da802aeffbfbdb4597eedeb586f281e49a1'
+disk_hash = 'sha256:513fef8a50f5e2f844e5e1e88aae7da802aeffbfbdb4597eedeb586f281e49a1'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/agents/doc-maintainer.md']
+hash = 'sha256:af90cf758a3f65b162daf1e656bc26956fbb45fdc8706c15734ec45012b6829d'
+managed = true
+state = 'managed'
+template_hash = 'sha256:af90cf758a3f65b162daf1e656bc26956fbb45fdc8706c15734ec45012b6829d'
+disk_hash = 'sha256:af90cf758a3f65b162daf1e656bc26956fbb45fdc8706c15734ec45012b6829d'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/agents/implementer.md']
+hash = 'sha256:38c051b58d5d46ca1076b18abdd533b62d0eb3d026dfd95c8ca06bb424fb36c4'
+managed = true
+state = 'managed'
+template_hash = 'sha256:38c051b58d5d46ca1076b18abdd533b62d0eb3d026dfd95c8ca06bb424fb36c4'
+disk_hash = 'sha256:38c051b58d5d46ca1076b18abdd533b62d0eb3d026dfd95c8ca06bb424fb36c4'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/agents/reviewer.md']
+hash = 'sha256:e82d028ff703e8211fd5ce9a9fab08c9bc82612c7ec8573b610ada9b21d23684'
+managed = true
+state = 'managed'
+template_hash = 'sha256:e82d028ff703e8211fd5ce9a9fab08c9bc82612c7ec8573b610ada9b21d23684'
+disk_hash = 'sha256:e82d028ff703e8211fd5ce9a9fab08c9bc82612c7ec8573b610ada9b21d23684'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/agents/tester.md']
+hash = 'sha256:f3a0cfd9c4b09b69274c2eeaf9dde1d20a89c00baca2355adea05b43ab631ab5'
+managed = true
+state = 'managed'
+template_hash = 'sha256:f3a0cfd9c4b09b69274c2eeaf9dde1d20a89c00baca2355adea05b43ab631ab5'
+disk_hash = 'sha256:f3a0cfd9c4b09b69274c2eeaf9dde1d20a89c00baca2355adea05b43ab631ab5'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/agents/verifier.md']
+hash = 'sha256:87e0d8ce48ec239d1a1838f1b57bc1595d1a90f0536bdc10adf24da147f0ad61'
+managed = true
+state = 'managed'
+template_hash = 'sha256:87e0d8ce48ec239d1a1838f1b57bc1595d1a90f0536bdc10adf24da147f0ad61'
+disk_hash = 'sha256:87e0d8ce48ec239d1a1838f1b57bc1595d1a90f0536bdc10adf24da147f0ad61'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/hooks/PostToolUse.d/10-post-edit-verify.sh']
+hash = 'sha256:e95138e88731554a1a1510aebea6b219f34bfe1075420eba964f02016bfd18c9'
+managed = true
+state = 'managed'
+template_hash = 'sha256:e95138e88731554a1a1510aebea6b219f34bfe1075420eba964f02016bfd18c9'
+disk_hash = 'sha256:e95138e88731554a1a1510aebea6b219f34bfe1075420eba964f02016bfd18c9'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/hooks/PostToolUse.d/20-check-mojibake.sh']
+hash = 'sha256:52d42e2f01c564872807c67b79a86d0524d4ef2f7ba9ea12926996e6f7ab16cf'
+managed = true
+state = 'managed'
+template_hash = 'sha256:52d42e2f01c564872807c67b79a86d0524d4ef2f7ba9ea12926996e6f7ab16cf'
+disk_hash = 'sha256:52d42e2f01c564872807c67b79a86d0524d4ef2f7ba9ea12926996e6f7ab16cf'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/hooks/PostToolUseFailure.d/10-post-tool-failure-feedback.sh']
+hash = 'sha256:ea915c34cd9bfbc6f0536431d48241b2be4dee0fc72f876faa822dca23815b4a'
+managed = true
+state = 'managed'
+template_hash = 'sha256:ea915c34cd9bfbc6f0536431d48241b2be4dee0fc72f876faa822dca23815b4a'
+disk_hash = 'sha256:ea915c34cd9bfbc6f0536431d48241b2be4dee0fc72f876faa822dca23815b4a'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/hooks/PreCompact.d/10-precompact-checkpoint.sh']
+hash = 'sha256:b77885c8999068c5015155dcbd9d3da5461b78ef94de01c70e251c46e4fa4aac'
+managed = true
+state = 'managed'
+template_hash = 'sha256:b77885c8999068c5015155dcbd9d3da5461b78ef94de01c70e251c46e4fa4aac'
+disk_hash = 'sha256:b77885c8999068c5015155dcbd9d3da5461b78ef94de01c70e251c46e4fa4aac'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/hooks/PreToolUse.d/10-pre-bash-guard.sh']
+hash = 'sha256:ae702c09dc2e4417b03228e656550c4528988a0fe67b08e7c207a69020dc3e23'
+managed = true
+state = 'managed'
+template_hash = 'sha256:ae702c09dc2e4417b03228e656550c4528988a0fe67b08e7c207a69020dc3e23'
+disk_hash = 'sha256:ae702c09dc2e4417b03228e656550c4528988a0fe67b08e7c207a69020dc3e23'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/hooks/SessionEnd.d/10-session-end-summary.sh']
+hash = 'sha256:cd6d13ebb80c39e9619886578a56a4bb5236791885cf3ca56adddee48648ef95'
+managed = true
+state = 'managed'
+template_hash = 'sha256:cd6d13ebb80c39e9619886578a56a4bb5236791885cf3ca56adddee48648ef95'
+disk_hash = 'sha256:cd6d13ebb80c39e9619886578a56a4bb5236791885cf3ca56adddee48648ef95'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/hooks/SessionStart.d/10-session-start-context.sh']
+hash = 'sha256:0ed1f0c691ae84dd8527bbf8ce5a58997e5f0e79c663c48b97068b4ea689c0fd'
+managed = true
+state = 'managed'
+template_hash = 'sha256:0ed1f0c691ae84dd8527bbf8ce5a58997e5f0e79c663c48b97068b4ea689c0fd'
+disk_hash = 'sha256:0ed1f0c691ae84dd8527bbf8ce5a58997e5f0e79c663c48b97068b4ea689c0fd'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/hooks/UserPromptSubmit.d/10-prompt-gate.sh']
+hash = 'sha256:5f68d330a388c85208ea43efb4a8228b150d5ec446d94b79794996f98bb2081b'
+managed = true
+state = 'managed'
+template_hash = 'sha256:5f68d330a388c85208ea43efb4a8228b150d5ec446d94b79794996f98bb2081b'
+disk_hash = 'sha256:5f68d330a388c85208ea43efb4a8228b150d5ec446d94b79794996f98bb2081b'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/hooks/check_mojibake.sh']
+hash = 'sha256:b40d95bb25cd017c03e90c999e7e8b52ab9d95a27bcce6124fd832ddbcd758c0'
+managed = true
+state = 'managed'
+template_hash = 'sha256:b40d95bb25cd017c03e90c999e7e8b52ab9d95a27bcce6124fd832ddbcd758c0'
+disk_hash = 'sha256:b40d95bb25cd017c03e90c999e7e8b52ab9d95a27bcce6124fd832ddbcd758c0'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/hooks/lib_json.sh']
+hash = 'sha256:ded06128ecd07b92451f364ca7b23d0b72cb6923c79a76d09df317ab9c62f084'
+managed = true
+state = 'managed'
+template_hash = 'sha256:ded06128ecd07b92451f364ca7b23d0b72cb6923c79a76d09df317ab9c62f084'
+disk_hash = 'sha256:ded06128ecd07b92451f364ca7b23d0b72cb6923c79a76d09df317ab9c62f084'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/hooks/mojibake-allowlist']
+hash = 'sha256:cd857a2c88b5c4dde763268623c8bbe16ea0a87d04458f6ae1fbca9776fc2e54'
+managed = true
+state = 'managed'
+template_hash = 'sha256:cd857a2c88b5c4dde763268623c8bbe16ea0a87d04458f6ae1fbca9776fc2e54'
+disk_hash = 'sha256:cd857a2c88b5c4dde763268623c8bbe16ea0a87d04458f6ae1fbca9776fc2e54'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/hooks/post_edit_verify.sh']
+hash = 'sha256:0a4d7cb8d0c06fd3bf117fdee131c40fa647713e7ab3bab12583debdba6a233e'
+managed = true
+state = 'managed'
+template_hash = 'sha256:0a4d7cb8d0c06fd3bf117fdee131c40fa647713e7ab3bab12583debdba6a233e'
+disk_hash = 'sha256:0a4d7cb8d0c06fd3bf117fdee131c40fa647713e7ab3bab12583debdba6a233e'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/hooks/post_tool_failure_feedback.sh']
+hash = 'sha256:46e95233011d0928f98ad32d5394263b8d5150a2e4d156d03002001d971a861b'
+managed = true
+state = 'managed'
+template_hash = 'sha256:46e95233011d0928f98ad32d5394263b8d5150a2e4d156d03002001d971a861b'
+disk_hash = 'sha256:46e95233011d0928f98ad32d5394263b8d5150a2e4d156d03002001d971a861b'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/hooks/pre_bash_guard.sh']
+hash = 'sha256:eb6b038d3ca90a46530e7f2b49f20cb40ce59ec210fb5aca3a62c62a3e8e0484'
+managed = true
+state = 'managed'
+template_hash = 'sha256:eb6b038d3ca90a46530e7f2b49f20cb40ce59ec210fb5aca3a62c62a3e8e0484'
+disk_hash = 'sha256:eb6b038d3ca90a46530e7f2b49f20cb40ce59ec210fb5aca3a62c62a3e8e0484'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/hooks/precompact_checkpoint.sh']
+hash = 'sha256:7346c7df8bf0da6913db114cac13a9a69d78043eb77eb5ad938efffd1927844e'
+managed = true
+state = 'managed'
+template_hash = 'sha256:7346c7df8bf0da6913db114cac13a9a69d78043eb77eb5ad938efffd1927844e'
+disk_hash = 'sha256:7346c7df8bf0da6913db114cac13a9a69d78043eb77eb5ad938efffd1927844e'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/hooks/prompt_gate.sh']
+hash = 'sha256:a6287c5746c8255fa587914f2e41d9be5044ed191d5aa7447e649fa254627bca'
+managed = true
+state = 'managed'
+template_hash = 'sha256:a6287c5746c8255fa587914f2e41d9be5044ed191d5aa7447e649fa254627bca'
+disk_hash = 'sha256:a6287c5746c8255fa587914f2e41d9be5044ed191d5aa7447e649fa254627bca'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/hooks/ralph-dispatch.sh']
+hash = 'sha256:cdec5951d14e9b9484cbbf2ff68582d8eab896a43d09bcbff58647bfa63ec99c'
+managed = true
+state = 'managed'
+template_hash = 'sha256:cdec5951d14e9b9484cbbf2ff68582d8eab896a43d09bcbff58647bfa63ec99c'
+disk_hash = 'sha256:cdec5951d14e9b9484cbbf2ff68582d8eab896a43d09bcbff58647bfa63ec99c'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/hooks/session_end_summary.sh']
+hash = 'sha256:43e3e9ed7e2ad18186148052fbf051bd7e0efa3908a4e068325be2172134ea38'
+managed = true
+state = 'managed'
+template_hash = 'sha256:43e3e9ed7e2ad18186148052fbf051bd7e0efa3908a4e068325be2172134ea38'
+disk_hash = 'sha256:43e3e9ed7e2ad18186148052fbf051bd7e0efa3908a4e068325be2172134ea38'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/hooks/session_start_context.sh']
+hash = 'sha256:15a328a5f67e76842ea7cc8deb8327e989f1ffc6538adc8db0f204838e4a23a9'
+managed = true
+state = 'managed'
+template_hash = 'sha256:15a328a5f67e76842ea7cc8deb8327e989f1ffc6538adc8db0f204838e4a23a9'
+disk_hash = 'sha256:15a328a5f67e76842ea7cc8deb8327e989f1ffc6538adc8db0f204838e4a23a9'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/rules/ralph/agent-messaging.md']
+hash = 'sha256:ad17d64feea16746f604c530c9596dc1a9a4a95e6a59bda4a4768453828183f7'
+managed = true
+state = 'managed'
+template_hash = 'sha256:ad17d64feea16746f604c530c9596dc1a9a4a95e6a59bda4a4768453828183f7'
+disk_hash = 'sha256:ad17d64feea16746f604c530c9596dc1a9a4a95e6a59bda4a4768453828183f7'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/rules/ralph/architecture.md']
+hash = 'sha256:133797e5e5036721abd4eadf3aac45e0f71e967d8f82ba3cea9c12fee03b24be'
+managed = true
+state = 'managed'
+template_hash = 'sha256:133797e5e5036721abd4eadf3aac45e0f71e967d8f82ba3cea9c12fee03b24be'
+disk_hash = 'sha256:133797e5e5036721abd4eadf3aac45e0f71e967d8f82ba3cea9c12fee03b24be'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/rules/ralph/dart.md']
+hash = 'sha256:5f6afa127f8e309b3a7f462345dac3a4c6195e14025f9fc735a7d8c7f248b8e1'
+managed = true
+state = 'managed'
+template_hash = 'sha256:5f6afa127f8e309b3a7f462345dac3a4c6195e14025f9fc735a7d8c7f248b8e1'
+disk_hash = 'sha256:5f6afa127f8e309b3a7f462345dac3a4c6195e14025f9fc735a7d8c7f248b8e1'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/rules/ralph/documentation.md']
+hash = 'sha256:74600c5cba2b0a71f5222db3774876224dcbf15ac3b59d61adc96521ad4edeb0'
+managed = true
+state = 'managed'
+template_hash = 'sha256:74600c5cba2b0a71f5222db3774876224dcbf15ac3b59d61adc96521ad4edeb0'
+disk_hash = 'sha256:74600c5cba2b0a71f5222db3774876224dcbf15ac3b59d61adc96521ad4edeb0'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/rules/ralph/git-commit-strategy.md']
+hash = 'sha256:dc9353a2472c2da0d998a39f19075b18661688a58759b67ad3c4e2bd3f01d6fb'
+managed = true
+state = 'managed'
+template_hash = 'sha256:dc9353a2472c2da0d998a39f19075b18661688a58759b67ad3c4e2bd3f01d6fb'
+disk_hash = 'sha256:dc9353a2472c2da0d998a39f19075b18661688a58759b67ad3c4e2bd3f01d6fb'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/rules/ralph/golang.md']
+hash = 'sha256:78f5e87d7c34ff89976b05c05eac6cd69dfc7eac8e7ad79e06d572556fb28518'
+managed = true
+state = 'managed'
+template_hash = 'sha256:78f5e87d7c34ff89976b05c05eac6cd69dfc7eac8e7ad79e06d572556fb28518'
+disk_hash = 'sha256:78f5e87d7c34ff89976b05c05eac6cd69dfc7eac8e7ad79e06d572556fb28518'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/rules/ralph/model-routing.md']
+hash = 'sha256:c988c905e52b7abf3185a7b892c2fabec37d6f9eb8b7e414124a71b58d73b479'
+managed = true
+state = 'managed'
+template_hash = 'sha256:c988c905e52b7abf3185a7b892c2fabec37d6f9eb8b7e414124a71b58d73b479'
+disk_hash = 'sha256:c988c905e52b7abf3185a7b892c2fabec37d6f9eb8b7e414124a71b58d73b479'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/rules/ralph/planning.md']
+hash = 'sha256:17ac0e6e92abba54a5afc8a9f7283e668ea8c7fa99766608096a51288c93a851'
+managed = true
+state = 'managed'
+template_hash = 'sha256:17ac0e6e92abba54a5afc8a9f7283e668ea8c7fa99766608096a51288c93a851'
+disk_hash = 'sha256:17ac0e6e92abba54a5afc8a9f7283e668ea8c7fa99766608096a51288c93a851'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/rules/ralph/post-implementation-pipeline.md']
+hash = 'sha256:a47336ba3553bf0040a2b91fcaba5d51ebc4a9b3abb0702ae07ed5609c73c912'
+managed = true
+state = 'managed'
+template_hash = 'sha256:a47336ba3553bf0040a2b91fcaba5d51ebc4a9b3abb0702ae07ed5609c73c912'
+disk_hash = 'sha256:a47336ba3553bf0040a2b91fcaba5d51ebc4a9b3abb0702ae07ed5609c73c912'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/rules/ralph/python.md']
+hash = 'sha256:1a54f729ef2ae7efe9a92c7919c54f7dd0aaf6cc664b00ed328225ec15c749d9'
+managed = true
+state = 'managed'
+template_hash = 'sha256:1a54f729ef2ae7efe9a92c7919c54f7dd0aaf6cc664b00ed328225ec15c749d9'
+disk_hash = 'sha256:1a54f729ef2ae7efe9a92c7919c54f7dd0aaf6cc664b00ed328225ec15c749d9'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/rules/ralph/ralph-workflow.md']
+hash = 'sha256:2ae3dd487056a76a6e766bf04d2f185e18002dff1dae15287c35184893603aae'
+managed = true
+state = 'managed'
+template_hash = 'sha256:2ae3dd487056a76a6e766bf04d2f185e18002dff1dae15287c35184893603aae'
+disk_hash = 'sha256:2ae3dd487056a76a6e766bf04d2f185e18002dff1dae15287c35184893603aae'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/rules/ralph/rust.md']
+hash = 'sha256:9a22a00f7e2d05939dc4274042b6ed2325159177d51f28b405e6a19f06a1282a'
+managed = true
+state = 'managed'
+template_hash = 'sha256:9a22a00f7e2d05939dc4274042b6ed2325159177d51f28b405e6a19f06a1282a'
+disk_hash = 'sha256:9a22a00f7e2d05939dc4274042b6ed2325159177d51f28b405e6a19f06a1282a'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/rules/ralph/subagent-policy.md']
+hash = 'sha256:88a6cfbf5f32ae0ddf16c9d82be485231b6d8dc408cfcb971abc15eb6385a081'
+managed = true
+state = 'managed'
+template_hash = 'sha256:88a6cfbf5f32ae0ddf16c9d82be485231b6d8dc408cfcb971abc15eb6385a081'
+disk_hash = 'sha256:88a6cfbf5f32ae0ddf16c9d82be485231b6d8dc408cfcb971abc15eb6385a081'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/rules/ralph/terraform.md']
+hash = 'sha256:c5e1bafa699bd592d092ed2937ea5481e283d14d22cf23ea1b0a867f49b0e243'
+managed = true
+state = 'managed'
+template_hash = 'sha256:c5e1bafa699bd592d092ed2937ea5481e283d14d22cf23ea1b0a867f49b0e243'
+disk_hash = 'sha256:c5e1bafa699bd592d092ed2937ea5481e283d14d22cf23ea1b0a867f49b0e243'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/rules/ralph/testing.md']
+hash = 'sha256:114cf03da0407695e4b1b0c1a88ec208436ae55daa2ae46bc8e2b5409190a234'
+managed = true
+state = 'managed'
+template_hash = 'sha256:114cf03da0407695e4b1b0c1a88ec208436ae55daa2ae46bc8e2b5409190a234'
+disk_hash = 'sha256:114cf03da0407695e4b1b0c1a88ec208436ae55daa2ae46bc8e2b5409190a234'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/rules/ralph/typescript.md']
+hash = 'sha256:57dbe85cdfa795527b318d7a4937b2e113c4a2bda4d89aeefdcad84c1770c9a8'
+managed = true
+state = 'managed'
+template_hash = 'sha256:57dbe85cdfa795527b318d7a4937b2e113c4a2bda4d89aeefdcad84c1770c9a8'
+disk_hash = 'sha256:57dbe85cdfa795527b318d7a4937b2e113c4a2bda4d89aeefdcad84c1770c9a8'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/settings.json']
+hash = 'sha256:50f21eed66deebb125f0e84f4600284310a465279d62c2d0c6f08e86f0faafd5'
+managed = true
+state = 'managed'
+template_hash = 'sha256:50f21eed66deebb125f0e84f4600284310a465279d62c2d0c6f08e86f0faafd5'
+disk_hash = 'sha256:50f21eed66deebb125f0e84f4600284310a465279d62c2d0c6f08e86f0faafd5'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/skills/anti-bottleneck/SKILL.md']
+hash = 'sha256:7f4cb808c762f1ca8847d6837db02b9ee26a1fa94e391b602f8d46b4d343ae1a'
+managed = true
+state = 'managed'
+template_hash = 'sha256:7f4cb808c762f1ca8847d6837db02b9ee26a1fa94e391b602f8d46b4d343ae1a'
+disk_hash = 'sha256:7f4cb808c762f1ca8847d6837db02b9ee26a1fa94e391b602f8d46b4d343ae1a'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/skills/audit-harness/SKILL.md']
+hash = 'sha256:84450f902f9cd7b72eed9ec2babbc6454eb3a7cb46940476a7795020d624e4f2'
+managed = true
+state = 'managed'
+template_hash = 'sha256:84450f902f9cd7b72eed9ec2babbc6454eb3a7cb46940476a7795020d624e4f2'
+disk_hash = 'sha256:84450f902f9cd7b72eed9ec2babbc6454eb3a7cb46940476a7795020d624e4f2'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/skills/cross-review/SKILL.md']
+hash = 'sha256:c1ccb0ab37c5662454d9f8e81988064d2ec261bbfa2fd0d9bf314d7ebcbdb0a9'
+managed = true
+state = 'managed'
+template_hash = 'sha256:c1ccb0ab37c5662454d9f8e81988064d2ec261bbfa2fd0d9bf314d7ebcbdb0a9'
+disk_hash = 'sha256:c1ccb0ab37c5662454d9f8e81988064d2ec261bbfa2fd0d9bf314d7ebcbdb0a9'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/skills/org/SKILL.md']
+hash = 'sha256:f89da0549d0e4fa67560c70b84c77e6bd1a915ae322c786b9cdaff6718672b0f'
+managed = true
+state = 'managed'
+template_hash = 'sha256:f89da0549d0e4fa67560c70b84c77e6bd1a915ae322c786b9cdaff6718672b0f'
+disk_hash = 'sha256:f89da0549d0e4fa67560c70b84c77e6bd1a915ae322c786b9cdaff6718672b0f'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/skills/plan/SKILL.md']
+hash = 'sha256:b124dd4d846d9f026480b90286e1146c37d2c7fd8906fab96a00cd4c4a5e6bfc'
+managed = true
+state = 'managed'
+template_hash = 'sha256:b124dd4d846d9f026480b90286e1146c37d2c7fd8906fab96a00cd4c4a5e6bfc'
+disk_hash = 'sha256:b124dd4d846d9f026480b90286e1146c37d2c7fd8906fab96a00cd4c4a5e6bfc'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/skills/plan/template.md']
+hash = 'sha256:4bbb9f0869cddf08306912da4a6dd2856221cd954b7f623c039ce3e6da82f2d5'
+managed = true
+state = 'managed'
+template_hash = 'sha256:4bbb9f0869cddf08306912da4a6dd2856221cd954b7f623c039ce3e6da82f2d5'
+disk_hash = 'sha256:4bbb9f0869cddf08306912da4a6dd2856221cd954b7f623c039ce3e6da82f2d5'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/skills/pr/SKILL.md']
+hash = 'sha256:d482a21d798cea97b8694f9e080e5909dc6f4c651659471f2938f097d25b753e'
+managed = true
+state = 'managed'
+template_hash = 'sha256:d482a21d798cea97b8694f9e080e5909dc6f4c651659471f2938f097d25b753e'
+disk_hash = 'sha256:d482a21d798cea97b8694f9e080e5909dc6f4c651659471f2938f097d25b753e'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/skills/pr/template.md']
+hash = 'sha256:183ac91504cd9806f6f22e04a7481fdd0917a91fa9060e1238a973a7f78f5976'
+managed = true
+state = 'managed'
+template_hash = 'sha256:183ac91504cd9806f6f22e04a7481fdd0917a91fa9060e1238a973a7f78f5976'
+disk_hash = 'sha256:183ac91504cd9806f6f22e04a7481fdd0917a91fa9060e1238a973a7f78f5976'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/skills/self-review/SKILL.md']
+hash = 'sha256:47cf869bfc32eba19a36c43f85b033365be9063f177228421ab638f81ba52018'
+managed = true
+state = 'managed'
+template_hash = 'sha256:47cf869bfc32eba19a36c43f85b033365be9063f177228421ab638f81ba52018'
+disk_hash = 'sha256:47cf869bfc32eba19a36c43f85b033365be9063f177228421ab638f81ba52018'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/skills/self-review/template.md']
+hash = 'sha256:612114df7782e217872cd653d8c94356d597d15524be84fc006f518ba6874a4b'
+managed = true
+state = 'managed'
+template_hash = 'sha256:612114df7782e217872cd653d8c94356d597d15524be84fc006f518ba6874a4b'
+disk_hash = 'sha256:612114df7782e217872cd653d8c94356d597d15524be84fc006f518ba6874a4b'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/skills/spec/SKILL.md']
+hash = 'sha256:2da8b4e721f1475568025aaa26b77658ece8bb381c7add0ceff0f10b513628f8'
+managed = true
+state = 'managed'
+template_hash = 'sha256:2da8b4e721f1475568025aaa26b77658ece8bb381c7add0ceff0f10b513628f8'
+disk_hash = 'sha256:2da8b4e721f1475568025aaa26b77658ece8bb381c7add0ceff0f10b513628f8'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/skills/spec/template.md']
+hash = 'sha256:e550a4ebc995e23de71080d25f9df37a30c051fb6c77eb4104722e73fc933cbc'
+managed = true
+state = 'managed'
+template_hash = 'sha256:e550a4ebc995e23de71080d25f9df37a30c051fb6c77eb4104722e73fc933cbc'
+disk_hash = 'sha256:e550a4ebc995e23de71080d25f9df37a30c051fb6c77eb4104722e73fc933cbc'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/skills/sync-docs/SKILL.md']
+hash = 'sha256:14eab84bc4708b93a3c62eef8353471d894dc851aa2be84d5ba7b2d8128dfe18'
+managed = true
+state = 'managed'
+template_hash = 'sha256:14eab84bc4708b93a3c62eef8353471d894dc851aa2be84d5ba7b2d8128dfe18'
+disk_hash = 'sha256:14eab84bc4708b93a3c62eef8353471d894dc851aa2be84d5ba7b2d8128dfe18'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/skills/test/SKILL.md']
+hash = 'sha256:25b45491db9d5381dacd9d48328755a7098c2a106c3756bb5dbe73b8da75ec1c'
+managed = true
+state = 'managed'
+template_hash = 'sha256:25b45491db9d5381dacd9d48328755a7098c2a106c3756bb5dbe73b8da75ec1c'
+disk_hash = 'sha256:25b45491db9d5381dacd9d48328755a7098c2a106c3756bb5dbe73b8da75ec1c'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/skills/test/template.md']
+hash = 'sha256:0a5f495254747dc9f7ef24ee42ebcb8c6207ac294fe16c09ecd8851ba0c373a2'
+managed = true
+state = 'managed'
+template_hash = 'sha256:0a5f495254747dc9f7ef24ee42ebcb8c6207ac294fe16c09ecd8851ba0c373a2'
+disk_hash = 'sha256:0a5f495254747dc9f7ef24ee42ebcb8c6207ac294fe16c09ecd8851ba0c373a2'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/skills/verify/SKILL.md']
+hash = 'sha256:35892d022bfc66889281de73f576d66eee010362484b7b718f4673f431e541a4'
+managed = true
+state = 'managed'
+template_hash = 'sha256:35892d022bfc66889281de73f576d66eee010362484b7b718f4673f431e541a4'
+disk_hash = 'sha256:35892d022bfc66889281de73f576d66eee010362484b7b718f4673f431e541a4'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/skills/verify/template.md']
+hash = 'sha256:ec2a97593c5e2bff24f1ae8e63a1e2ba2af73296aede6a0b6469c68be46fa602'
+managed = true
+state = 'managed'
+template_hash = 'sha256:ec2a97593c5e2bff24f1ae8e63a1e2ba2af73296aede6a0b6469c68be46fa602'
+disk_hash = 'sha256:ec2a97593c5e2bff24f1ae8e63a1e2ba2af73296aede6a0b6469c68be46fa602'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.claude/skills/work/SKILL.md']
+hash = 'sha256:513fef8a50f5e2f844e5e1e88aae7da802aeffbfbdb4597eedeb586f281e49a1'
+managed = true
+state = 'managed'
+template_hash = 'sha256:513fef8a50f5e2f844e5e1e88aae7da802aeffbfbdb4597eedeb586f281e49a1'
+disk_hash = 'sha256:513fef8a50f5e2f844e5e1e88aae7da802aeffbfbdb4597eedeb586f281e49a1'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.codex/AGENTS.override.md']
+hash = 'sha256:384985352a269d68ea404bc79119da4033b1c63538c6f7744690ed15083be14b'
+managed = true
+state = 'managed'
+template_hash = 'sha256:384985352a269d68ea404bc79119da4033b1c63538c6f7744690ed15083be14b'
+disk_hash = 'sha256:384985352a269d68ea404bc79119da4033b1c63538c6f7744690ed15083be14b'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'.codex/README.md']
+hash = 'sha256:0e01f12c41d7f75749bd91a85e86b01b036c7da0c41fe1a7adaf22e6ad78b083'
+managed = true
+state = 'managed'
+template_hash = 'sha256:0e01f12c41d7f75749bd91a85e86b01b036c7da0c41fe1a7adaf22e6ad78b083'
+disk_hash = 'sha256:0e01f12c41d7f75749bd91a85e86b01b036c7da0c41fe1a7adaf22e6ad78b083'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.codex/agents/doc-maintainer.toml']
+hash = 'sha256:cba16ccdd1495e99457aad813ac7ea780f612cfc257489fb70e2c6c011da596f'
+managed = true
+state = 'managed'
+template_hash = 'sha256:cba16ccdd1495e99457aad813ac7ea780f612cfc257489fb70e2c6c011da596f'
+disk_hash = 'sha256:cba16ccdd1495e99457aad813ac7ea780f612cfc257489fb70e2c6c011da596f'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.codex/agents/implementer.toml']
+hash = 'sha256:b30a2b4c084d1afc6496a07fa775bf7acdfb9ff4d53f459eb4345cec18495c3d'
+managed = true
+state = 'managed'
+template_hash = 'sha256:b30a2b4c084d1afc6496a07fa775bf7acdfb9ff4d53f459eb4345cec18495c3d'
+disk_hash = 'sha256:b30a2b4c084d1afc6496a07fa775bf7acdfb9ff4d53f459eb4345cec18495c3d'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.codex/agents/reviewer.toml']
+hash = 'sha256:08bd958fe8d0c66442d745f800e51e11b0e7620cc98f010b541a5c207ecf605e'
+managed = true
+state = 'managed'
+template_hash = 'sha256:08bd958fe8d0c66442d745f800e51e11b0e7620cc98f010b541a5c207ecf605e'
+disk_hash = 'sha256:08bd958fe8d0c66442d745f800e51e11b0e7620cc98f010b541a5c207ecf605e'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.codex/agents/tester.toml']
+hash = 'sha256:d72c2992496ed8144fcf985b9dfd65a5ecdbd5c1a81f5c3ee4b45b0fbd538bdf'
+managed = true
+state = 'managed'
+template_hash = 'sha256:d72c2992496ed8144fcf985b9dfd65a5ecdbd5c1a81f5c3ee4b45b0fbd538bdf'
+disk_hash = 'sha256:d72c2992496ed8144fcf985b9dfd65a5ecdbd5c1a81f5c3ee4b45b0fbd538bdf'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.codex/agents/verifier.toml']
+hash = 'sha256:1d28b2c4e9a8a0e4c5c410d066aeb6572e27b640bb9a785a3e4c7c5b00c0af76'
+managed = true
+state = 'managed'
+template_hash = 'sha256:1d28b2c4e9a8a0e4c5c410d066aeb6572e27b640bb9a785a3e4c7c5b00c0af76'
+disk_hash = 'sha256:1d28b2c4e9a8a0e4c5c410d066aeb6572e27b640bb9a785a3e4c7c5b00c0af76'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.codex/config.toml']
+hash = 'sha256:e4984a85216669f7dddebe83233301c4caa1576c57c538caa34dccfdf9212d7a'
+managed = true
+state = 'managed'
+template_hash = 'sha256:e4984a85216669f7dddebe83233301c4caa1576c57c538caa34dccfdf9212d7a'
+disk_hash = 'sha256:e4984a85216669f7dddebe83233301c4caa1576c57c538caa34dccfdf9212d7a'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.codex/hooks.json']
+hash = 'sha256:5e42106e07d26428e588c62f714bec16a23d160ce3b5690699b1771a871bd300'
+managed = true
+state = 'managed'
+template_hash = 'sha256:5e42106e07d26428e588c62f714bec16a23d160ce3b5690699b1771a871bd300'
+disk_hash = 'sha256:5e42106e07d26428e588c62f714bec16a23d160ce3b5690699b1771a871bd300'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.codex/hooks/README.md']
+hash = 'sha256:a09d4b0a47533858a4c3ff2556aaafaf0636b3c853e623515a793316766d33c4'
+managed = true
+state = 'managed'
+template_hash = 'sha256:a09d4b0a47533858a4c3ff2556aaafaf0636b3c853e623515a793316766d33c4'
+disk_hash = 'sha256:a09d4b0a47533858a4c3ff2556aaafaf0636b3c853e623515a793316766d33c4'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.github/workflows/verify.yml']
+hash = 'sha256:2bcbbd30ba88717de59c2a6be47a259e66c5aa6888ee72850c1b950fb8ad5d18'
+managed = true
+state = 'managed'
+template_hash = 'sha256:2bcbbd30ba88717de59c2a6be47a259e66c5aa6888ee72850c1b950fb8ad5d18'
+disk_hash = 'sha256:2bcbbd30ba88717de59c2a6be47a259e66c5aa6888ee72850c1b950fb8ad5d18'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'.gitignore']
+hash = 'sha256:dafbf2e622770093c29eab8969f2dcaca8876ebac87a9cb09a03f80e888e1af1'
+managed = true
+state = 'managed'
+template_hash = 'sha256:dafbf2e622770093c29eab8969f2dcaca8876ebac87a9cb09a03f80e888e1af1'
+disk_hash = 'sha256:4e3b939ba21241665776588f1754e6bb85d3e1613fe474483e6d781d4279a302'
+baseline_status = 'missing'
+owner = 'block'
+
+[files.'.ralph/core/AGENTS.core.md']
+hash = 'sha256:2fdb748147136dcf0ae58b8b2c60da58a37c7cb76806f3297ab8712fbcb0b642'
+managed = true
+state = 'managed'
+template_hash = 'sha256:2fdb748147136dcf0ae58b8b2c60da58a37c7cb76806f3297ab8712fbcb0b642'
+disk_hash = 'sha256:2fdb748147136dcf0ae58b8b2c60da58a37c7cb76806f3297ab8712fbcb0b642'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.ralph/core/settings.ralph.json']
+hash = 'sha256:50f21eed66deebb125f0e84f4600284310a465279d62c2d0c6f08e86f0faafd5'
+managed = true
+state = 'managed'
+template_hash = 'sha256:50f21eed66deebb125f0e84f4600284310a465279d62c2d0c6f08e86f0faafd5'
+disk_hash = 'sha256:50f21eed66deebb125f0e84f4600284310a465279d62c2d0c6f08e86f0faafd5'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'.ralph/local/hooks/.gitkeep']
+hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+managed = true
+state = 'managed'
+template_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+disk_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'.ralph/local/test.d/.gitkeep']
+hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+managed = true
+state = 'managed'
+template_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+disk_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'.ralph/local/verify.d/.gitkeep']
+hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+managed = true
+state = 'managed'
+template_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+disk_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'AGENTS.md']
+hash = 'sha256:3a71ca6ed8232c68b3bd136d0ef7f6620013900f1f28bd8a9a9e78716dc55d13'
+managed = true
+state = 'managed'
+template_hash = 'sha256:3a71ca6ed8232c68b3bd136d0ef7f6620013900f1f28bd8a9a9e78716dc55d13'
+disk_hash = 'sha256:3a71ca6ed8232c68b3bd136d0ef7f6620013900f1f28bd8a9a9e78716dc55d13'
+baseline_status = 'missing'
+owner = 'block'
+
+[files.'CLAUDE.md']
+hash = 'sha256:4a1c540bad26c7fe3ebb6b64a5fb6c378b072cee2786129572df58364147d3f3'
+managed = true
+state = 'managed'
+template_hash = 'sha256:4a1c540bad26c7fe3ebb6b64a5fb6c378b072cee2786129572df58364147d3f3'
+disk_hash = 'sha256:4a1c540bad26c7fe3ebb6b64a5fb6c378b072cee2786129572df58364147d3f3'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/architecture/.gitkeep']
+hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+managed = true
+state = 'managed'
+template_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+disk_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/evidence/.gitkeep']
+hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+managed = true
+state = 'managed'
+template_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+disk_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/insights/README.md']
+hash = 'sha256:514383212d351678f3dc3d784ec51838537b446c41316ab9fc2a2f4dfb6e6a32'
+managed = true
+state = 'managed'
+template_hash = 'sha256:514383212d351678f3dc3d784ec51838537b446c41316ab9fc2a2f4dfb6e6a32'
+disk_hash = 'sha256:514383212d351678f3dc3d784ec51838537b446c41316ab9fc2a2f4dfb6e6a32'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/insights/events/.gitkeep']
+hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+managed = true
+state = 'managed'
+template_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+disk_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/plans/active/.gitkeep']
+hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+managed = true
+state = 'managed'
+template_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+disk_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/plans/archive/.gitkeep']
+hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+managed = true
+state = 'managed'
+template_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+disk_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/plans/templates/feature-plan.md']
+hash = 'sha256:4bbb9f0869cddf08306912da4a6dd2856221cd954b7f623c039ce3e6da82f2d5'
+managed = true
+state = 'managed'
+template_hash = 'sha256:4bbb9f0869cddf08306912da4a6dd2856221cd954b7f623c039ce3e6da82f2d5'
+disk_hash = 'sha256:4bbb9f0869cddf08306912da4a6dd2856221cd954b7f623c039ce3e6da82f2d5'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/quality/definition-of-done.md']
+hash = 'sha256:117e515e5f2573432d741b06bea2ef39d1588feb43433d15c394f15aaf8bfdeb'
+managed = true
+state = 'managed'
+template_hash = 'sha256:117e515e5f2573432d741b06bea2ef39d1588feb43433d15c394f15aaf8bfdeb'
+disk_hash = 'sha256:117e515e5f2573432d741b06bea2ef39d1588feb43433d15c394f15aaf8bfdeb'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/quality/quality-gates.md']
+hash = 'sha256:a07257baf88a21ebbf0c7ddc961211241a16f4788003576a55bfecf48443d94d'
+managed = true
+state = 'managed'
+template_hash = 'sha256:a07257baf88a21ebbf0c7ddc961211241a16f4788003576a55bfecf48443d94d'
+disk_hash = 'sha256:a07257baf88a21ebbf0c7ddc961211241a16f4788003576a55bfecf48443d94d'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/recipes/.gitkeep']
+hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+managed = true
+state = 'managed'
+template_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+disk_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/recipes/adding-a-language-pack.md']
+hash = 'sha256:9adb72b7b6260362d625e77cf6deb00c71de55f0a6a169a390603b525a1146e7'
+managed = true
+state = 'managed'
+template_hash = 'sha256:9adb72b7b6260362d625e77cf6deb00c71de55f0a6a169a390603b525a1146e7'
+disk_hash = 'sha256:9adb72b7b6260362d625e77cf6deb00c71de55f0a6a169a390603b525a1146e7'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/recipes/agent-teams.md']
+hash = 'sha256:d84c511d6fc0cb19ab65285220ed929ee71a124121844784923f9ccbad083f85'
+managed = true
+state = 'managed'
+template_hash = 'sha256:d84c511d6fc0cb19ab65285220ed929ee71a124121844784923f9ccbad083f85'
+disk_hash = 'sha256:d84c511d6fc0cb19ab65285220ed929ee71a124121844784923f9ccbad083f85'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/recipes/codex-setup.md']
+hash = 'sha256:3ee6aa74cf9c39590ef77db86de1fa0d3e78aea401bf4c1cccc843f77f16f82c'
+managed = true
+state = 'managed'
+template_hash = 'sha256:3ee6aa74cf9c39590ef77db86de1fa0d3e78aea401bf4c1cccc843f77f16f82c'
+disk_hash = 'sha256:3ee6aa74cf9c39590ef77db86de1fa0d3e78aea401bf4c1cccc843f77f16f82c'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/recipes/worktrees.md']
+hash = 'sha256:45819188bfd6cd534d3fb9163a465f94bb279f90d920597561ed5a22c54cfbbe'
+managed = true
+state = 'managed'
+template_hash = 'sha256:45819188bfd6cd534d3fb9163a465f94bb279f90d920597561ed5a22c54cfbbe'
+disk_hash = 'sha256:45819188bfd6cd534d3fb9163a465f94bb279f90d920597561ed5a22c54cfbbe'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/references/.gitkeep']
+hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+managed = true
+state = 'managed'
+template_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+disk_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/reports/.gitkeep']
+hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+managed = true
+state = 'managed'
+template_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+disk_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/reports/README.md']
+hash = 'sha256:3b8d6a58ad65db5c7b1c060ffc1eb4596ed8ab912637744870544f2a6bf64e03'
+managed = true
+state = 'managed'
+template_hash = 'sha256:3b8d6a58ad65db5c7b1c060ffc1eb4596ed8ab912637744870544f2a6bf64e03'
+disk_hash = 'sha256:3b8d6a58ad65db5c7b1c060ffc1eb4596ed8ab912637744870544f2a6bf64e03'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/reports/templates/cross-review-triage-report.md']
+hash = 'sha256:f4e7ab65b4e40ddc05a0ed7afc0f006a60637c516bb7800492f44a986f8abc34'
+managed = true
+state = 'managed'
+template_hash = 'sha256:f4e7ab65b4e40ddc05a0ed7afc0f006a60637c516bb7800492f44a986f8abc34'
+disk_hash = 'sha256:f4e7ab65b4e40ddc05a0ed7afc0f006a60637c516bb7800492f44a986f8abc34'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/reports/templates/review-report.md']
+hash = 'sha256:b381b54f48f956ecce881060b15114270a28d857be205e53e760e46af2b041cb'
+managed = true
+state = 'managed'
+template_hash = 'sha256:b381b54f48f956ecce881060b15114270a28d857be205e53e760e46af2b041cb'
+disk_hash = 'sha256:b381b54f48f956ecce881060b15114270a28d857be205e53e760e46af2b041cb'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/reports/templates/test-report.md']
+hash = 'sha256:0a5f495254747dc9f7ef24ee42ebcb8c6207ac294fe16c09ecd8851ba0c373a2'
+managed = true
+state = 'managed'
+template_hash = 'sha256:0a5f495254747dc9f7ef24ee42ebcb8c6207ac294fe16c09ecd8851ba0c373a2'
+disk_hash = 'sha256:0a5f495254747dc9f7ef24ee42ebcb8c6207ac294fe16c09ecd8851ba0c373a2'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/reports/templates/verify-report.md']
+hash = 'sha256:e38f63720e580ca1692ee346712a9cf955df12573503c446d821d2db3eeff773'
+managed = true
+state = 'managed'
+template_hash = 'sha256:e38f63720e580ca1692ee346712a9cf955df12573503c446d821d2db3eeff773'
+disk_hash = 'sha256:e38f63720e580ca1692ee346712a9cf955df12573503c446d821d2db3eeff773'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/reports/templates/walkthrough.md']
+hash = 'sha256:a04d9a0c486006c46a34ad91baeea61e87dee30addb111e9d9fe5f4df4fd4f63'
+managed = true
+state = 'managed'
+template_hash = 'sha256:a04d9a0c486006c46a34ad91baeea61e87dee30addb111e9d9fe5f4df4fd4f63'
+disk_hash = 'sha256:a04d9a0c486006c46a34ad91baeea61e87dee30addb111e9d9fe5f4df4fd4f63'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/research/.gitkeep']
+hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+managed = true
+state = 'managed'
+template_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+disk_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/roadmap/.gitkeep']
+hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+managed = true
+state = 'managed'
+template_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+disk_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/specs/.gitkeep']
+hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+managed = true
+state = 'managed'
+template_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+disk_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'docs/tech-debt/.gitkeep']
+hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+managed = true
+state = 'managed'
+template_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+disk_hash = 'sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'packs/languages/dart/README.md']
+hash = 'sha256:cd8b75c305cc42d96149533c3ab75383ea548ac6852b041ad148d907a13493f9'
+managed = true
+state = 'managed'
+template_hash = 'sha256:cd8b75c305cc42d96149533c3ab75383ea548ac6852b041ad148d907a13493f9'
+disk_hash = 'sha256:cd8b75c305cc42d96149533c3ab75383ea548ac6852b041ad148d907a13493f9'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'packs/languages/dart/verify.sh']
+hash = 'sha256:38f5f060615a7f87e17faefb96ec8c88920ed0b796eb43c985496ea4bb7eeb24'
+managed = true
+state = 'managed'
+template_hash = 'sha256:38f5f060615a7f87e17faefb96ec8c88920ed0b796eb43c985496ea4bb7eeb24'
+disk_hash = 'sha256:38f5f060615a7f87e17faefb96ec8c88920ed0b796eb43c985496ea4bb7eeb24'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'packs/languages/golang/README.md']
+hash = 'sha256:f32273831d655f23d7123fdf3c6903654a43bd05b4d3f08f86d69094bf98e4fc'
+managed = true
+state = 'managed'
+template_hash = 'sha256:f32273831d655f23d7123fdf3c6903654a43bd05b4d3f08f86d69094bf98e4fc'
+disk_hash = 'sha256:f32273831d655f23d7123fdf3c6903654a43bd05b4d3f08f86d69094bf98e4fc'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'packs/languages/golang/verify.sh']
+hash = 'sha256:37f552d3db8dd5bcdcc715e2c39d676a844b86227a84d1f355ccfcaf32c2fbfe'
+managed = true
+state = 'managed'
+template_hash = 'sha256:37f552d3db8dd5bcdcc715e2c39d676a844b86227a84d1f355ccfcaf32c2fbfe'
+disk_hash = 'sha256:37f552d3db8dd5bcdcc715e2c39d676a844b86227a84d1f355ccfcaf32c2fbfe'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'packs/languages/python/README.md']
+hash = 'sha256:3a19a6689fb5cc27d4b10eb41066b148975543da9d6898671685d2503d474600'
+managed = true
+state = 'managed'
+template_hash = 'sha256:3a19a6689fb5cc27d4b10eb41066b148975543da9d6898671685d2503d474600'
+disk_hash = 'sha256:3a19a6689fb5cc27d4b10eb41066b148975543da9d6898671685d2503d474600'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'packs/languages/python/verify.sh']
+hash = 'sha256:4daec3699f829f6c79c8db8fa9f0135540679d8623a20e3c8cf9f576bf0f8718'
+managed = true
+state = 'managed'
+template_hash = 'sha256:4daec3699f829f6c79c8db8fa9f0135540679d8623a20e3c8cf9f576bf0f8718'
+disk_hash = 'sha256:4daec3699f829f6c79c8db8fa9f0135540679d8623a20e3c8cf9f576bf0f8718'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'packs/languages/rust/README.md']
+hash = 'sha256:9f30dcda07a95c475d05e96985ec67b6fb932ce72a3246028af463e5bfe8b59c'
+managed = true
+state = 'managed'
+template_hash = 'sha256:9f30dcda07a95c475d05e96985ec67b6fb932ce72a3246028af463e5bfe8b59c'
+disk_hash = 'sha256:9f30dcda07a95c475d05e96985ec67b6fb932ce72a3246028af463e5bfe8b59c'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'packs/languages/rust/verify.sh']
+hash = 'sha256:494d6957a4726f56b327fe6d7f13db4564f2e2483b43cdd05f8190ab307bcbe8'
+managed = true
+state = 'managed'
+template_hash = 'sha256:494d6957a4726f56b327fe6d7f13db4564f2e2483b43cdd05f8190ab307bcbe8'
+disk_hash = 'sha256:494d6957a4726f56b327fe6d7f13db4564f2e2483b43cdd05f8190ab307bcbe8'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'packs/languages/terraform/README.md']
+hash = 'sha256:eb7ee37b467d46b0fec34cf6c41b84f91ca0c91a68aa272594287e12e9201563'
+managed = true
+state = 'managed'
+template_hash = 'sha256:eb7ee37b467d46b0fec34cf6c41b84f91ca0c91a68aa272594287e12e9201563'
+disk_hash = 'sha256:eb7ee37b467d46b0fec34cf6c41b84f91ca0c91a68aa272594287e12e9201563'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'packs/languages/terraform/verify.sh']
+hash = 'sha256:79d5b920ffff7d25a3a0585953f3e46e5af5a3b9741c055ca836175f4e976881'
+managed = true
+state = 'managed'
+template_hash = 'sha256:79d5b920ffff7d25a3a0585953f3e46e5af5a3b9741c055ca836175f4e976881'
+disk_hash = 'sha256:79d5b920ffff7d25a3a0585953f3e46e5af5a3b9741c055ca836175f4e976881'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'packs/languages/typescript/README.md']
+hash = 'sha256:5ec4f89c5bf8b2e3352ace812e3d44da45bd372c63098bb25188fbe58afaf681'
+managed = true
+state = 'managed'
+template_hash = 'sha256:5ec4f89c5bf8b2e3352ace812e3d44da45bd372c63098bb25188fbe58afaf681'
+disk_hash = 'sha256:5ec4f89c5bf8b2e3352ace812e3d44da45bd372c63098bb25188fbe58afaf681'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'packs/languages/typescript/verify.sh']
+hash = 'sha256:91b4b76baefcb3ad8386a215590282c9afae434d61680509082547937ca20dfb'
+managed = true
+state = 'managed'
+template_hash = 'sha256:91b4b76baefcb3ad8386a215590282c9afae434d61680509082547937ca20dfb'
+disk_hash = 'sha256:91b4b76baefcb3ad8386a215590282c9afae434d61680509082547937ca20dfb'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'ralph.toml']
+hash = 'sha256:30a63c7a58f3015c22b5fff95ab0b4456ce37a4b7bbe4e0c7eb4abf8dd7d5f33'
+managed = true
+state = 'managed'
+template_hash = 'sha256:30a63c7a58f3015c22b5fff95ab0b4456ce37a4b7bbe4e0c7eb4abf8dd7d5f33'
+disk_hash = 'sha256:8486bd2dfae10f20a3c848ba2b04cd6a0e2943ee8c046295996d79fd301b9b84'
+baseline_status = 'missing'
+owner = 'seed'
+
+[files.'scripts/archive-plan.sh']
+hash = 'sha256:bad527d4f1c35da5fe3cdf6af74ddf611840688d0c42d50affe2c290ff505143'
+managed = true
+state = 'managed'
+template_hash = 'sha256:bad527d4f1c35da5fe3cdf6af74ddf611840688d0c42d50affe2c290ff505143'
+disk_hash = 'sha256:bad527d4f1c35da5fe3cdf6af74ddf611840688d0c42d50affe2c290ff505143'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/branch-name.sh']
+hash = 'sha256:3d0d51de9176b1b659bac170b19b996ae3f9dafa0010ab6820080ed77ebdee94'
+managed = true
+state = 'managed'
+template_hash = 'sha256:3d0d51de9176b1b659bac170b19b996ae3f9dafa0010ab6820080ed77ebdee94'
+disk_hash = 'sha256:3d0d51de9176b1b659bac170b19b996ae3f9dafa0010ab6820080ed77ebdee94'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/check-coverage.sh']
+hash = 'sha256:c62df31814c1b90d5ccb6fc7a4075019a5dcabc96c82174895ba8da48848e478'
+managed = true
+state = 'managed'
+template_hash = 'sha256:c62df31814c1b90d5ccb6fc7a4075019a5dcabc96c82174895ba8da48848e478'
+disk_hash = 'sha256:c62df31814c1b90d5ccb6fc7a4075019a5dcabc96c82174895ba8da48848e478'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/check-pipeline-sync.sh']
+hash = 'sha256:4109325c6fa67100c49efa31a768bb33d16b92701b2841dd000ffe7e429d46ed'
+managed = true
+state = 'managed'
+template_hash = 'sha256:4109325c6fa67100c49efa31a768bb33d16b92701b2841dd000ffe7e429d46ed'
+disk_hash = 'sha256:4109325c6fa67100c49efa31a768bb33d16b92701b2841dd000ffe7e429d46ed'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/check-skill-sync.sh']
+hash = 'sha256:925c873d0ab5074c1fbe03390ecb26d90df187be323288c74e5de1c3c840276e'
+managed = true
+state = 'managed'
+template_hash = 'sha256:925c873d0ab5074c1fbe03390ecb26d90df187be323288c74e5de1c3c840276e'
+disk_hash = 'sha256:925c873d0ab5074c1fbe03390ecb26d90df187be323288c74e5de1c3c840276e'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/check-template-purity.sh']
+hash = 'sha256:bcca7d280b12bf92465e8c96f7e37c22ec7bfb17141aad86d0aff4b166705109'
+managed = true
+state = 'managed'
+template_hash = 'sha256:bcca7d280b12bf92465e8c96f7e37c22ec7bfb17141aad86d0aff4b166705109'
+disk_hash = 'sha256:bcca7d280b12bf92465e8c96f7e37c22ec7bfb17141aad86d0aff4b166705109'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/check-template.sh']
+hash = 'sha256:997a0e8bd2f2ec56010685d74f754775608ce767f127f70ecfd62f0ac769d290'
+managed = true
+state = 'managed'
+template_hash = 'sha256:997a0e8bd2f2ec56010685d74f754775608ce767f127f70ecfd62f0ac769d290'
+disk_hash = 'sha256:997a0e8bd2f2ec56010685d74f754775608ce767f127f70ecfd62f0ac769d290'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/codex-check.sh']
+hash = 'sha256:998157bc8da70ac988fbb5f2193f3aa72e4fe90b9458defc2f5238762b252c5d'
+managed = true
+state = 'managed'
+template_hash = 'sha256:998157bc8da70ac988fbb5f2193f3aa72e4fe90b9458defc2f5238762b252c5d'
+disk_hash = 'sha256:998157bc8da70ac988fbb5f2193f3aa72e4fe90b9458defc2f5238762b252c5d'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/commit-msg-guard.sh']
+hash = 'sha256:88be0963432064b5940012b5e9a9763208d9d093fa563c4b13448319c58ce0e7'
+managed = true
+state = 'managed'
+template_hash = 'sha256:88be0963432064b5940012b5e9a9763208d9d093fa563c4b13448319c58ce0e7'
+disk_hash = 'sha256:88be0963432064b5940012b5e9a9763208d9d093fa563c4b13448319c58ce0e7'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/detect-changed-languages.sh']
+hash = 'sha256:9065a76597fce4216d8c09b27864fec31552fe9b02ae6269da527a9217e346db'
+managed = true
+state = 'managed'
+template_hash = 'sha256:9065a76597fce4216d8c09b27864fec31552fe9b02ae6269da527a9217e346db'
+disk_hash = 'sha256:9065a76597fce4216d8c09b27864fec31552fe9b02ae6269da527a9217e346db'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/detect-languages.sh']
+hash = 'sha256:8c542fff27b496aa3bb7cc049bceccfae7292c93b23d39139ceaf4e1e4ba53ef'
+managed = true
+state = 'managed'
+template_hash = 'sha256:8c542fff27b496aa3bb7cc049bceccfae7292c93b23d39139ceaf4e1e4ba53ef'
+disk_hash = 'sha256:8c542fff27b496aa3bb7cc049bceccfae7292c93b23d39139ceaf4e1e4ba53ef'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/ensure-pr-ready.sh']
+hash = 'sha256:69d742996e4727f97d42e3252bc9d9286d1151bd736e795dccb0cb7bcddfb63c'
+managed = true
+state = 'managed'
+template_hash = 'sha256:69d742996e4727f97d42e3252bc9d9286d1151bd736e795dccb0cb7bcddfb63c'
+disk_hash = 'sha256:69d742996e4727f97d42e3252bc9d9286d1151bd736e795dccb0cb7bcddfb63c'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/ensure-pr-title-prefix.sh']
+hash = 'sha256:c3d64b18e85195f83947c17f8295c15cc2fe2178974d693d4a39b836e934e728'
+managed = true
+state = 'managed'
+template_hash = 'sha256:c3d64b18e85195f83947c17f8295c15cc2fe2178974d693d4a39b836e934e728'
+disk_hash = 'sha256:c3d64b18e85195f83947c17f8295c15cc2fe2178974d693d4a39b836e934e728'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/gc-artifacts.sh']
+hash = 'sha256:95a711958f3113954d2db468ece1c1ff23ef469b72e7fca10d962b9050550804'
+managed = true
+state = 'managed'
+template_hash = 'sha256:95a711958f3113954d2db468ece1c1ff23ef469b72e7fca10d962b9050550804'
+disk_hash = 'sha256:95a711958f3113954d2db468ece1c1ff23ef469b72e7fca10d962b9050550804'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/insights-append.sh']
+hash = 'sha256:62d8b9d5b5aa31a395c30a1e510365ea5355bc86af768ab48d9239c540f93e87'
+managed = true
+state = 'managed'
+template_hash = 'sha256:62d8b9d5b5aa31a395c30a1e510365ea5355bc86af768ab48d9239c540f93e87'
+disk_hash = 'sha256:62d8b9d5b5aa31a395c30a1e510365ea5355bc86af768ab48d9239c540f93e87'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/new-feature-plan.sh']
+hash = 'sha256:71eb18253f4b1de528a60c275f6c375a6ab0b7b97b1054bf545afddc76e4a51b'
+managed = true
+state = 'managed'
+template_hash = 'sha256:71eb18253f4b1de528a60c275f6c375a6ab0b7b97b1054bf545afddc76e4a51b'
+disk_hash = 'sha256:71eb18253f4b1de528a60c275f6c375a6ab0b7b97b1054bf545afddc76e4a51b'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/pre-commit-secret-guard.sh']
+hash = 'sha256:3d5ddb6558628c1c1ad0609121d9efffb816c356bc0c88161eafcddd7fe35be1'
+managed = true
+state = 'managed'
+template_hash = 'sha256:3d5ddb6558628c1c1ad0609121d9efffb816c356bc0c88161eafcddd7fe35be1'
+disk_hash = 'sha256:3d5ddb6558628c1c1ad0609121d9efffb816c356bc0c88161eafcddd7fe35be1'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/pre-merge-commit-secret-guard.sh']
+hash = 'sha256:2150b01f5613b584b4a39d20eab250468809ce7b54c0b037149f7df128113423'
+managed = true
+state = 'managed'
+template_hash = 'sha256:2150b01f5613b584b4a39d20eab250468809ce7b54c0b037149f7df128113423'
+disk_hash = 'sha256:2150b01f5613b584b4a39d20eab250468809ce7b54c0b037149f7df128113423'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/prepare-commit-msg-secret-guard.sh']
+hash = 'sha256:0e2ccf0386cc5ca03c7ebaa1f3dda7b2d7c5dd98110bc880f75baf6d92f6e506'
+managed = true
+state = 'managed'
+template_hash = 'sha256:0e2ccf0386cc5ca03c7ebaa1f3dda7b2d7c5dd98110bc880f75baf6d92f6e506'
+disk_hash = 'sha256:0e2ccf0386cc5ca03c7ebaa1f3dda7b2d7c5dd98110bc880f75baf6d92f6e506'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/ralph-common.sh']
+hash = 'sha256:55903dc9ff087abbe44bb4d9e6392a853958c407d9d519ab732e418e78199580'
+managed = true
+state = 'managed'
+template_hash = 'sha256:55903dc9ff087abbe44bb4d9e6392a853958c407d9d519ab732e418e78199580'
+disk_hash = 'sha256:55903dc9ff087abbe44bb4d9e6392a853958c407d9d519ab732e418e78199580'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/ralph-config.sh']
+hash = 'sha256:8ddda20a634587add87e595cff14cdc184507f86bee59f92832b0c020a4712b8'
+managed = true
+state = 'managed'
+template_hash = 'sha256:8ddda20a634587add87e595cff14cdc184507f86bee59f92832b0c020a4712b8'
+disk_hash = 'sha256:8ddda20a634587add87e595cff14cdc184507f86bee59f92832b0c020a4712b8'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/ralph-worktree.sh']
+hash = 'sha256:a5d4386d236469f8a8fbaf5f2d9b0ace85c41f2e48c7ba5fb2950f248f959d7f'
+managed = true
+state = 'managed'
+template_hash = 'sha256:a5d4386d236469f8a8fbaf5f2d9b0ace85c41f2e48c7ba5fb2950f248f959d7f'
+disk_hash = 'sha256:a5d4386d236469f8a8fbaf5f2d9b0ace85c41f2e48c7ba5fb2950f248f959d7f'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/run-static-verify.sh']
+hash = 'sha256:8be85671fcbbd61099d3b7e7d62adb94187f52b4937918fae13df7b01281351e'
+managed = true
+state = 'managed'
+template_hash = 'sha256:8be85671fcbbd61099d3b7e7d62adb94187f52b4937918fae13df7b01281351e'
+disk_hash = 'sha256:8be85671fcbbd61099d3b7e7d62adb94187f52b4937918fae13df7b01281351e'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/run-test.sh']
+hash = 'sha256:0f0a04fc53e590aa50e7557f16db8c91da21dbfd0492278fb37c7bb764a839f5'
+managed = true
+state = 'managed'
+template_hash = 'sha256:0f0a04fc53e590aa50e7557f16db8c91da21dbfd0492278fb37c7bb764a839f5'
+disk_hash = 'sha256:0f0a04fc53e590aa50e7557f16db8c91da21dbfd0492278fb37c7bb764a839f5'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/run-verify.sh']
+hash = 'sha256:f4e73373667cd63b98cb5d5effd2a3039a26849ed78894d6a64146b9bcb862f4'
+managed = true
+state = 'managed'
+template_hash = 'sha256:f4e73373667cd63b98cb5d5effd2a3039a26849ed78894d6a64146b9bcb862f4'
+disk_hash = 'sha256:f4e73373667cd63b98cb5d5effd2a3039a26849ed78894d6a64146b9bcb862f4'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/secret-scan.sh']
+hash = 'sha256:2c4d2c3cf67817dc38ac5a261f8ea5d223674bf3d9f06ee112b4888e011db932'
+managed = true
+state = 'managed'
+template_hash = 'sha256:2c4d2c3cf67817dc38ac5a261f8ea5d223674bf3d9f06ee112b4888e011db932'
+disk_hash = 'sha256:2c4d2c3cf67817dc38ac5a261f8ea5d223674bf3d9f06ee112b4888e011db932'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/sync-skills.sh']
+hash = 'sha256:54a8da5f4f1a96d836eeae92bdd80ef6d68491e0e404875d455a5329fe5188a1'
+managed = true
+state = 'managed'
+template_hash = 'sha256:54a8da5f4f1a96d836eeae92bdd80ef6d68491e0e404875d455a5329fe5188a1'
+disk_hash = 'sha256:54a8da5f4f1a96d836eeae92bdd80ef6d68491e0e404875d455a5329fe5188a1'
+baseline_status = 'missing'
+owner = 'core'
+
+[files.'scripts/xreview-helpers.sh']
+hash = 'sha256:2492d9729b98fb555085e739f57a1d0142c8421e2bcb476201032a7d9ba10ece'
+managed = true
+state = 'managed'
+template_hash = 'sha256:2492d9729b98fb555085e739f57a1d0142c8421e2bcb476201032a7d9ba10ece'
+disk_hash = 'sha256:2492d9729b98fb555085e739f57a1d0142c8421e2bcb476201032a7d9ba10ece'
+baseline_status = 'missing'
+owner = 'core'

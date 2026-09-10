@@ -26,6 +26,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env
 .env*.local
 
 # vercel
@@ -34,3 +35,65 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# BEGIN RALPH MANAGED (ralph:gitignore)
+.DS_Store
+.idea/
+.vscode/
+node_modules/
+dist/
+build/
+bin/
+target/
+.venv/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environment files (examples stay tracked)
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Terraform / OpenTofu state and cache (often contain provider secrets)
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfstate.*.backup
+*.tfplan
+*.auto.tfvars
+*.auto.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+crash.log
+crash.*.log
+
+.claude/settings.local.json
+.claude/agent-memory-local/
+.claude/agent-memory/
+.claude/worktrees/
+.claude/hooks/local/
+.harness/cache/
+.harness/logs/
+!.harness/logs/.gitkeep
+.harness/state/
+!.harness/state/.gitkeep
+
+# Built binaries
+/ralph
+/ralph-tui
+
+# Go test coverage artifacts
+coverage.out
+
+# Auto-generated verification evidence (run-verify.sh output)
+docs/evidence/*.log
+docs/evidence/*.json
+
+# Auto-generated pipeline execution logs
+docs/reports/pipeline-execution-*.json
+# END RALPH MANAGED

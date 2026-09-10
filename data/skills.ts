@@ -1,0 +1,30 @@
+import type { Skill } from '@/types/skill'
+
+export const skills: Skill[] = [
+  { name: 'React', icon: 'react-original.svg', articles: [{ title: 'React の状態管理を整理する', url: 'https://note.com/tomas_0124/n/placeholder-react' }] },
+  { name: 'Vite', icon: 'vitejs-original.svg' },
+  { name: 'Vitest', icon: 'vitest-original.svg' },
+  { name: 'Next.js', icon: 'nextjs-original.svg', articles: [{ title: 'Next.js App Router の使い方', url: 'https://note.com/tomas_0124/n/placeholder-nextjs' }] },
+  { name: 'Vue.js', icon: 'vuejs-original.svg' },
+  { name: 'JavaScript', icon: 'javascript-original.svg' },
+  { name: 'TypeScript', icon: 'typescript-original.svg', articles: [{ title: 'TypeScript 型システム入門', url: 'https://note.com/tomas_0124/n/placeholder-typescript' }] },
+  { name: 'Ruby', icon: 'ruby-original.svg', articles: [{ title: 'Ruby で学ぶオブジェクト指向', url: 'https://note.com/tomas_0124/n/placeholder-ruby' }] },
+  { name: 'Rails', icon: 'rails-plain.svg' },
+  { name: 'Python', icon: 'python-original.svg', articles: [{ title: 'Python ではじめる機械学習', url: 'https://note.com/tomas_0124/n/placeholder-python' }] },
+  { name: 'Flask', icon: 'flask-original.svg' },
+  { name: 'FastAPI', icon: 'fastapi-original.svg' },
+  { name: 'Pytorch', icon: 'pytorch-original.svg' },
+  { name: 'C#', icon: 'csharp-original.svg' },
+  { name: 'Rust', icon: 'rust-original.svg' },
+  { name: 'Tailwind CSS', icon: 'tailwindcss-original.svg' },
+  { name: 'Three.js', icon: 'threejs-original.svg' },
+  { name: 'Prisma', icon: 'prisma-original.svg' },
+  { name: 'GraphQL', icon: 'graphql-plain.svg' },
+  { name: 'PostgreSQL', icon: 'postgresql-original.svg' },
+  { name: 'Docker', icon: 'docker-original.svg' },
+  { name: 'Bun', icon: 'bun-original.svg' },
+  { name: 'Unity', icon: 'unity-original.svg' },
+  { name: 'Azure', icon: 'azure-original.svg' },
+  { name: 'AWS', icon: 'amazonwebservices-original-wordmark.svg' },
+  { name: 'Linux', icon: 'linux-original.svg' }
+]
