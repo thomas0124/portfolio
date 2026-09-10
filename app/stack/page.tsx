@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 
 export default function Page() {
   return (
-    <div className="min-h-screen">
+    <div className="relative min-h-screen overflow-hidden bg-transparent">
       <div className="relative z-10 flex flex-col min-h-screen">
         <Header />
         <main className="container mx-auto px-4 pt-32 pb-20 flex-grow">

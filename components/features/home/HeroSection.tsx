@@ -2,15 +2,60 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
+// --- time-based greeting ---
+function getGreeting() {
+  const h = new Date().getHours()
+  if (h >= 5 && h < 12) return { text: 'Good morning', emoji: '☀️' }
+  if (h >= 12 && h < 18) return { text: 'Good afternoon', emoji: '✨' }
+  if (h >= 18 && h < 23) return { text: 'Good evening', emoji: '🌙' }
+  return { text: 'Good night', emoji: '⭐' }
+}
+
+// --- typewriter roles ---
+const ROLES = [
+  'Software Developer',
+  'Hackathon Winner',
+  'Full-Stack Developer',
+  'Unity Developer',
+]
+
+function useTypewriter(words: string[]) {
+  const [index, setIndex] = useState(0)
+  const [displayed, setDisplayed] = useState('')
+  const [typing, setTyping] = useState(true)
+
+  useEffect(() => {
+    const current = words[index]
+    if (typing) {
+      if (displayed.length < current.length) {
+        const t = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), 75)
+        return () => clearTimeout(t)
+      }
+      const t = setTimeout(() => setTyping(false), 2200)
+      return () => clearTimeout(t)
+    } else {
+      if (displayed.length > 0) {
+        const t = setTimeout(() => setDisplayed(d => d.slice(0, -1)), 38)
+        return () => clearTimeout(t)
+      }
+      setIndex(i => (i + 1) % words.length)
+      setTyping(true)
+    }
+  }, [displayed, typing, index, words])
+
+  return displayed
+}
+
+// --- profile click reactions ---
 const REACTIONS = [
-  { threshold: 0, emoji: '✨' },
-  { threshold: 1, emoji: '😊' },
-  { threshold: 3, emoji: '😄' },
-  { threshold: 5, emoji: '🤩' },
-  { threshold: 10, emoji: '🎊' }
+  { threshold: 0,  emoji: '✨' },
+  { threshold: 1,  emoji: '😊' },
+  { threshold: 3,  emoji: '😄' },
+  { threshold: 5,  emoji: '🤩' },
+  { threshold: 10, emoji: '🎊' },
 ]
 
 function getReaction(count: number) {
@@ -18,6 +63,9 @@ function getReaction(count: number) {
 }
 
 export default function HeroSection() {
+  const greeting = getGreeting()
+  const role = useTypewriter(ROLES)
+
   const [clickCount, setClickCount] = useState(0)
   const [showReaction, setShowReaction] = useState(false)
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -32,7 +80,6 @@ export default function HeroSection() {
 
   return (
     <section className="flex flex-col justify-center items-center px-4 relative w-full">
-      {/* 背景の可愛いぼかし装飾（デコレーション） */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-3xl -z-10 pointer-events-none" />
 
       <motion.div
@@ -41,6 +88,7 @@ export default function HeroSection() {
         transition={{ duration: 0.8, type: 'spring', bounce: 0.4 }}
         className="text-center max-w-4xl mx-auto"
       >
+        {/* profile image */}
         <div className="relative w-40 h-40 mx-auto mb-8 group">
           <motion.div
             animate={{ y: [-5, 5, -5] }}
@@ -57,7 +105,6 @@ export default function HeroSection() {
             />
           </motion.div>
 
-          {/* リアクションバッジ */}
           <motion.div
             key={getReaction(clickCount)}
             className="absolute -bottom-2 -right-2 w-10 h-10 bg-accent rounded-full border-4 border-background shadow-md flex items-center justify-center text-lg"
@@ -68,7 +115,6 @@ export default function HeroSection() {
             {getReaction(clickCount)}
           </motion.div>
 
-          {/* クリック時のポップアップ */}
           <AnimatePresence>
             {showReaction && (
               <motion.div
@@ -84,16 +130,25 @@ export default function HeroSection() {
           </AnimatePresence>
         </div>
 
+        {/* greeting */}
         <h1 className="text-4xl font-extrabold mb-4 text-foreground text-balance md:text-5xl lg:text-6xl tracking-tight">
-          Hi, I &lsquo; m Toma! 👋
+          {greeting.text}, I&lsquo;m Toma! {greeting.emoji}
         </h1>
-        <h2 className="text-xl md:text-2xl font-bold text-accent mb-6">Software Developer</h2>
+
+        {/* typewriter role */}
+        <h2 className="text-xl md:text-2xl font-bold text-accent mb-6 h-8 flex items-center justify-center gap-1">
+          {role}
+          <motion.span
+            animate={{ opacity: [1, 0] }}
+            transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse' }}
+            className="inline-block w-[2px] h-6 bg-accent ml-0.5 align-middle"
+          />
+        </h2>
 
         <p className="text-base text-muted-foreground mb-10 max-w-xl mx-auto leading-relaxed md:text-lg font-medium">
           {"I'm a passionate developer specializing in creating beautiful and functional web experiences."}
         </p>
 
-        {/* 3つのボタンを並べる（スマホでは縦積み、PCでは横並びで折り返し許容） */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
