@@ -28,7 +28,7 @@ export default function About() {
               <div className="relative w-40 h-40 md:w-56 md:h-56 flex-shrink-0 group">
                 <div className="w-full h-full rounded-[2.5rem] overflow-hidden border-4 border-background shadow-lg transition-transform duration-500 group-hover:-translate-y-2">
                   <Image
-                    src="/profile.jpg"
+                    src="/profile.png"
                     width={224}
                     height={224}
                     alt="Shimizu Toma"

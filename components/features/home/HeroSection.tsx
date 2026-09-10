@@ -49,7 +49,7 @@ export default function HeroSection() {
             onClick={handleProfileClick}
           >
             <Image
-              src="/profile.jpg"
+              src="/profile.png"
               width={160}
               height={160}
               alt="Shimizu Toma"
