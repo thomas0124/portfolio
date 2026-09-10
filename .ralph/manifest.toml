@@ -1,7 +1,7 @@
 [meta]
-version = '1.1.0'
-created = '2026-08-25T05:18:53Z'
-updated = '2026-08-25T05:18:53Z'
+version = '1.2.1'
+created = '2026-09-10T05:58:41Z'
+updated = '2026-09-10T05:58:41Z'
 packs = ['dart', 'golang', 'python', 'rust', 'terraform', 'typescript']
 layout = 'v2'
 
@@ -772,11 +772,11 @@ baseline_status = 'missing'
 owner = 'core'
 
 [files.'.codex/config.toml']
-hash = 'sha256:64a34005f8877e72f7c7c33dd5a8574eb4b92728d89e9a83d00cc17cfa3859a2'
+hash = 'sha256:e4984a85216669f7dddebe83233301c4caa1576c57c538caa34dccfdf9212d7a'
 managed = true
 state = 'managed'
-template_hash = 'sha256:64a34005f8877e72f7c7c33dd5a8574eb4b92728d89e9a83d00cc17cfa3859a2'
-disk_hash = 'sha256:64a34005f8877e72f7c7c33dd5a8574eb4b92728d89e9a83d00cc17cfa3859a2'
+template_hash = 'sha256:e4984a85216669f7dddebe83233301c4caa1576c57c538caa34dccfdf9212d7a'
+disk_hash = 'sha256:e4984a85216669f7dddebe83233301c4caa1576c57c538caa34dccfdf9212d7a'
 baseline_status = 'missing'
 owner = 'core'
 
@@ -1222,10 +1222,10 @@ baseline_status = 'missing'
 owner = 'core'
 
 [files.'ralph.toml']
-hash = 'sha256:8486bd2dfae10f20a3c848ba2b04cd6a0e2943ee8c046295996d79fd301b9b84'
+hash = 'sha256:30a63c7a58f3015c22b5fff95ab0b4456ce37a4b7bbe4e0c7eb4abf8dd7d5f33'
 managed = true
 state = 'managed'
-template_hash = 'sha256:8486bd2dfae10f20a3c848ba2b04cd6a0e2943ee8c046295996d79fd301b9b84'
+template_hash = 'sha256:30a63c7a58f3015c22b5fff95ab0b4456ce37a4b7bbe4e0c7eb4abf8dd7d5f33'
 disk_hash = 'sha256:8486bd2dfae10f20a3c848ba2b04cd6a0e2943ee8c046295996d79fd301b9b84'
 baseline_status = 'missing'
 owner = 'seed'
