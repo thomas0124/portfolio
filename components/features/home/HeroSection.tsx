@@ -2,9 +2,34 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { useRef, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+
+const REACTIONS = [
+  { threshold: 0, emoji: '✨' },
+  { threshold: 1, emoji: '😊' },
+  { threshold: 3, emoji: '😄' },
+  { threshold: 5, emoji: '🤩' },
+  { threshold: 10, emoji: '🎊' }
+]
+
+function getReaction(count: number) {
+  return [...REACTIONS].reverse().find(r => count >= r.threshold)!.emoji
+}
 
 export default function HeroSection() {
+  const [clickCount, setClickCount] = useState(0)
+  const [showReaction, setShowReaction] = useState(false)
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const handleProfileClick = () => {
+    const next = clickCount + 1
+    setClickCount(next)
+    setShowReaction(true)
+    if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    timeoutRef.current = setTimeout(() => setShowReaction(false), 1200)
+  }
+
   return (
     <section className="flex flex-col justify-center items-center px-4 relative w-full">
       {/* 背景の可愛いぼかし装飾（デコレーション） */}
@@ -20,7 +45,8 @@ export default function HeroSection() {
           <motion.div
             animate={{ y: [-5, 5, -5] }}
             transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-            className="relative w-full h-full rounded-[2.5rem] overflow-hidden border-4 border-background shadow-xl rotate-3 group-hover:rotate-0 transition-transform duration-500"
+            className="relative w-full h-full rounded-[2.5rem] overflow-hidden border-4 border-background shadow-xl rotate-3 group-hover:rotate-0 transition-transform duration-500 cursor-pointer"
+            onClick={handleProfileClick}
           >
             <Image
               src="/profile.jpg"
@@ -30,10 +56,32 @@ export default function HeroSection() {
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
           </motion.div>
-          {/* ポップなアクセントドット（キラキラを追加） */}
-          <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-accent rounded-full border-4 border-background shadow-md flex items-center justify-center text-lg">
-            ✨
-          </div>
+
+          {/* リアクションバッジ */}
+          <motion.div
+            key={getReaction(clickCount)}
+            className="absolute -bottom-2 -right-2 w-10 h-10 bg-accent rounded-full border-4 border-background shadow-md flex items-center justify-center text-lg"
+            initial={{ scale: 1.5 }}
+            animate={{ scale: 1 }}
+            transition={{ type: 'spring', bounce: 0.6, duration: 0.4 }}
+          >
+            {getReaction(clickCount)}
+          </motion.div>
+
+          {/* クリック時のポップアップ */}
+          <AnimatePresence>
+            {showReaction && (
+              <motion.div
+                className="absolute -top-10 left-1/2 -translate-x-1/2 text-2xl pointer-events-none"
+                initial={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 0, y: -24 }}
+                exit={{}}
+                transition={{ duration: 1.1, ease: 'easeOut' }}
+              >
+                {getReaction(clickCount)}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         <h1 className="text-4xl font-extrabold mb-4 text-foreground text-balance md:text-5xl lg:text-6xl tracking-tight">
