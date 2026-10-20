@@ -132,7 +132,7 @@ export default function HeroSection() {
 
         {/* greeting */}
         <h1 className="text-4xl font-extrabold mb-4 text-foreground text-balance md:text-5xl lg:text-6xl tracking-tight">
-          {greeting.text}, I&lsquo;m Toma! {greeting.emoji}
+          {greeting.text}, I&lsquo;m Tomas! {greeting.emoji}
         </h1>
 
         {/* typewriter role */}

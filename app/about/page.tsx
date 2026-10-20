@@ -43,11 +43,11 @@ export default function About() {
                 <div className="mb-6 space-y-2">
                   <h2 className="text-xl text-accent font-bold">PROFILE</h2>
                   <p className="text-muted-foreground font-medium text-lg">名城大学</p>
-                  <p className="text-muted-foreground font-medium text-lg">理工学研究科 情報工学専攻修士1年</p>
+                  <p className="text-muted-foreground font-medium text-lg">理工学研究科 情報工学専攻修士2年</p>
                 </div>
 
                 <p className="text-muted-foreground leading-relaxed mb-6 text-sm md:text-base">
-                  ハッカソンを軸に Web・AI・AR を横断して開発してきたフルスタックエンジニア。JPHACKS・Hack U など複数のコンテストで入賞経験あり。DMM.com・DATUM STUDIO でのインターンを経て、2027年4月より DMM.com に新卒入社予定。技術コミュニティ IdeaxTech の代表も務める。
+                  Web・AI・ARを横断して開発しているフルスタックエンジニア。JPHACKS・Hack Uなど複数のコンテストで入賞。DMM.com・DATUM STUDIO等のインターンを経て、2027年4月よりDMM.comに新卒入社予定
                 </p>
 
                 <div className="mt-auto pt-6 border-t-2 border-border/50">
