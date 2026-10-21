@@ -1,19 +1,12 @@
-'use client'
-
-import { motion } from 'framer-motion'
 import ContactBox from './ContactBox'
+import { Toaster } from '@/components/ui/toaster'
 
 export default function ContactSection() {
   return (
     <section id="contact" className="relative">
+      <Toaster />
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.28 }}
-          viewport={{ once: true, margin: '-20px' }}
-          className="text-center mb-10"
-        >
+        <div className="text-center mb-10">
           <h2 className="text-3xl font-extrabold text-foreground inline-block relative md:text-4xl">
             Get In Touch
             <span className="absolute bottom-1 left-0 w-full h-2.5 rounded-full bg-accent/40 -z-10 rotate-1" />
@@ -21,18 +14,13 @@ export default function ContactSection() {
           <p className="text-base text-muted-foreground max-w-2xl mx-auto mt-4 font-medium md:text-lg">
             Have a question or want to work together? Send me a message!
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.28, delay: 0.1 }}
-          viewport={{ once: true, margin: '-100px' }}
-        >
+        <div>
           <div className="max-w-2xl mx-auto bg-card/80 backdrop-blur-sm p-8 rounded-3xl border-2 border-border shadow-md">
             <ContactBox />
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

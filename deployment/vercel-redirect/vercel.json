@@ -1,0 +1,14 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": null,
+  "installCommand": null,
+  "outputDirectory": null,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "destination": "https://thomas-portfolio.qingshuitouzhen.workers.dev/:path*",
+      "permanent": true
+    }
+  ]
+}

@@ -15,20 +15,49 @@ interface Props {
   cardRect: DOMRect
 }
 
+const previewCache = new Map<string, OGData>()
+
 export default function OGPreviewCard({ url, cardRect }: Props) {
   const [data, setData] = useState<OGData | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    const cached = previewCache.get(url)
+    if (cached) {
+      setData(cached)
+      setLoading(false)
+      return
+    }
+
+    const controller = new AbortController()
     setLoading(true)
     setData(null)
-    fetch(`/api/og-preview?url=${encodeURIComponent(url)}`)
-      .then((r) => r.json())
-      .then((d) => {
-        if (!d.error) setData(d)
-      })
-      .catch(() => {})
-      .finally(() => setLoading(false))
+    const delay = setTimeout(() => {
+      fetch(`/api/og-preview?url=${encodeURIComponent(url)}`, { signal: controller.signal })
+        .then((response) => (response.ok ? response.json() : null))
+        .then((result: unknown) => {
+          if (result && typeof result === 'object' && !controller.signal.aborted) {
+            const fields = result as Record<string, unknown>
+            const preview: OGData = {
+              title: typeof fields.title === 'string' ? fields.title : null,
+              description: typeof fields.description === 'string' ? fields.description : null,
+              image: typeof fields.image === 'string' ? fields.image : null,
+              siteName: typeof fields.siteName === 'string' ? fields.siteName : null
+            }
+            previewCache.set(url, preview)
+            setData(preview)
+          }
+        })
+        .catch(() => {})
+        .finally(() => {
+          if (!controller.signal.aborted) setLoading(false)
+        })
+    }, 150)
+
+    return () => {
+      clearTimeout(delay)
+      controller.abort()
+    }
   }, [url])
 
   const viewportHeight = typeof window !== 'undefined' ? window.innerHeight : 800
@@ -37,9 +66,7 @@ export default function OGPreviewCard({ url, cardRect }: Props) {
   const previewWidth = 280
 
   const showAbove = cardRect.bottom + previewHeight + 8 > viewportHeight
-  const top = showAbove
-    ? cardRect.top - previewHeight - 8
-    : cardRect.bottom + 8
+  const top = showAbove ? cardRect.top - previewHeight - 8 : cardRect.bottom + 8
 
   const rawLeft = cardRect.left + cardRect.width / 2 - previewWidth / 2
   const left = Math.max(8, Math.min(rawLeft, viewportWidth - previewWidth - 8))
@@ -61,30 +88,22 @@ export default function OGPreviewCard({ url, cardRect }: Props) {
               src={data.image}
               alt={data.title ?? ''}
               className="w-full h-[140px] object-cover"
-              onError={(e) => { e.currentTarget.style.display = 'none' }}
+              onError={(e) => {
+                e.currentTarget.style.display = 'none'
+              }}
             />
           )}
           <div className="p-3 space-y-1">
             {data.siteName && (
-              <p className="text-[10px] font-semibold text-accent uppercase tracking-widest">
-                {data.siteName}
-              </p>
+              <p className="text-[10px] font-semibold text-accent uppercase tracking-widest">{data.siteName}</p>
             )}
-            {data.title && (
-              <p className="text-xs font-bold text-foreground line-clamp-2 leading-snug">
-                {data.title}
-              </p>
-            )}
+            {data.title && <p className="text-xs font-bold text-foreground line-clamp-2 leading-snug">{data.title}</p>}
             {data.description && (
-              <p className="text-[11px] text-muted-foreground line-clamp-2 leading-relaxed">
-                {data.description}
-              </p>
+              <p className="text-[11px] text-muted-foreground line-clamp-2 leading-relaxed">{data.description}</p>
             )}
             <div className="flex items-center gap-1 pt-0.5">
               <ExternalLink className="w-3 h-3 text-muted-foreground/60" />
-              <span className="text-[10px] text-muted-foreground/60 truncate">
-                {new URL(url).hostname}
-              </span>
+              <span className="text-[10px] text-muted-foreground/60 truncate">{new URL(url).hostname}</span>
             </div>
           </div>
         </>

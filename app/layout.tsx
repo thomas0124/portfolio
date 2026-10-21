@@ -2,28 +2,31 @@ import type { Metadata, Viewport } from 'next'
 import { Quicksand, Zen_Maru_Gothic } from 'next/font/google'
 import './globals.css'
 import { Providers } from './providers'
+import { siteUrl } from '@/lib/site'
 
 const quicksand = Quicksand({ subsets: ['latin'], variable: '--font-quicksand' })
 const zenMaruGothic = Zen_Maru_Gothic({
-  weight: ['300', '400', '500', '700', '900'],
+  weight: ['400', '700'],
+  preload: false,
   subsets: ['latin'],
   variable: '--font-zen-maru-gothic'
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://portfolio-thomas0124.vercel.app/'),
+  metadataBase: new URL(siteUrl),
+  alternates: { canonical: '/' },
   title: "thomas's portfolio",
   description: 'Shimizu Toma - Software Developer Portfolio',
   openGraph: {
     type: 'website',
     title: "thomas's portfolio",
     description: 'Shimizu Toma - Software Developer Portfolio',
-    url: 'https://portfolio-thomas0124.vercel.app/',
+    url: siteUrl,
     siteName: "thomas's portfolio",
     images: [
       {
-        url: 'https://portfolio-thomas0124.vercel.app/opengraph-image.png',
-        width: 1200,
+        url: '/opengraph-image.png',
+        width: 630,
         height: 630
       }
     ]
@@ -33,7 +36,7 @@ export const metadata: Metadata = {
     site: '@Tomas_engineer',
     title: "thomas's portfolio",
     description: 'Shimizu Toma - Software Developer Portfolio',
-    images: ['https://portfolio-thomas0124.vercel.app/twitter-image.png']
+    images: ['/twitter-image.png']
   }
 }
 

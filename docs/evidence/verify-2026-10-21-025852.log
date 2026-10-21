@@ -1,0 +1,45 @@
+# Verification run
+- Timestamp: 2026-10-21T02:58:52Z
+- Mode: all
+- Requested scope: full
+
+==> Language scope: full
+==> Language packs selected: typescript
+==> Running typescript verifier
+==> TypeScript project root: .
+
+> frontend_template@0.1.0 lint
+> next lint --dir app --dir components --dir hooks --dir lib --dir worker
+
+`next lint` is deprecated and will be removed in Next.js 16.
+For new projects, use create-next-app to choose your preferred linter.
+For existing projects, migrate to the ESLint CLI:
+npx @next/codemod@canary next-lint-to-eslint-cli .
+
+✔ No ESLint warnings or errors
+
+> frontend_template@0.1.0 test
+> npm run test:api
+
+
+> frontend_template@0.1.0 test:api
+> node --import tsx --test worker/api.test.ts
+
+✔ preview origins reject prefixes, credentials, ports, HTTP and private hosts (0.393166ms)
+✔ bounded reader rejects streamed responses over its byte budget (8.914583ms)
+✔ contact rejects cross-origin, malformed and oversized payloads without sending (2.252ms)
+✔ contact respects binding rate limit and escapes email HTML (0.188709ms)
+✔ preview never follows redirects outside the exact allowlist (0.415542ms)
+✔ preview extracts metadata and discards executable image URLs (0.719375ms)
+✔ contact success sends escaped data only to the configured recipient using a mocked transport (0.288042ms)
+✔ SMTP deadline closes a stalled transport without waiting for socket timers (11.067125ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 124.530917
+
+==> All verifiers passed.

@@ -1,5 +1,3 @@
-'use client'
-
 import Link from 'next/link'
 import { PenLine } from 'lucide-react'
 import { FaGithub, FaXTwitter } from 'react-icons/fa6'
@@ -7,7 +5,7 @@ import { FaGithub, FaXTwitter } from 'react-icons/fa6'
 const LINKS = [
   { href: 'https://github.com/thomas0124', label: 'GitHub', Icon: FaGithub },
   { href: 'https://twitter.com/Tomas_engineer', label: 'X (Twitter)', Icon: FaXTwitter },
-  { href: 'https://note.com/tomas_0124', label: 'note', Icon: PenLine },
+  { href: 'https://note.com/tomas_0124', label: 'note', Icon: PenLine }
 ]
 
 export default function Footer() {

@@ -1,9 +1,6 @@
-'use client'
-
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 import ScrollProgress from '@/components/common/ScrollProgress'
 import ExperienceSection from '@/components/features/experience/ExperienceSection'
 
@@ -16,16 +13,11 @@ export default function About() {
 
         <main className="pt-32 pb-20 flex flex-col gap-24 w-full">
           <section className="container mx-auto px-4 max-w-4xl relative">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="bg-card/60 backdrop-blur-md border-2 border-border/60 p-8 md:p-12 rounded-[3rem] shadow-sm transition-all duration-500 hover:shadow-xl hover:border-accent/30 flex flex-col md:flex-row gap-10 items-center md:items-start"
-            >
+            <div className="bg-card/60 backdrop-blur-md border-2 border-border/60 p-8 md:p-12 rounded-[3rem] shadow-sm transition-all duration-500 hover:shadow-xl hover:border-accent/30 flex flex-col md:flex-row gap-10 items-center md:items-start">
               <div className="relative w-40 h-40 md:w-56 md:h-56 flex-shrink-0 group">
                 <div className="w-full h-full rounded-[2.5rem] overflow-hidden border-4 border-background shadow-lg transition-transform duration-500 group-hover:-translate-y-2">
                   <Image
-                    src="/profile.png"
+                    src="/profile.webp"
                     width={224}
                     height={224}
                     alt="Shimizu Toma"
@@ -47,7 +39,9 @@ export default function About() {
                 </div>
 
                 <p className="text-muted-foreground leading-relaxed mb-6 text-sm md:text-base">
-                  Web・AI・ARを横断して開発しているフルスタックエンジニア。JPHACKS・Hack Uなど複数のコンテストで入賞。DMM.com・DATUM STUDIO等のインターンを経て、2027年4月よりDMM.comに新卒入社予定
+                  Web・AI・ARを横断して開発しているフルスタックエンジニア。JPHACKS・Hack
+                  Uなど複数のコンテストで入賞。DMM.com・DATUM
+                  STUDIO等のインターンを経て、2027年4月よりDMM.comに新卒入社予定
                 </p>
 
                 <div className="mt-auto pt-6 border-t-2 border-border/50">
@@ -98,7 +92,7 @@ export default function About() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </section>
           <ExperienceSection />
         </main>

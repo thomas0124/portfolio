@@ -1,0 +1,163 @@
+
+> frontend_template@0.1.0 test
+> npm run test:api
+
+
+> frontend_template@0.1.0 test:api
+> node --import tsx --test worker/api.test.ts
+
+✔ preview origins reject prefixes, credentials, ports, HTTP and private hosts (0.408625ms)
+✔ bounded reader rejects streamed responses over its byte budget (12.0025ms)
+✔ contact rejects cross-origin, malformed and oversized payloads without sending (2.447792ms)
+✔ contact respects binding rate limit and escapes email HTML (0.207167ms)
+✔ preview never follows redirects outside the exact allowlist (0.510708ms)
+✔ preview extracts metadata and discards executable image URLs (0.832542ms)
+✔ contact success sends escaped data only to the configured recipient using a mocked transport (0.30925ms)
+✔ SMTP deadline closes a stalled transport without waiting for socket timers (10.413708ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 127.619209
+# Verification run
+- Timestamp: 2026-10-21T02:48:37Z
+- Mode: test
+- Requested scope: changed
+
+==> Language scope: full fallback (unclassified:.dev.vars.example)
+==> Language packs selected: typescript
+==> Running typescript verifier
+==> TypeScript project root: .
+
+> frontend_template@0.1.0 test
+> npm run test:api
+
+
+> frontend_template@0.1.0 test:api
+> node --import tsx --test worker/api.test.ts
+
+✔ preview origins reject prefixes, credentials, ports, HTTP and private hosts (0.827083ms)
+✔ bounded reader rejects streamed responses over its byte budget (13.549ms)
+✔ contact rejects cross-origin, malformed and oversized payloads without sending (3.139292ms)
+✔ contact respects binding rate limit and escapes email HTML (0.256792ms)
+✔ preview never follows redirects outside the exact allowlist (0.525625ms)
+✔ preview extracts metadata and discards executable image URLs (1.188541ms)
+✔ contact success sends escaped data only to the configured recipient using a mocked transport (0.370167ms)
+✔ SMTP deadline closes a stalled transport without waiting for socket timers (10.771084ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 161.42075
+
+==> All verifiers passed.
+
+Evidence saved to: docs/evidence/verify-2026-10-21-024837.log
+{
+  "result": "PASS",
+  "routes": [
+    {
+      "viewport": 1440,
+      "route": "/",
+      "status": 200
+    },
+    {
+      "viewport": 1440,
+      "route": "/about",
+      "status": 200
+    },
+    {
+      "viewport": 1440,
+      "route": "/projects",
+      "status": 200
+    },
+    {
+      "viewport": 1440,
+      "route": "/stack",
+      "status": 200
+    },
+    {
+      "viewport": 1440,
+      "route": "/contact",
+      "status": 200
+    },
+    {
+      "viewport": 390,
+      "route": "/",
+      "status": 200
+    },
+    {
+      "viewport": 390,
+      "route": "/about",
+      "status": 200
+    },
+    {
+      "viewport": 390,
+      "route": "/projects",
+      "status": 200
+    },
+    {
+      "viewport": 390,
+      "route": "/stack",
+      "status": 200
+    },
+    {
+      "viewport": 390,
+      "route": "/contact",
+      "status": 200
+    }
+  ],
+  "interactions": [
+    "role",
+    "portrait",
+    "mobile menu",
+    "dark theme",
+    "mocked contact submit",
+    "reduced motion",
+    "no-JavaScript homepage"
+  ]
+}
+/missing-page-check 404
+/api/missing 404
+<link rel="canonical" href="https://thomas-portfolio.qingshuitouzhen.workers.dev"/>
+<meta property="og:title" content="thomas&#x27;s portfolio"/>
+<meta property="og:description" content="Shimizu Toma - Software Developer Portfolio"/>
+<meta property="og:url" content="https://thomas-portfolio.qingshuitouzhen.workers.dev"/>
+<meta property="og:site_name" content="thomas&#x27;s portfolio"/>
+<meta property="og:image:type" content="image/png"/>
+<meta property="og:image:width" content="630"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image" content="https://thomas-portfolio.qingshuitouzhen.workers.dev/opengraph-image.png?444a5a54d6d03061"/>
+<meta property="og:type" content="website"/>
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+404 !== 200
+
+    at [stdin]:9:140
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 404,
+  expected: 200,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+/opengraph-image.png 200 image/png
+/twitter-image.png 200 image/png
+/robots.txt 200 text/plain; charset=utf-8
+/sitemap.xml 200 application/xml
+preview https://jphacks.com/information/pitch-result-2022/ 200 「JPHACKS2022 Hacking Sprint」結果のご報告 - JPHACKS
+preview https://www.meijo-u.ac.jp/news/detail_29431.html 200 情報工学部・理工学部・都市情報学部の学生チームがJPHACKS2023でスポンサー賞を受賞
+preview https://hacku.yahoo.co.jp/meijo2023/ 200 Hack U 名城大学 2023 | Hack U - Yahoo! JAPAN
+preview https://www.meijo-u.ac.jp/mag/manabi/project/article-enjoy-2024-01.html 200 IT勉強会｜学びのコミュニティ｜学びのコミュニティ｜MEIJO MAG｜名城大学
+preview https://note.com/tomas_0124/n/nb352c535b296 200 DMM GUILD2025｜トーマス
+preview https://note.com/tomas_0124/n/na662a16832e8 200 DATUM STUDIOのインターンに参加した話｜トーマス
+preview https://dmm-corp.com/ 200 DMM Group
+HTTP checks PASS
+{"target":"http://localhost:8787","status":200,"lcp":124,"cls":0,"errors":[],"resources":22,"bytes":307141,"screenshot":"/tmp/portfolio-test-final.png"}

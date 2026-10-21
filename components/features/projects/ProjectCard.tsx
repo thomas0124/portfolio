@@ -1,7 +1,4 @@
-'use client'
-
 import type React from 'react'
-import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { FaGithub } from 'react-icons/fa'
 import type { Project } from '@/types/project'
@@ -11,14 +8,8 @@ interface ProjectCardProps {
   index: number
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 12 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.28, delay: index * 0.05 }}
-    viewport={{ once: true, margin: '0px' }}
-    className="group flex flex-col justify-between h-full bg-card/60 backdrop-blur-md border-2 border-border/60 p-8 rounded-[2.5rem] shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-accent/40 hover:bg-card"
-  >
+const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => (
+  <div className="group flex flex-col justify-between h-full bg-card/60 backdrop-blur-md border-2 border-border/60 p-8 rounded-[2.5rem] shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-accent/40 hover:bg-card">
     <div>
       <h3 className="text-2xl text-foreground font-extrabold mb-4 group-hover:text-accent transition-colors duration-300">
         {project.name}
@@ -55,7 +46,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => (
         <span>View Repository</span>
       </a>
     </div>
-  </motion.div>
+  </div>
 )
 
 export default ProjectCard

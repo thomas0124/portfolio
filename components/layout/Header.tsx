@@ -67,22 +67,24 @@ const Header: React.FC = () => {
   }, [])
 
   useEffect(() => {
-    let ticking = false
+    let frame: number | null = null
 
     const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
+      if (frame === null) {
+        frame = window.requestAnimationFrame(() => {
           setScrolled(window.scrollY > 30)
-          ticking = false
+          frame = null
         })
-        ticking = true
       }
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll()
 
-    return () => window.removeEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      if (frame !== null) window.cancelAnimationFrame(frame)
+    }
   }, [])
 
   const toggleMenu = () => {
@@ -104,7 +106,7 @@ const Header: React.FC = () => {
         role="banner"
       >
         <div className="flex justify-between items-center relative">
-          <h1
+          <div
             // タイトルもシンプルに。ホバー時に全体が少しだけ持ち上がる
             className={`
               font-extrabold text-foreground transition-[font-size,color] duration-200 ease-out tracking-tight
@@ -118,7 +120,7 @@ const Header: React.FC = () => {
             >
               {"Thomas's"} <br className={scrolled ? 'hidden' : 'hidden sm:inline'} /> Portfolio
             </Link>
-          </h1>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex md:items-center md:gap-1">
@@ -150,6 +152,8 @@ const Header: React.FC = () => {
             `}
             onClick={toggleMenu}
             aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
           >
             <div className="relative w-6 h-5">
               <span
@@ -176,6 +180,8 @@ const Header: React.FC = () => {
 
         {/* Mobile Navigation */}
         <div
+          id="mobile-navigation"
+          hidden={!isMenuOpen}
           className={`
             md:hidden overflow-hidden transition-[max-height,opacity,transform] duration-300 ease-in-out origin-top
             ${isMenuOpen ? 'max-h-[400px] opacity-100 scale-100 mt-4' : 'max-h-0 opacity-0 scale-95 mt-0'}

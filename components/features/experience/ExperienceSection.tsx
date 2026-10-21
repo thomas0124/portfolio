@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
 import { experiences } from '@/data/experiences'
 import OGPreviewCard from './OGPreviewCard'
@@ -39,15 +38,21 @@ export default function ExperienceSection() {
                 : ({ children }: { children: React.ReactNode }) => <div className="h-full">{children}</div>
 
               return (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.28, delay: (index % 3) * 0.05 }}
-                  viewport={{ once: true, margin: '0px' }}
                   className="relative group px-4 md:px-6"
-                  onMouseEnter={item.url ? (e) => setHovered({ url: item.url!, rect: e.currentTarget.getBoundingClientRect() }) : undefined}
+                  onMouseEnter={
+                    item.url
+                      ? (e) => setHovered({ url: item.url!, rect: e.currentTarget.getBoundingClientRect() })
+                      : undefined
+                  }
                   onMouseLeave={item.url ? () => setHovered(null) : undefined}
+                  onFocus={
+                    item.url
+                      ? (event) => setHovered({ url: item.url!, rect: event.currentTarget.getBoundingClientRect() })
+                      : undefined
+                  }
+                  onBlur={item.url ? () => setHovered(null) : undefined}
                 >
                   <div className="absolute top-0 left-0 w-full h-0 border-t-[3px] border-dashed border-accent/30 -z-10" />
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-accent rounded-full border-4 border-background shadow-sm transition-transform duration-300 group-hover:scale-150 z-10" />
@@ -85,7 +90,7 @@ export default function ExperienceSection() {
                       </div>
                     </div>
                   </CardWrapper>
-                </motion.div>
+                </div>
               )
             })}
           </div>
