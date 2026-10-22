@@ -1,0 +1,2 @@
+# Historical mocked SMTP fixture in the migration commit; never a real credential.
+EMAIL_SERVER_PASSWORD: 'test-only',

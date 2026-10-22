@@ -32,7 +32,7 @@ const CONFIGS = {
     minSize: 5,
     maxSize: 11,
     minSpeed: 0.4,
-    maxSpeed: 1.1,
+    maxSpeed: 1.1
   },
   summer: {
     colors: ['#FFE878', '#BEFF78', '#78FFB4', '#A8FF78'],
@@ -40,7 +40,7 @@ const CONFIGS = {
     minSize: 2,
     maxSize: 5,
     minSpeed: 0.1,
-    maxSpeed: 0.4,
+    maxSpeed: 0.4
   },
   autumn: {
     colors: ['#C84820', '#E07828', '#D4A830', '#A83818', '#E85830', '#C87820'],
@@ -48,7 +48,7 @@ const CONFIGS = {
     minSize: 7,
     maxSize: 16,
     minSpeed: 0.5,
-    maxSpeed: 1.8,
+    maxSpeed: 1.8
   },
   winter: {
     colors: ['#FFFFFF', '#E8F4FF', '#D0E8FF', '#C0D8F0'],
@@ -56,8 +56,8 @@ const CONFIGS = {
     minSize: 2,
     maxSize: 6,
     minSpeed: 0.25,
-    maxSpeed: 0.8,
-  },
+    maxSpeed: 0.8
+  }
 }
 
 function rand(min: number, max: number) {
@@ -76,7 +76,7 @@ function makeParticle(season: Season, w: number, h: number, scattered = false): 
     size: rand(cfg.minSize, cfg.maxSize),
     opacity: rand(0.25, 0.55),
     color: cfg.colors[Math.floor(Math.random() * cfg.colors.length)],
-    t: rand(0, Math.PI * 2),
+    t: rand(0, Math.PI * 2)
   }
 }
 
@@ -91,7 +91,6 @@ function draw(ctx: CanvasRenderingContext2D, p: Particle, season: Season) {
     ctx.beginPath()
     ctx.ellipse(0, 0, p.size * 0.45, p.size, 0, 0, Math.PI * 2)
     ctx.fill()
-
   } else if (season === 'summer') {
     const grad = ctx.createRadialGradient(0, 0, 0, 0, 0, p.size * 3)
     grad.addColorStop(0, p.color)
@@ -100,7 +99,6 @@ function draw(ctx: CanvasRenderingContext2D, p: Particle, season: Season) {
     ctx.arc(0, 0, p.size * 3, 0, Math.PI * 2)
     ctx.fillStyle = grad
     ctx.fill()
-
   } else if (season === 'autumn') {
     const s = p.size
     ctx.fillStyle = p.color
@@ -116,7 +114,6 @@ function draw(ctx: CanvasRenderingContext2D, p: Particle, season: Season) {
     ctx.lineWidth = 1
     ctx.globalAlpha = p.opacity * 0.6
     ctx.stroke()
-
   } else {
     // winter: simple circle
     ctx.fillStyle = p.color
@@ -141,20 +138,25 @@ export default function SeasonalBackground() {
     const cfg = CONFIGS[season]
     let w = 0
     let h = 0
-    let animId: number
+    let animId = 0
+    let previousFrame = 0
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)')
 
     const resize = () => {
       w = canvas.width = window.innerWidth
       h = canvas.height = window.innerHeight
     }
     resize()
-    window.addEventListener('resize', resize)
 
-    const particles: Particle[] = Array.from({ length: cfg.count }, () =>
-      makeParticle(season, w, h, true)
-    )
+    const particles: Particle[] = Array.from({ length: cfg.count }, () => makeParticle(season, w, h, true))
 
-    const tick = () => {
+    const tick = (timestamp = 0) => {
+      if (document.hidden) return
+      if (timestamp && timestamp - previousFrame < 1000 / 30) {
+        animId = requestAnimationFrame(tick)
+        return
+      }
+      previousFrame = timestamp
       ctx.clearRect(0, 0, w, h)
 
       for (const p of particles) {
@@ -176,21 +178,31 @@ export default function SeasonalBackground() {
         draw(ctx, p, season)
       }
 
-      animId = requestAnimationFrame(tick)
+      if (!motionPreference.matches) animId = requestAnimationFrame(tick)
     }
+    const refresh = () => {
+      cancelAnimationFrame(animId)
+      previousFrame = 0
+      tick()
+    }
+    const handleResize = () => {
+      resize()
+      refresh()
+    }
+    window.addEventListener('resize', handleResize)
+    document.addEventListener('visibilitychange', refresh)
+    motionPreference.addEventListener('change', refresh)
     tick()
 
     return () => {
       cancelAnimationFrame(animId)
-      window.removeEventListener('resize', resize)
+      window.removeEventListener('resize', handleResize)
+      document.removeEventListener('visibilitychange', refresh)
+      motionPreference.removeEventListener('change', refresh)
     }
   }, [])
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="fixed inset-0 pointer-events-none"
-      style={{ zIndex: 1 }}
-    />
+    <canvas aria-hidden="true" ref={canvasRef} className="fixed inset-0 pointer-events-none" style={{ zIndex: 1 }} />
   )
 }

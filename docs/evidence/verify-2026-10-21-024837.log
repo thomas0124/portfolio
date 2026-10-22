@@ -1,0 +1,35 @@
+# Verification run
+- Timestamp: 2026-10-21T02:48:37Z
+- Mode: test
+- Requested scope: changed
+
+==> Language scope: full fallback (unclassified:.dev.vars.example)
+==> Language packs selected: typescript
+==> Running typescript verifier
+==> TypeScript project root: .
+
+> frontend_template@0.1.0 test
+> npm run test:api
+
+
+> frontend_template@0.1.0 test:api
+> node --import tsx --test worker/api.test.ts
+
+✔ preview origins reject prefixes, credentials, ports, HTTP and private hosts (0.827083ms)
+✔ bounded reader rejects streamed responses over its byte budget (13.549ms)
+✔ contact rejects cross-origin, malformed and oversized payloads without sending (3.139292ms)
+✔ contact respects binding rate limit and escapes email HTML (0.256792ms)
+✔ preview never follows redirects outside the exact allowlist (0.525625ms)
+✔ preview extracts metadata and discards executable image URLs (1.188541ms)
+✔ contact success sends escaped data only to the configured recipient using a mocked transport (0.370167ms)
+✔ SMTP deadline closes a stalled transport without waiting for socket timers (10.771084ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 161.42075
+
+==> All verifiers passed.

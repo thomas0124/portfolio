@@ -3,9 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
 
-// --- time-based greeting ---
 function getGreeting() {
   const h = new Date().getHours()
   if (h >= 5 && h < 12) return { text: 'Good morning', emoji: '☀️' }
@@ -14,61 +12,88 @@ function getGreeting() {
   return { text: 'Good night', emoji: '⭐' }
 }
 
-// --- typewriter roles ---
-const ROLES = [
-  'Software Developer',
-  'Hackathon Winner',
-  'Full-Stack Developer',
-  'AI Engineer',
-]
+const ROLES = ['Software Developer', 'Hackathon Winner', 'Full-Stack Developer', 'AI Engineer']
 
 function useTypewriter(words: string[]) {
-  const [index, setIndex] = useState(0)
-  const [displayed, setDisplayed] = useState('')
-  const [typing, setTyping] = useState(true)
+  const [displayed, setDisplayed] = useState(words[0])
+  const [active, setActive] = useState(false)
 
   useEffect(() => {
-    const current = words[index]
-    if (typing) {
-      if (displayed.length < current.length) {
-        const t = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), 75)
-        return () => clearTimeout(t)
-      }
-      const t = setTimeout(() => setTyping(false), 2200)
-      return () => clearTimeout(t)
-    } else {
-      if (displayed.length > 0) {
-        const t = setTimeout(() => setDisplayed(d => d.slice(0, -1)), 38)
-        return () => clearTimeout(t)
-      }
-      setIndex(i => (i + 1) % words.length)
-      setTyping(true)
-    }
-  }, [displayed, typing, index, words])
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+    let index = 0
+    let length = words[0].length
+    let deleting = true
+    let timer: ReturnType<typeof setTimeout> | undefined
 
-  return displayed
+    const tick = () => {
+      if (document.hidden || reducedMotion.matches) return
+      const current = words[index]
+      length += deleting ? -1 : 1
+      setDisplayed(current.slice(0, length))
+      let delay = deleting ? 38 : 75
+      if (length === 0) {
+        index = (index + 1) % words.length
+        deleting = false
+        delay = 75
+      } else if (length === current.length) {
+        deleting = true
+        delay = 2200
+      }
+      timer = setTimeout(tick, delay)
+    }
+
+    const synchronize = () => {
+      clearTimeout(timer)
+      const shouldAnimate = !document.hidden && !reducedMotion.matches
+      setActive(shouldAnimate)
+      if (reducedMotion.matches) {
+        index = 0
+        length = words[0].length
+        deleting = true
+        setDisplayed(words[0])
+      }
+      if (shouldAnimate) timer = setTimeout(tick, 2200)
+    }
+
+    synchronize()
+    document.addEventListener('visibilitychange', synchronize)
+    reducedMotion.addEventListener('change', synchronize)
+    return () => {
+      clearTimeout(timer)
+      document.removeEventListener('visibilitychange', synchronize)
+      reducedMotion.removeEventListener('change', synchronize)
+    }
+  }, [words])
+
+  return { displayed, active }
 }
 
-// --- profile click reactions ---
 const REACTIONS = [
-  { threshold: 0,  emoji: '✨' },
-  { threshold: 1,  emoji: '😊' },
-  { threshold: 3,  emoji: '😄' },
-  { threshold: 5,  emoji: '🤩' },
-  { threshold: 10, emoji: '🎊' },
+  { threshold: 0, emoji: '✨' },
+  { threshold: 1, emoji: '😊' },
+  { threshold: 3, emoji: '😄' },
+  { threshold: 5, emoji: '🤩' },
+  { threshold: 10, emoji: '🎊' }
 ]
 
 function getReaction(count: number) {
-  return [...REACTIONS].reverse().find(r => count >= r.threshold)!.emoji
+  return [...REACTIONS].reverse().find((r) => count >= r.threshold)!.emoji
 }
 
 export default function HeroSection() {
-  const greeting = getGreeting()
+  const [greeting, setGreeting] = useState({ text: 'Good morning', emoji: '☀️' })
   const role = useTypewriter(ROLES)
 
   const [clickCount, setClickCount] = useState(0)
   const [showReaction, setShowReaction] = useState(false)
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  useEffect(() => {
+    setGreeting(getGreeting())
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    }
+  }, [])
 
   const handleProfileClick = () => {
     const next = clickCount + 1
@@ -82,52 +107,40 @@ export default function HeroSection() {
     <section className="flex flex-col justify-center items-center px-4 relative w-full">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-3xl -z-10 pointer-events-none" />
 
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, type: 'spring', bounce: 0.4 }}
-        className="text-center max-w-4xl mx-auto"
-      >
+      <div className="text-center max-w-4xl mx-auto">
         {/* profile image */}
         <div className="relative w-40 h-40 mx-auto mb-8 group">
-          <motion.div
-            animate={{ y: [-5, 5, -5] }}
-            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+          <button
+            type="button"
+            aria-label="React to profile"
             className="relative w-full h-full rounded-[2.5rem] overflow-hidden border-4 border-background shadow-xl rotate-3 group-hover:rotate-0 transition-transform duration-500 cursor-pointer"
             onClick={handleProfileClick}
           >
             <Image
-              src="/profile.png"
+              src="/profile.webp"
               width={160}
               height={160}
               alt="Shimizu Toma"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              priority
+              sizes="160px"
             />
-          </motion.div>
+          </button>
 
-          <motion.div
+          <div
             key={getReaction(clickCount)}
             className="absolute -bottom-2 -right-2 w-10 h-10 bg-accent rounded-full border-4 border-background shadow-md flex items-center justify-center text-lg"
-            initial={{ scale: 1.5 }}
-            animate={{ scale: 1 }}
-            transition={{ type: 'spring', bounce: 0.6, duration: 0.4 }}
           >
             {getReaction(clickCount)}
-          </motion.div>
+          </div>
 
-          <AnimatePresence>
+          <>
             {showReaction && (
-              <motion.div
-                className="absolute -top-10 left-1/2 -translate-x-1/2 text-2xl pointer-events-none"
-                initial={{ opacity: 1, y: 0 }}
-                animate={{ opacity: 0, y: -24 }}
-                exit={{}}
-                transition={{ duration: 1.1, ease: 'easeOut' }}
-              >
+              <div className="absolute -top-10 left-1/2 -translate-x-1/2 text-2xl pointer-events-none">
                 {getReaction(clickCount)}
-              </motion.div>
+              </div>
             )}
-          </AnimatePresence>
+          </>
         </div>
 
         {/* greeting */}
@@ -135,13 +148,13 @@ export default function HeroSection() {
           {greeting.text}, I&lsquo;m Tomas! {greeting.emoji}
         </h1>
 
-        {/* typewriter role */}
         <h2 className="text-xl md:text-2xl font-bold text-accent mb-6 h-8 flex items-center justify-center gap-1">
-          {role}
-          <motion.span
-            animate={{ opacity: [1, 0] }}
-            transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse' }}
-            className="inline-block w-[2px] h-6 bg-accent ml-0.5 align-middle"
+          <span className="sr-only">{ROLES.join(', ')}</span>
+          <span aria-hidden="true">{role.displayed}</span>
+          <span
+            aria-hidden="true"
+            className="inline-block w-[2px] h-6 bg-accent ml-0.5 align-middle animate-pulse motion-reduce:hidden"
+            style={{ animationDuration: '1s', animationPlayState: role.active ? 'running' : 'paused' }}
           />
         </h2>
 
@@ -149,12 +162,7 @@ export default function HeroSection() {
           {"I'm a passionate developer specializing in creating beautiful and functional web experiences."}
         </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 max-w-3xl mx-auto"
-        >
+        <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 max-w-3xl mx-auto">
           <Link
             href="/about"
             className="inline-flex w-full sm:w-auto items-center justify-center px-8 py-4 rounded-full bg-foreground text-background font-bold text-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-foreground/90"
@@ -173,8 +181,8 @@ export default function HeroSection() {
           >
             Contact Me
           </Link>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   )
 }

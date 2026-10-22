@@ -1,0 +1,34 @@
+# Verification run
+- Timestamp: 2026-10-21T02:46:45Z
+- Mode: static
+- Requested scope: changed
+
+==> Language scope: full fallback (unclassified:.dev.vars.example)
+==> Language packs selected: typescript
+==> Running typescript verifier
+==> TypeScript project root: .
+
+> frontend_template@0.1.0 lint
+> next lint --dir app --dir components --dir hooks --dir lib --dir worker
+
+`next lint` is deprecated and will be removed in Next.js 16.
+For new projects, use create-next-app to choose your preferred linter.
+For existing projects, migrate to the ESLint CLI:
+npx @next/codemod@canary next-lint-to-eslint-cli .
+
+✔ No ESLint warnings or errors
+
+==> All verifiers passed.
+
+Evidence saved to: docs/evidence/verify-2026-10-21-024645.log
+
+> frontend_template@0.1.0 lint
+> next lint --dir app --dir components --dir hooks --dir lib --dir worker
+
+`next lint` is deprecated and will be removed in Next.js 16.
+For new projects, use create-next-app to choose your preferred linter.
+For existing projects, migrate to the ESLint CLI:
+npx @next/codemod@canary next-lint-to-eslint-cli .
+
+✔ No ESLint warnings or errors
+[ok] check-skill-sync: 12 skill(s) in lock-step

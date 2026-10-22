@@ -20,10 +20,14 @@ export function useContactForm() {
         body: JSON.stringify({ email, message })
       })
 
-      const data = await response.json()
+      const data: unknown = await response.json()
 
       if (!response.ok) {
-        throw new Error(data.message || 'メッセージ送信中にエラーが発生しました。')
+        const errorMessage =
+          data && typeof data === 'object' && 'message' in data && typeof data.message === 'string'
+            ? data.message
+            : 'メッセージ送信中にエラーが発生しました。'
+        throw new Error(errorMessage)
       }
 
       toast({
