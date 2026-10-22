@@ -52,7 +52,7 @@ Static exports require replacing server routes and default image optimizer. Runt
 - [ ] Verify actual inbox delivery (no real email sent during automated checks)
 - [x] Restore automatic role typewriter and validate reduced motion
 - [x] Update GitHub website URL to Cloudflare without changing the Git remote
-- [ ] Push migration with a reviewable PR
+- [x] Push migration with a reviewable PR: https://github.com/thomas0124/portfolio/pull/33
 - [ ] Deploy and verify old Vercel permanent redirect after mail works
 
 ## Recorded results
@@ -65,8 +65,8 @@ build, Worker dry run, and the full repository verifier passed
 covered all five routes, themes, navigation, mocked contact responses, full role
 cycling and reduced motion. Current secrets authenticated with the shared mail
 implementation in a protected undeployed version; no email was sent. Diagnostic
-preview URLs are disabled and the probe returns 404. Push/PR remain pending at
-this documentation snapshot. See [follow-up evidence](../../reports/mail-and-publish-2026-10-21.md)
+preview URLs are disabled and the probe returns 404. The migration is pushed as
+PR #33 targeting develop; human review and merge remain pending. See [follow-up evidence](../../reports/mail-and-publish-2026-10-21.md)
 and [documentation sync](../../reports/sync-docs-2026-10-21-portfolio-publish.md).
 
 Historical initial migration results:

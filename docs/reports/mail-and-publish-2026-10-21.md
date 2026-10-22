@@ -48,6 +48,13 @@ self-review covered the uncommitted source changes, including the SMTP follow-up
 
 ## Remaining external checks
 
+The migration and regression tests are pushed to `perf/portfolio-refresh`:
+https://github.com/thomas0124/portfolio/pull/33. The PR is ready for review and
+targets `develop`; it is not automatically merged. The complete verifier passed
+again after commit-hook formatting (`docs/evidence/verify-2026-10-21-143149.log`).
+The secret scanner flagged only the mocked `test-only` fixture; it was renamed
+to `fixture`, without changing any real credential, and the final scan passed.
+
 Real inbox delivery is not tested. The old Vercel redirect is not activated;
 retain the old deployment until delivery is checked. Cloudflare deployment remains
 manual (`npm run deploy`); pushing the repository does not automatically deploy.
