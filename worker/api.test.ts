@@ -107,7 +107,7 @@ test('contact success sends escaped data only to the configured recipient using 
     EMAIL_SERVER_PORT: '587',
     EMAIL_SERVER_SECURE: 'false',
     EMAIL_SERVER_USER: 'portfolio@example.com',
-    EMAIL_SERVER_PASSWORD: 'test-only',
+    EMAIL_SERVER_PASSWORD: 'fixture',
     YOUR_EMAIL: 'owner@example.com'
   })
   assert.equal(response.status, 200)
