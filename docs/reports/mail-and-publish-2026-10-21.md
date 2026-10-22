@@ -57,6 +57,10 @@ to `fixture`, without changing any real credential. Since CI also scans earlier
 commits, `.gitallowed` narrowly matches the historical dummy assignment. Both
 the staged-file scan and full commit-range scan pass with this exact exception.
 
+The first remote harness verification also exposed a missing dependency-install
+step (`next` and `tsx` not found). The verify workflow now sets up Node 22 and
+runs `npm ci`, matching the frontend CI prerequisites rather than skipping tests.
+
 Real inbox delivery is not tested. The old Vercel redirect is not activated;
 retain the old deployment until delivery is checked. Cloudflare deployment remains
 manual (`npm run deploy`); pushing the repository does not automatically deploy.
